@@ -1,0 +1,134 @@
+packages/client/ui-quick-actions/src/invariant.ts
+  s_257e84926e8798::t_99fc8692f3ceb3 1-31
+openspec/changes/chat-quick-action-buttons/specs/chat-quick-actions/spec.md
+  s_dcce2fedff61fd::t_e7c925a9acea15 1-50
+packages/client/README.zh.md
+  s_b62e240a6e59d4::t_8b558dcc66bceb 29
+packages/client/README.md
+  s_b62e240a6e59d4::t_8b558dcc66bceb 29
+packages/bundle/web-app/cordis.patch.yml
+  s_b62e240a6e59d4::t_8b558dcc66bceb 244-248
+openspec/changes/chat-quick-action-buttons/proposal.md
+  s_dcce2fedff61fd::t_bdf2973d5c4877 1-25
+packages/client/ui-quick-actions/tests/quick-actions-row.client.spec.tsx
+  s_b62e240a6e59d4::t_9ec88933a5af43 1-74,76-83
+  s_b62e240a6e59d4::t_c001383e50eb29 75
+apps/web/tests/snapshots/quick-actions-row/default-row.expected.txt
+  s_b62e240a6e59d4::t_7c3a7d9baad6b3 1-4
+packages/client/ui-quick-actions/README.md
+  s_b62e240a6e59d4::t_97f0283e1e00bd 1-12,14-22
+  s_b62e240a6e59d4::t_6a98e53fcb549d 13
+packages/client/ui-quick-actions/package.json
+  s_257e84926e8798::t_a20eaade34ae54 1-78
+packages/client/ui-quick-actions/README.zh.md
+  s_b62e240a6e59d4::t_538a405ee77503 13
+  s_b62e240a6e59d4::t_6bed1c95af9378 1-12,14-22
+docs/config-catalog.md
+  s_b62e240a6e59d4::t_8b558dcc66bceb 3049
+docs/config-catalog.i18n.yaml
+  s_b62e240a6e59d4::t_8b558dcc66bceb 5-6
+packages/client/ui-quick-actions/README.i18n.yaml
+  s_b62e240a6e59d4::t_1bb0ad7d63d5db 1-4
+  s_b62e240a6e59d4::t_7e037e7e5dd5e4 5-6
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.zh.md
+  s_b62e240a6e59d4::t_5b5981fdfb017d 1-4,7-34
+  s_b62e240a6e59d4::t_d002a8e15048a0 5-6
+docs/config-catalog.zh.md
+  s_b62e240a6e59d4::t_8b558dcc66bceb 3051
+packages/client/ui-quick-actions/tsconfig.json
+  s_257e84926e8798::t_26c0e3b96e2db0 1-33
+packages/client/README.i18n.yaml
+  s_b62e240a6e59d4::t_8b558dcc66bceb 5-6
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.i18n.yaml
+  s_b62e240a6e59d4::t_c2ed9ecf4682cf 1-4
+  s_b62e240a6e59d4::t_6ac32d99f31723 5-6
+tsconfig.client.json
+  s_b62e240a6e59d4::t_8b558dcc66bceb 80
+scripts/gen-cordis-catalog.ts
+  s_b62e240a6e59d4::t_8b558dcc66bceb 152
+openspec/changes/chat-quick-action-buttons/design.md
+  s_dcce2fedff61fd::t_8c72b55f8bb2cf 1-42
+packages/client/ui-quick-actions/src/index.ts
+  s_257e84926e8798::t_95d55dd45c88c9 1-9
+packages/extensions/cordis-client-runner/src/client/slot-catalog.ts
+  s_b62e240a6e59d4::t_8b558dcc66bceb 591
+packages/bundle/web-app/package.json
+  s_b62e240a6e59d4::t_8b558dcc66bceb 64
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.md
+  s_b62e240a6e59d4::t_2df17cab8959c2 5-6
+  s_b62e240a6e59d4::t_e16e27d0c13913 1-4,7-34
+packages/client/ui-quick-actions/tests/apply.client.spec.ts
+  s_b62e240a6e59d4::t_080084c9195126 1-101
+packages/client/ui-quick-actions/src/client/service.ts
+  s_257e84926e8798::t_03e11c49044f68 1-51
+packages/client/ui-quick-actions/src/client/QuickActionsRow.module.css
+  s_257e84926e8798::t_9c77d4f29761cc 1-26
+tsconfig.base.json
+  s_b62e240a6e59d4::t_0dbfbead327d9b 205
+packages/client/ui-quick-actions/src/client/index.ts
+  s_b62e240a6e59d4::t_a4411196923205 1-82
+openspec/changes/chat-quick-action-buttons/tasks.md
+  s_b62e240a6e59d4::t_28a831411d5ddd 3-4,8-10,14-16,20-21,25
+  s_b62e240a6e59d4::t_3679d5f612a642 29-30
+  s_b62e240a6e59d4::t_82277bfe0cf6f9 31
+  s_b62e240a6e59d4::t_811ae7e343452e 35-36
+  s_dcce2fedff61fd::t_623160a288ae82 1-2,5-7,11-13,17-19,22-24,26-28,32-34
+packages/client/ui-quick-actions/src/client/contract.ts
+  s_257e84926e8798::t_dec3e34a3c8c9b 1-41
+packages/client/ui-quick-actions/src/client/locales.ts
+  s_257e84926e8798::t_8b3ddc39701c5d 1-18
+scripts/verify-package-readme-model-experience.ts
+  s_b62e240a6e59d4::t_8b558dcc66bceb 79
+apps/web/tests/assembled-boot.ts
+  s_b62e240a6e59d4::t_8b558dcc66bceb 35
+apps/web/tests/quick-actions-row.snapshot.ts
+  s_b62e240a6e59d4::t_5a2b40237e1175 11
+  s_b62e240a6e59d4::t_cdc57850b1cde9 1-10,12-43,46-50
+  s_b62e240a6e59d4::t_07d0c98a52ad39 44-45
+packages/client/ui-quick-actions/src/client/QuickActionsRow.tsx
+  s_257e84926e8798::t_242f44d4bb162d 1-27,29-66,94-96
+  s_b62e240a6e59d4::t_e112198e6f7c0e 28
+  s_b62e240a6e59d4::t_fe65b3aa48dea3 67-93
+packages/client/ui-quick-actions/tests/service.client.spec.ts
+  s_b62e240a6e59d4::t_c5f5f688052bf5 1-79
+openspec/changes/chat-quick-action-buttons/.openspec.yaml
+  s_dcce2fedff61fd::t_0d659f7e7f161e 1-2
+packages/client/ui-quick-actions/src/css-modules.d.ts
+  s_257e84926e8798::t_47bc38621fd7d3 1-6
+packages/client/ui-quick-actions/tsdown.config.ts
+  s_257e84926e8798::t_ffcedd98c8c067 1-3
+pnpm-lock.yaml
+  s_b62e240a6e59d4::t_111d9636185510 1333-1335,2410-2448
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "c4486bd5b8964b1554300c3dead5a1f6bc4d7903",
+  "prompts": {},
+  "sessions": {
+    "s_257e84926e8798": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "39a4dbb4-eeed-46ac-ae8a-87f6ced24b7e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": null
+    },
+    "s_b62e240a6e59d4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a7b1a31-64f9-46bb-8826-1515dad23aa7",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    },
+    "s_dcce2fedff61fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40f4b830-3c7f-4011-a8b0-d8d401ea2f52",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": null
+    }
+  }
+}
