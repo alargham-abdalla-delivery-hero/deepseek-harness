@@ -1,0 +1,35 @@
+packages/client/README.i18n.yaml
+  s_b62e240a6e59d4::t_6329ea2ffc86fd 5-6
+packages/client/README.zh.md
+  s_b62e240a6e59d4::t_d73faf1c876b2d 29
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.md
+  s_b62e240a6e59d4::t_47b53007f24d35 1-34
+docs/config-catalog.md
+  s_b62e240a6e59d4::t_cfe433a044849c 3216
+docs/config-catalog.i18n.yaml
+  s_b62e240a6e59d4::t_6329ea2ffc86fd 5-6
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.zh.md
+  s_b62e240a6e59d4::t_47b53007f24d35 1-34
+packages/extensions/cordis-client-runner/src/client/slot-catalog.ts
+  s_b62e240a6e59d4::t_4d8d558e1948d3 651
+docs/config-catalog.zh.md
+  s_b62e240a6e59d4::t_03b40d9812342c 3219
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.i18n.yaml
+  s_b62e240a6e59d4::t_47b53007f24d35 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "1c002d42e6083ac8ef0d78377edd385457b3e361",
+  "prompts": {},
+  "sessions": {
+    "s_b62e240a6e59d4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a7b1a31-64f9-46bb-8826-1515dad23aa7",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
