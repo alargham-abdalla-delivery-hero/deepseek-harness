@@ -1,0 +1,88 @@
+packages/client/ui-quick-actions/src/client/QuickActionsRow.tsx
+  s_b62e240a6e59d4::t_8f9f1be43bb2bf 3-4
+  s_b62e240a6e59d4::t_679d128d4a2de4 5-11,13,32-33,36-66,69,75-77,82-100,102,108-110,113-114,125-159
+  s_b62e240a6e59d4::t_e360ad4c119142 30
+  s_b62e240a6e59d4::t_35ed8e334d295e 31
+packages/extensions/cordis-client-runner/src/client/slot-catalog.ts
+  s_b62e240a6e59d4::t_a7eda582030374 374,380-381,424,428,600,706,737,817,868
+packages/client/ui-quick-actions/src/client/QuickActionsRow.module.css
+  s_b62e240a6e59d4::t_7b1be39e52a28e 1-5,11,14-15,17-31
+  s_b62e240a6e59d4::t_9497cd61428390 16
+packages/client/ui-quick-actions/tests/quick-actions-row.client.spec.tsx
+  s_b62e240a6e59d4::t_a9558a40b2b258 4-11,13-14,17,35-67,81-102,104,107-114,123-144,163-164
+packages/client/ui-quick-actions/tests/apply.client.spec.ts
+  s_b62e240a6e59d4::t_257295b26e95c8 55,60-66
+  s_b62e240a6e59d4::t_7717c4ea72e9a2 69,75
+  s_b62e240a6e59d4::t_567b6c20500d4b 92-93
+  s_b62e240a6e59d4::t_8be12e7d677adb 26,72,100,103
+packages/client/ui-quick-actions/README.i18n.yaml
+  s_b62e240a6e59d4::t_1a45fb8293bf08 5-6
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.i18n.yaml
+  s_b62e240a6e59d4::t_932f1fb0843bcd 5-6
+apps/web/tests/snapshots/quick-actions-row/default-row.expected.txt
+  s_b62e240a6e59d4::t_2f0b7973b7967b 4
+packages/client/ui-conversation/src/client/apply.ts
+  s_b62e240a6e59d4::t_4010509f845261 430-432
+packages/client/ui-conversation/src/client/contract/slots.ts
+  s_b62e240a6e59d4::t_71fb2277a3fed2 207-215
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.zh.md
+  s_b62e240a6e59d4::t_ad4b345da5b22e 37
+  s_b62e240a6e59d4::t_eab58cb2eda4f6 23
+  s_b62e240a6e59d4::t_6a685291af263c 33
+  s_b62e240a6e59d4::t_67a5e33420798f 17,19
+  s_b62e240a6e59d4::t_feb57e4657b82d 15
+  s_b62e240a6e59d4::t_5a95a40258e519 21
+  s_b62e240a6e59d4::t_9061a4891f6b7a 32
+  s_b62e240a6e59d4::t_87e1e6ad97a786 30-31
+  s_b62e240a6e59d4::t_db0c59e527399d 9
+  s_b62e240a6e59d4::t_1e5d010ca85272 41
+  s_b62e240a6e59d4::t_b3d7da8204cadc 20
+  s_b62e240a6e59d4::t_be03343b9ff48a 22
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.md
+  s_b62e240a6e59d4::t_d8ac29a99cdd43 9
+  s_b62e240a6e59d4::t_f5de9cbf74b41e 15
+  s_b62e240a6e59d4::t_a3e324db6a6ff6 30-31
+  s_b62e240a6e59d4::t_05bfe19586624d 41
+  s_b62e240a6e59d4::t_0dcd168ebfb2fd 33
+  s_b62e240a6e59d4::t_b4b1f50413ef1d 21
+  s_b62e240a6e59d4::t_28793dc925005a 32
+  s_b62e240a6e59d4::t_90ca060cabff6c 17,19
+  s_b62e240a6e59d4::t_2a9798e5cab6ae 37
+  s_b62e240a6e59d4::t_ae60440ecea921 23
+  s_b62e240a6e59d4::t_23e0540bfa4e07 20
+  s_b62e240a6e59d4::t_de90e9dd43566b 22
+apps/web/tests/quick-actions-row.snapshot.ts
+  s_b62e240a6e59d4::t_4c3ae470319372 9-14,18,25-36,38-40
+  s_b62e240a6e59d4::t_13e791743dc552 5-8,44,68-77
+packages/client/ui-conversation/src/client/skeleton/ConversationRoot.tsx
+  s_b62e240a6e59d4::t_ba80563b74da05 154-157
+packages/client/ui-quick-actions/README.zh.md
+  s_b62e240a6e59d4::t_e1f4f3e4c8d439 5
+  s_b62e240a6e59d4::t_9f0cbe682686de 21
+  s_b62e240a6e59d4::t_f26ce95ffaf68a 7
+packages/client/ui-quick-actions/src/client/index.ts
+  s_b62e240a6e59d4::t_5566fb8acbb0b8 4
+  s_b62e240a6e59d4::t_315074465a0482 5-7
+  s_b62e240a6e59d4::t_7c9eb12f626afa 41-45,50-54
+  s_b62e240a6e59d4::t_564aeed6d88892 62,77-78,80-82
+packages/client/ui-quick-actions/README.md
+  s_b62e240a6e59d4::t_abefb27873f97a 5
+  s_b62e240a6e59d4::t_30ac13edcb1196 7
+  s_b62e240a6e59d4::t_1fe76d58cfc575 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "2736a0ebd46cdfa31250efd48a393471d0036de0",
+  "prompts": {},
+  "sessions": {
+    "s_b62e240a6e59d4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a7b1a31-64f9-46bb-8826-1515dad23aa7",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
