@@ -27,6 +27,7 @@ The browser side of the dsh web GUI: shell boot, browser-host communication, sha
 | [`ui-openui/`](ui-openui/README.md) | Renders `render_ui`'s settled OpenUI element tree as live UI via a keyed Tool view. |
 | [`ui-workflow-run/`](ui-workflow-run/README.md) | Replays durable workflow runs as nested Chat disclosures with live-only child navigation. |
 | [`ui-goal/`](ui-goal/README.md) | Presents and manages the current goal. |
+| [`ui-quick-actions/`](ui-quick-actions/README.md) | Presents one-click quick-action buttons above the composer, with overflow in a "More" menu. |
 | [`ui-trajectory/`](ui-trajectory/README.md) | Presents alternate views of agent activity. |
 | [`ui-commands/`](ui-commands/README.md) | Provides session-aware command discovery and dispatch. |
 | [`ui-input-trigger/`](ui-input-trigger/README.md) | Coordinates inline command and reference suggestions. |

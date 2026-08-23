@@ -427,7 +427,9 @@ export function apply(ctx: Context): void {
     },
   }, ChatView)
 
-  // Session stats stick with the composer (composer.dock = stats-line family).
+  // Session stats stick with the composer; StatsLine self-gates to real
+  // turn/token data, so it stays absent while another composer.dock
+  // registrant (e.g. a quick-actions row) renders in hero.
   slots.register({ name: 'conversation.composer.dock', id: 'stats', order: 0, locale: NS }, StatsLine)
 
   // Class-plugin mount (packages/AGENTS.md service form): the service

@@ -2,6 +2,8 @@
 
 Status: implemented
 
+English | [中文](2026-08-23-openui-generative-ui-rendering.zh.md)
+
 ## Problem
 
 Model answers are plain text/markdown content blocks; anything better shown as a chart, table, or interactive card renders as a wall of prose in the web chat client. [OpenUI](https://github.com/thesysdev/openui) is an MIT-licensed, self-hosted, bring-your-own-LLM generative-UI framework: the model is prompted to emit **OpenUI Lang**, a compact DSL, which is normally parsed into a typed element tree and rendered as React components. The harness needed a way to let the model produce that kind of rich UI without adding a hosted dependency, without changing the shared tool render-intent union every host must handle, and without letting model-authored output become an XSS vector in the browser.

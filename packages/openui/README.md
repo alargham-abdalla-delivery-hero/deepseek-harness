@@ -1,5 +1,7 @@
 # openui/ — OpenUI Lang generative-UI capability family
 
+English | [中文](README.zh.md)
+
 The [OpenUI Lang](https://github.com/thesysdev/openui) capability: a shared, hand-curated component vocabulary plus the model-facing `render_ui` tool that validates model output against it. There is no replaceable provider — the vocabulary is a fixed shared definition consumed by both the server tool and the web client's renderer ([`@deepseek-ai/dsh-client-ui-openui`](../client/ui-openui/README.md)).
 
 | Package | Role | ctx key |

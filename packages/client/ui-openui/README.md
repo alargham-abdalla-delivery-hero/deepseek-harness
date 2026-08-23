@@ -1,5 +1,7 @@
 # @deepseek-ai/dsh-client-ui-openui
 
+English | [中文](README.zh.md)
+
 The web chat client's keyed `tool.call.toolview` for `render_ui`: renders the settled result's persisted [OpenUI](https://github.com/thesysdev/openui) element tree as live React UI in the chat turn.
 
 ## What it does

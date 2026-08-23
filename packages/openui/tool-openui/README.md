@@ -1,5 +1,7 @@
 # @deepseek-ai/dsh-tool-openui
 
+English | [中文](README.zh.md)
+
 The model-facing `render_ui` tool: parse and validate [OpenUI Lang](https://github.com/thesysdev/openui) against the shared curated component vocabulary ([`@deepseek-ai/dsh-openui-lang`](../openui-lang/README.md)) and teach the model the grammar.
 
 ## What it does

@@ -371,14 +371,14 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     ],
     replaceRisk: 'shadows-shipped-ui',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.composer.bar\', () => ctx.slots.register(\n      { name: \'conversation.composer.bar\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:245',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:249',
   },
   {
     key: 'conversation.composer.dock',
     kind: 'list',
     scope: 'session',
-    summary: 'The band under the composer card, inside the bar\'s width column — the seat for an ambient readout about the conversation (the shipped stats line lives here).',
-    doc: 'The band under the composer card, inside the bar\'s width column — the\nseat for an ambient readout about the conversation (the shipped stats\nline lives here). Same InputZone owner share as the other\nregions. Anything the user must click belongs in the tool row instead\n(`conversation.input.left` / `.right`); anything needing its own line\nabove the card belongs in `conversation.input.dock`.',
+    summary: 'The band under the composer card, inside the bar\'s width column, rendered whether or not the session is in hero (blank) posture — the seat for content anchored to the composer itself: an ambient readout (the shipped stats line, self-gated to real turn/token data so it stays absent in hero) or a row of controls the composer\'s own turn would act on (the shipped quick-actions row).',
+    doc: 'The band under the composer card, inside the bar\'s width column,\nrendered whether or not the session is in hero (blank) posture — the\nseat for content anchored to the composer itself: an ambient readout\n(the shipped stats line, self-gated to real turn/token data so it\nstays absent in hero) or a row of controls the composer\'s own turn\nwould act on (the shipped quick-actions row). Same InputZone\nowner share as the other regions. A small always-visible control that\nbelongs beside the resident chrome instead goes in\n`conversation.input.left` / `.right`; content needing its own line\nabove the card belongs in `conversation.input.dock`.',
     registerOptions: [
       {
         name: 'id',
@@ -421,10 +421,11 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     declaredBy: 'an entry in \'conversation\' (client-ui-conversation), so it exists while that entry is mounted',
     occupants: [
       'client-ui-conversation StatsLine id \'stats\'',
+      'client-ui-quick-actions QuickActionsRow id \'quick-actions\'',
     ],
     replaceRisk: 'none',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.composer.dock\', () => ctx.slots.register(\n      { name: \'conversation.composer.dock\', id: \'my-entry\', order: 100, label: \'My entry\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:214',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:218',
   },
   {
     key: 'conversation.details.tool',
@@ -596,7 +597,7 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     ],
     replaceRisk: 'shadows-shipped-ui',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.input.attachments\', () => ctx.slots.register(\n      { name: \'conversation.input.attachments\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:247',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:251',
   },
   {
     key: 'conversation.input.dock',
@@ -702,7 +703,7 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     occupants: [],
     replaceRisk: 'none',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.input.left\', () => ctx.slots.register(\n      { name: \'conversation.input.left\', id: \'my-entry\', order: 100, label: \'My entry\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:223',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:227',
   },
   {
     key: 'conversation.input.model',
@@ -733,7 +734,7 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     ],
     replaceRisk: 'shadows-shipped-ui',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.input.model\', () => ctx.slots.register(\n      { name: \'conversation.input.model\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:271',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:275',
   },
   {
     key: 'conversation.input.overlay',
@@ -813,7 +814,7 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     ],
     replaceRisk: 'shadows-shipped-ui',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.input.plan\', () => ctx.slots.register(\n      { name: \'conversation.input.plan\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:261',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:265',
   },
   {
     key: 'conversation.input.right',
@@ -864,7 +865,7 @@ export const CLIENT_SLOT_API: readonly ClientSlotEntry[] = [
     occupants: [],
     replaceRisk: 'none',
     example: 'return {\n  inject: [\'slots\'],\n  apply(ctx) {\n    ctx.slots.inject(\'conversation.input.right\', () => ctx.slots.register(\n      { name: \'conversation.input.right\', id: \'my-entry\', order: 100, label: \'My entry\' },\n      () => React.createElement(\'div\', null, \'hello\'),\n    ))\n  },\n}',
-    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:231',
+    source: 'packages/client/ui-conversation/src/client/contract/slots.ts:235',
   },
   {
     key: 'conversation.message.images',

@@ -1,5 +1,7 @@
 # @deepseek-ai/dsh-openui-lang
 
+English | [中文](README.zh.md)
+
 The shared [OpenUI Lang](https://github.com/thesysdev/openui) component vocabulary: one curated `Library` definition consumed by both [`@deepseek-ai/dsh-tool-openui`](../tool-openui/README.md) (server-side validation and system-prompt generation) and [`@deepseek-ai/dsh-client-ui-openui`](../../client/ui-openui/README.md) (the web chat renderer).
 
 ## What it does

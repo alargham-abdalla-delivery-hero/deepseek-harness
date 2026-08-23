@@ -45,6 +45,7 @@
 | `@deepseek-ai/dsh-tool-todo` | `todo_write` | `ctx.tools`、`owning Agent session` | `tool/call`、`todo/write`、`tool/result` | - | todo_write 是会话所有的状态；UI 将最新的 todo/write 事件渲染为检查清单。`allowParallelInProgress` 是没有默认值的必填项，因此本目录明确选择 `true`，对应描述允许同时存在多个 `in_progress` 项。选择 `false` 的部署会获得同一工具，但描述会要求只能有 1 个活动任务。 |
 | `@deepseek-ai/dsh-tool-workflow` | `workflow` | `ctx.tools`、`ctx.workflowEngine`、`ctx.systemPrompt`、`a calling Agent (exec.agent parents the script children)` | `tool/call`、`tool/result` | - | - |
 | `@deepseek-ai/dsh-tool-web` | `web_fetch`、`web_search` | `ctx.tools`、`ctx.web`、`ctx.systemPrompt` | `tool/call`、`tool/result` | - | web_search 和 web_fetch 将提供方选择置于 ctx.web 之后，使模型可见 schema 在更换后端时保持稳定。 |
+| `@deepseek-ai/dsh-tool-openui` | `render_ui` | `ctx.tools`、`ctx.systemPrompt` | `tool/call`、`tool/result` | - | render_ui 会依据 dsh-openui-lang 中精选的组件词汇解析并校验 OpenUI Lang；Web 客户端（dsh-client-ui-openui）会渲染已结算的结果，其他宿主则看到通用回退卡片。未包含在任何默认预设中。 |
 
 <a id="deepseek-aidsh-tool-ask-user"></a>
 
@@ -2227,3 +2228,30 @@ todo_write 是会话所有的状态；UI 将最新的 todo/write 事件渲染为
 来源：[`packages/web/tool-web/src/index.ts`](../packages/web/tool-web/src/index.ts)
 
 web_search 和 web_fetch 将提供方选择置于 ctx.web 之后，使模型可见 schema 在更换后端时保持稳定。
+
+<a id="deepseek-aidsh-tool-openui"></a>
+
+## `@deepseek-ai/dsh-tool-openui`
+
+### `render_ui`
+
+将结构化或可视化内容（卡片、表格、列表或标题布局）渲染为 UI 展示在对话中，而不是用文字描述。发送 OpenUI Lang 源码文本；语法和可用组件在单独的系统提示词中讲解。成功时 UI 会渲染在对话中。失败时结果会列出需要修正的内容——修正源码后重新调用。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "OpenUI Lang source text (see the render_ui system instruction for syntax and components)."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+来源：[`packages/openui/tool-openui/src/index.ts`](../packages/openui/tool-openui/src/index.ts)
+
+render_ui 会依据 dsh-openui-lang 中精选的组件词汇解析并校验 OpenUI Lang；Web 客户端（dsh-client-ui-openui）会渲染已结算的结果，其他宿主则看到通用回退卡片。未包含在任何默认预设中。
