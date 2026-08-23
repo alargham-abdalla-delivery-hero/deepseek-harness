@@ -1,0 +1,18 @@
+# Opt-in Web composition demonstrating the render_ui / OpenUI generative-UI
+# capability. This file is a PATCH OVERLAY over the web profile (dsh-base +
+# dsh-web-app bundle layers), not a tree: `dsh web --patch` applies it as one
+# more sibling patch list at the same include level, so these patches reach
+# every bundle row. Not part of any default preset (design.md's opt-in
+# rollout decision) — install/run this leaf explicitly to try it.
+
+# Pinning the port here keeps this demo off the default 3080 and off web-cordis's 3081.
+- id: webserver
+  config:
+    host: 127.0.0.1
+    port: 3082
+
+- insert:
+    - id: tool-openui
+      name: '@deepseek-ai/dsh-tool-openui'
+    - id: ui-openui
+      name: '@deepseek-ai/dsh-client-ui-openui'
