@@ -1,0 +1,179 @@
+openspec/changes/openui-generative-output/design.md
+  s_614989ca2b851b::t_52b7119d57ddbc 29,31-33,35-39
+  s_614989ca2b851b::t_7be6c5545f42df 41,43-47
+  s_614989ca2b851b::t_cd1999de1efea8 23
+  s_614989ca2b851b::t_c1206c498ee516 59
+  s_614989ca2b851b::t_55656b39b8996e 70-72,75
+  s_614989ca2b851b::t_1ce4c0ca1178be 54-55,58
+  s_614989ca2b851b::t_aca30e06963005 1-22,24-28,30,34,40,42,48,51-53,56-57,60-69,73-74
+  s_614989ca2b851b::t_44f3122f2489cc 49-50
+apps/cli/package.json
+  s_614989ca2b851b::t_aa876299fa1d7b 33
+  s_614989ca2b851b::t_c296f0214fe544 65
+packages/openui/README.md
+  s_614989ca2b851b::t_46ccdaa7d84fa1 1-10
+scripts/gen-tool-catalog.ts
+  s_614989ca2b851b::t_e5d24716f01822 610-621
+  s_614989ca2b851b::t_ea71f2e709884c 64
+packages/openui/tool-openui/README.md
+  s_614989ca2b851b::t_b612dd81006e47 1-51
+packages/client/ui-openui/tsconfig.json
+  s_614989ca2b851b::t_0f3a3e0491407a 1-27
+packages/client/ui-openui/src/client/components/ListItem.tsx
+  s_614989ca2b851b::t_100a090e000fbd 1-10
+packages/client/ui-openui/src/client/library.ts
+  s_614989ca2b851b::t_89cd7ecd30dbb7 4-9,22
+  s_614989ca2b851b::t_a808664d105f83 1-3,10-21
+packages/client/ui-openui/tsdown.config.ts
+  s_614989ca2b851b::t_e6cbe77d7613bd 1-3
+packages/client/README.md
+  s_614989ca2b851b::t_c6545b0e12a580 27
+packages/client/ui-openui/package.json
+  s_614989ca2b851b::t_3ab6590d8be61d 64
+  s_614989ca2b851b::t_4c2a7d3786f012 1-53,55,57-63,65-70
+  s_614989ca2b851b::t_2b4c1031ec1715 54
+  s_614989ca2b851b::t_727bec600e7b0e 56
+openspec/changes/openui-generative-output/specs/openui-chat-rendering/spec.md
+  s_614989ca2b851b::t_fdb026d5b0ed26 1-30
+packages/client/ui-openui/src/invariant.ts
+  s_614989ca2b851b::t_63c95c4ea082e4 1-31
+packages/openui/tool-openui/tests/invariant.spec.ts
+  s_614989ca2b851b::t_30715146f5af51 1-13
+packages/client/ui-openui/src/client/components/List.tsx
+  s_614989ca2b851b::t_f1536b1ad35fab 1-11
+package.json
+  s_614989ca2b851b::t_f8f0532e5e74ad 144
+packages/client/ui-openui/tests/render-element.client.spec.tsx
+  s_614989ca2b851b::t_0c761dc13180f6 1-59,77-93
+  s_614989ca2b851b::t_3c12b4177cf50a 60-76
+packages/client/ui-openui/README.md
+  s_614989ca2b851b::t_a7a04aec15b9f3 1-24,30-35
+  s_614989ca2b851b::t_65feae81802109 25-29
+packages/openui/tool-openui/package.json
+  s_614989ca2b851b::t_3831c7781d9204 1-49
+packages/openui/openui-lang/package.json
+  s_614989ca2b851b::t_ab0eff402c32fe 1-46
+scripts/verify-cordis-config.ts
+  s_614989ca2b851b::t_c9cd70f99e29f4 37
+.agents/notes/implemented/feature/2026-08-23-openui-generative-ui-rendering.md
+  s_614989ca2b851b::t_97c61680f48dbe 1-45
+pnpm-workspace.yaml
+  s_614989ca2b851b::t_429f9f167a8d63 56-60
+packages/client/ui-openui/src/client/RenderUiView.tsx
+  s_614989ca2b851b::t_a00beba1d8b31b 1-31,35-43
+  s_614989ca2b851b::t_58868f2a1f3024 32-34
+examples/web-openui-demo/README.md
+  s_614989ca2b851b::t_ed2451d3e2513a 1-13
+docs/tool-catalog.md
+  s_614989ca2b851b::t_86d86c2cd68117 44,2223-2249
+packages/openui/openui-lang/README.md
+  s_614989ca2b851b::t_642510e593d231 1-41
+packages/openui/openui-lang/tests/invariant.spec.ts
+  s_614989ca2b851b::t_a86691c75903a7 1-13
+packages/client/ui-openui/src/client/render-element.tsx
+  s_614989ca2b851b::t_1156524471b79b 14-21
+  s_614989ca2b851b::t_11ebe312e29e2f 47-50
+  s_614989ca2b851b::t_051f30ef5ba19e 1-13,22-30,34-35,45,54-71,73-76,78-79,81
+  s_614989ca2b851b::t_a605d72e78e088 72,77
+  s_614989ca2b851b::t_d6ce2761c88959 80
+  s_614989ca2b851b::t_b1a3cff4c50573 36-44,46,51-53
+  s_614989ca2b851b::t_8831966c405026 31-33
+packages/client/ui-openui/tests/index.client.spec.ts
+  s_614989ca2b851b::t_ba4895972a3f2c 1-26
+packages/client/ui-openui/src/client/components/Text.tsx
+  s_614989ca2b851b::t_b0a6702e73b00c 1-10
+packages/client/ui-openui/src/client/components/Card.tsx
+  s_614989ca2b851b::t_3fe5d4600ff601 1-17
+tsconfig.host.json
+  s_614989ca2b851b::t_067e3194b1aceb 287-288
+packages/openui/openui-lang/src/invariant.ts
+  s_614989ca2b851b::t_d90d4abf38196b 1-31
+packages/client/ui-openui/src/client/components/Heading.tsx
+  s_614989ca2b851b::t_7205a40ade5154 1-12
+packages/README.md
+  s_614989ca2b851b::t_79c92fe4bbaf69 40
+packages/client/ui-openui/tests/invariant.client.spec.ts
+  s_614989ca2b851b::t_3600cc33d575ca 1-18
+packages/openui/openui-lang/src/types.ts
+  s_614989ca2b851b::t_19d19ba9aa85bb 1-2,6-39
+  s_614989ca2b851b::t_fa491a66ee46ac 3-5
+packages/openui/openui-lang/tests/openui-lang.spec.ts
+  s_614989ca2b851b::t_06647e782eb4c6 1-75
+tsconfig.client.json
+  s_614989ca2b851b::t_e23812e08a6572 70
+tsconfig.base.json
+  s_614989ca2b851b::t_967b27813492f7 133
+  s_614989ca2b851b::t_49977a15c23500 209
+  s_614989ca2b851b::t_fe00473fb72bb1 270
+packages/openui/tool-openui/src/invariant.ts
+  s_614989ca2b851b::t_8b2d739c416e16 1-30
+packages/openui/tool-openui/tsconfig.json
+  s_614989ca2b851b::t_e3dfd3aef34813 1-30
+packages/openui/tool-openui/tests/tool-openui.spec.ts
+  s_614989ca2b851b::t_76b5932b191c6e 92-98
+  s_614989ca2b851b::t_84ee9cc16bbfd1 1-60,70-91,99
+  s_614989ca2b851b::t_1fe37bc69706a3 61-69
+packages/client/ui-openui/src/client/components/Table.tsx
+  s_614989ca2b851b::t_9fe74fbad4f876 1-26
+packages/client/ui-openui/tests/RenderUiView.client.spec.tsx
+  s_614989ca2b851b::t_a3a43035eaaa56 1-65
+packages/openui/openui-lang/src/index.ts
+  s_614989ca2b851b::t_5a1af3a2135c48 80-83,87
+  s_614989ca2b851b::t_9dca78f6a569d4 1-79,84-86,88-148
+openspec/changes/openui-generative-output/tasks.md
+  s_614989ca2b851b::t_bf5d71008cbe6f 36-40
+  s_614989ca2b851b::t_22ba15e9faa646 9-14
+  s_614989ca2b851b::t_d129b70baf8ea4 3-4
+  s_614989ca2b851b::t_40ce85c21da5ef 5
+  s_614989ca2b851b::t_4814d81c022c41 18-23
+  s_614989ca2b851b::t_c906d9d783f99a 27-32
+  s_614989ca2b851b::t_2984e1a67f37c0 41
+  s_614989ca2b851b::t_e674edb2f559ae 1-2,6-8,15-17,24-26,33-35
+openspec/changes/openui-generative-output/proposal.md
+  s_614989ca2b851b::t_de7253486413b2 12
+  s_614989ca2b851b::t_06fb047fd4d41c 26
+  s_614989ca2b851b::t_246f161a53996b 28
+  s_614989ca2b851b::t_82f8390593f186 1-11,13-25,27,29
+examples/web-openui-demo/cordis.yml
+  s_614989ca2b851b::t_009f66e51b8717 1-18
+packages/openui/openui-lang/tsconfig.json
+  s_614989ca2b851b::t_6b61833ef1ec3e 1-21
+packages/openui/tool-openui/src/index.ts
+  s_614989ca2b851b::t_139b3e0dcf4858 14
+  s_614989ca2b851b::t_6b6085ad890fbf 1-13,15-27,31-34,38-40,45,48-79,85,88-97
+  s_614989ca2b851b::t_8d33944e1d7d43 86-87
+  s_614989ca2b851b::t_c94ad3a5e635b8 28-30,35-37,41-44,46-47
+  s_614989ca2b851b::t_35d87520768557 80-84
+packages/client/ui-openui/src/client/components/Stack.tsx
+  s_614989ca2b851b::t_d31b584d6ffa31 1-11
+openspec/changes/openui-generative-output/specs/openui-render-tool/spec.md
+  s_614989ca2b851b::t_a4f4ef438b5e5f 1-52
+scripts/verify-package-readme-model-experience.ts
+  s_614989ca2b851b::t_565567028e68b4 166
+packages/client/ui-openui/src/client/index.ts
+  s_614989ca2b851b::t_082768b96e855f 1-24
+packages/client/ui-openui/src/index.ts
+  s_614989ca2b851b::t_29dfb04e451f3c 1-4
+THIRD_PARTY_NOTICES.md
+  s_614989ca2b851b::t_9fa139c6331593 49
+openspec/changes/openui-generative-output/.openspec.yaml
+  s_614989ca2b851b::t_602712e61d71a0 1-2
+pnpm-lock.yaml
+  s_614989ca2b851b::t_b4de276debcfc5 162-164,273-275,2322-2354,5847-5881,10724-10732,12249-12252,16173-16179,17440-17441
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "b73f4f3cb2f9188dcc5940697232426852aaa15b",
+  "prompts": {},
+  "sessions": {
+    "s_614989ca2b851b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6a9e4441-5276-457c-bc14-20683c4683a5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
