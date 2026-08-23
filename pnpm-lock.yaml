@@ -159,9 +159,6 @@ importers:
       '@deepseek-ai/dsh-client-ui-cordis':
         specifier: workspace:^
         version: link:../../packages/extensions/ui-cordis
-      '@deepseek-ai/dsh-client-ui-openui':
-        specifier: workspace:^
-        version: link:../../packages/client/ui-openui
       '@deepseek-ai/dsh-cmdline':
         specifier: workspace:^
         version: link:../../packages/boot/cmdline
@@ -1180,6 +1177,9 @@ importers:
       '@deepseek-ai/dsh-tool-jobs':
         specifier: workspace:^
         version: link:../../jobs/tool-jobs
+      '@deepseek-ai/dsh-tool-openui':
+        specifier: workspace:^
+        version: link:../../openui/tool-openui
       '@deepseek-ai/dsh-tool-pwsh':
         specifier: workspace:^
         version: link:../../shell/tool-pwsh
@@ -1350,6 +1350,9 @@ importers:
       '@deepseek-ai/dsh-client-ui-model-selection':
         specifier: workspace:^
         version: link:../../client/ui-model-selection
+      '@deepseek-ai/dsh-client-ui-openui':
+        specifier: workspace:^
+        version: link:../../client/ui-openui
       '@deepseek-ai/dsh-client-ui-permission-presets':
         specifier: workspace:^
         version: link:../../client/ui-permission-presets

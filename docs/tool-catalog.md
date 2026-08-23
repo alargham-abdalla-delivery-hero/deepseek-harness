@@ -41,7 +41,7 @@ This table connects model-visible tool names to the plugin package and service s
 | `@deepseek-ai/dsh-tool-todo` | `todo_write` | `ctx.tools`, `owning Agent session` | `tool/call`, `todo/write`, `tool/result` | - | todo_write is session-owned state; UIs render the latest todo/write event as a checklist. `allowParallelInProgress` is required with no default, so the catalog states its choice: `true`, whose description invites several `in_progress` items. A deployment choosing `false` receives the same tool with a description asking for exactly one active task. |
 | `@deepseek-ai/dsh-tool-workflow` | `workflow` | `ctx.tools`, `ctx.workflowEngine`, `ctx.systemPrompt`, `a calling Agent (exec.agent parents the script children)` | `tool/call`, `tool/result` | - | - |
 | `@deepseek-ai/dsh-tool-web` | `web_fetch`, `web_search` | `ctx.tools`, `ctx.web`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps. |
-| `@deepseek-ai/dsh-tool-openui` | `render_ui` | `ctx.tools`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card. Not part of any default preset. |
+| `@deepseek-ai/dsh-tool-openui` | `render_ui` | `ctx.tools`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card. |
 
 <a id="deepseek-aidsh-tool-ask-user"></a>
 
@@ -2246,4 +2246,4 @@ Render structured or visual content (a card, table, list, or heading layout) as 
 
 Source: [`packages/openui/tool-openui/src/index.ts`](../packages/openui/tool-openui/src/index.ts)
 
-render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card. Not part of any default preset.
+render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card.

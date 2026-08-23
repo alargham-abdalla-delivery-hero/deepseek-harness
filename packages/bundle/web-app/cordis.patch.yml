@@ -220,6 +220,11 @@
     - id: ui-tool
       name: '@deepseek-ai/dsh-client-ui-tool'
 
+    # Keyed render_ui view: renders the settled OpenUI element tree in place
+    # of the generic card. tool-openui itself is a base-bundle row.
+    - id: ui-openui
+      name: '@deepseek-ai/dsh-client-ui-openui'
+
     - id: ui-cordis
       name: '@deepseek-ai/dsh-client-ui-cordis'
 

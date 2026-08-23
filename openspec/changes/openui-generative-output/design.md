@@ -18,7 +18,7 @@ This design treats OpenUI as a **new tool + a new keyed client renderer**, not a
 **Non-Goals:**
 - Rendering arbitrary model-authored HTML/JS. The component vocabulary is closed and server-validated; no "raw HTML" or "raw script" component is in scope, ever.
 - A pluggable/swappable "provider" model for the component library (multiple competing vocabularies). There is exactly one current consumer and no evidence today of a second, so this ships as a fixed shared definition, not a capability seam with Service Definition/Provider roles.
-- Making the tool default-on in every bundle. Prompt-token cost and a new third-party dependency argue for an opt-in bundle first.
+- ~~Making the tool default-on in every bundle.~~ **Superseded** (see Migration Plan): shipped opt-in first for the prompt-token-cost/new-dependency reasons stated here, then made default in `packages/bundle/base`/`packages/bundle/web-app` on explicit request.
 - Streaming partial OpenUI Lang mid-generation into a live-updating card. First cut renders only after the tool call settles (the existing pending/settled pattern every other card follows).
 - **Wiring OpenUI's `Query()`/`Mutation()`/`$variables`/`ToolProvider` reactive layer.** OpenUI Lang is not only a display format — its runtime (`createQueryManager`, `evaluate`, `ToolProvider`, `extractToolResult`) lets a rendered component call back into tools and hold live state. v1 uses OpenUI purely as a one-shot rendering format for an already-complete, already-settled tool result: no `ToolProvider` is wired up, no component in the curated set declares a `Query`/`Mutation`, and the rendered UI never triggers a new tool execution on its own. Letting model-authored UI call arbitrary tools outside the normal model-loop-mediated flow is a distinct, larger security surface than this change covers.
 
@@ -62,14 +62,14 @@ Neither `@openuidev/lang-core` nor `@openuidev/react-lang` ships any built-in co
 
 Purely additive: new packages, one new tool, one new client plugin, no changes to `SESSION_FORMAT_VERSION`, the wire protocol, or any existing tool/card. Nothing depends on this tool's result schema outside its own client renderer, so it carries no compatibility promise beyond normal semver.
 
-- **Rollout**: ship as an opt-in package pair, wired into an example/demo bundle first (not a default preset), so adoption is a deliberate `cordis.yml` inclusion.
-- **Rollback**: remove the two packages from any bundle that included them; no data migration needed since no other capability reads `render_ui`'s result shape.
+- **Rollout**: shipped opt-in first, via an example/demo overlay, so adoption was a deliberate `cordis.yml` inclusion. **Superseded**: on explicit request, `tool-openui` was registered in `packages/bundle/base` and `ui-openui` in `packages/bundle/web-app`, making `render_ui` default in every profile built on those bundles; the demo overlay was removed as redundant. Open Question 4 is resolved by this: no separate preset-owner opt-in decision remains outstanding.
+- **Rollback**: remove the `tool-openui`/`ui-openui` rows from `packages/bundle/base`/`packages/bundle/web-app` (and their `package.json` dependencies); no data migration needed since no other capability reads `render_ui`'s result shape.
 
 ## Open Questions
 
 1. ~~Confirm `@openuidev/lang-core`'s real exported `Library`-builder and `parse` API.~~ Resolved: verified directly against the installed `@openuidev/lang-core@0.2.15` TypeScript declarations. `defineComponent`, `createLibrary`, `Library.prompt()`/`.toJSONSchema()`, `createParser(schema).parse(source): ParseResult` are real, framework-agnostic exports; Decisions 1–3 above use the verified names and shapes.
 2. Which hand-authored components make the curated v1 set (Decision 5), and who signs off on that list from a security-review angle given DH's secure-coding requirements for model-influenced rendering? Not `@openuidev/react-ui` for v1 (unreviewed third-party component source) unless that review happens explicitly.
 3. ~~Independently verify `@openuidev/react-lang` never uses `dangerouslySetInnerHTML`/`eval`/`new Function`.~~ Resolved for the versions checked (see Risks) — re-verify at whatever version is actually pinned in `package.json` at implementation time.
-4. Should `render_ui` be exposed only through a new example/demo bundle initially, or does an existing preset want it opt-in via config? Needs a preset-owner decision, not assumed here.
+4. ~~Should `render_ui` be exposed only through a new example/demo bundle initially, or does an existing preset want it opt-in via config?~~ Resolved: registered in `packages/bundle/base` and `packages/bundle/web-app`, default in every profile built on them (see Migration Plan).
 5. Does the model need a way to *update* a previously rendered UI (e.g., a follow-up `render_ui` call editing the same card) in v1, or is each call an independent new card? Assumed independent-per-call for v1; revisit if product wants live updates.
 6. Who signs off on accepting `@openuidev/lang-core`'s default install-time telemetry to PostHog (Risks), and is `OPENUI_TELEMETRY_DISABLED=1` set at the CI/repo level or only documented as a required env var for consumers? Needs an explicit answer before this dependency is added to any `package.json`.

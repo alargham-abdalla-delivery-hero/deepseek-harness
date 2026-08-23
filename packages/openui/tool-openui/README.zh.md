@@ -50,4 +50,3 @@ token 增长与模型每次调用发送的 OpenUI Lang 源码成正比；结果�
 
 - **没有更新／补丁操作。** 每次 `render_ui` 调用都是独立的，无法就地编辑先前渲染过的 UI（参见 `openspec/changes/openui-generative-output/design.md` 中的共享设计决策）。
 - **渲染出的 UI 不支持 `Query()`／`Mutation()`／工具调用。** 这是有意排除在范围之外的——见 `dsh-openui-lang` 的 README。
-- **未注册进任何默认 preset。** 需要显式将本包接入某个 bundle（prompt token 开销和新增的第三方依赖都不支持将其设为默认开启的工具）。

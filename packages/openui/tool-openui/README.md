@@ -50,4 +50,3 @@ Append-only; newly visible content follows the reusable request prefix.
 
 - **No update/patch operation.** Each `render_ui` call is independent; there is no way to edit a previously rendered UI in place (see the shared design decision in `openspec/changes/openui-generative-output/design.md`).
 - **No `Query()`/`Mutation()`/tool-calling from rendered UI.** Out of scope by design — see `dsh-openui-lang`'s README.
-- **Not registered in any default preset.** Wire this package into a bundle explicitly (prompt-token cost and a new third-party dependency argue against a default-on tool).

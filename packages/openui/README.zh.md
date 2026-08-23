@@ -9,4 +9,4 @@
 | [`openui-lang/`](openui-lang/README.zh.md) | 拥有经过整理的组件词汇表、OpenUI Lang 提示词生成，以及服务端解析／校验。 | （无服务；纯库） |
 | [`tool-openui/`](tool-openui/README.zh.md) | 注册 `render_ui` 工具及其系统提示词语法小节。 | （注册到 `ctx.tools`） |
 
-未接入任何默认 preset——安装时的依赖披露与可选启用（opt-in）的落地理由（`openspec/changes/openui-generative-output/design.md`），参见 `openui-lang` 与 `tool-openui` 各自的 README。
+默认注册（`packages/bundle/base`、`packages/bundle/web-app`）——安装时的依赖披露参见 `openui-lang` 与 `tool-openui` 各自的 README（`openspec/changes/openui-generative-output/design.md`）。

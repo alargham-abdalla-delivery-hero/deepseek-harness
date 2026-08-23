@@ -20,7 +20,7 @@ Status: implemented
 
 `@openuidev/lang-core` 与 `@openuidev/react-lang` 都不内置组件库——每个组件都通过 `defineComponent` 由使用方自行定义。`@openuidev/react-ui` 是 Thesys 提供的另一个预构建包；这里没有使用它，因为对 v1 版本而言，引入第二个未经审查的第三方组件实现，会不必要地扩大与 XSS 相关的攻击面。
 
-这两个包都没有接入任何默认 preset 或 bundle（组合包）。`examples/web-openui-demo/cordis.yml` 是一个 `dsh web --patch` overlay（与 `web-cordis` 相同的模式），显式地为某个会话启用 `render_ui`。
+`tool-openui` 注册在 `packages/bundle/base/cordis.patch.yml` 中（因此它与宿主无关——Web、headless、ACP 都能获得校验工具及其通用回退卡片），`ui-openui` 注册在 `packages/bundle/web-app/cordis.patch.yml` 中（因此 Web 客户端默认会渲染已结算的元素树）。两个 bundle（组合包）都在各自的 `package.json` 中声明了对应的工作区依赖，采用与 `tool-web`／`ui-tool` 相同的模式。
 
 ## 曾考虑的替代方案
 
@@ -44,4 +44,4 @@ Status: implemented
 
 ## 待完成事项
 
-目前尚不存在针对 `render_ui` 协议格式（wire format）的无密钥 ACP／headless 快照 fixture，也没有对应的 TypeScript／Python SDK 预期输出更新——本仓库的测试策略要求任何模型／产品用户可见的变更都必须具备这两项，它们是尚未完成的后续工作，不属于本笔记已交付的决策范围。`examples/web-openui-demo` 自身的无密钥／带密钥 e2e 冒烟测试（每个 example leaf 都要求具备）同样尚未编写。精选组件列表除了本次变更自身的实现评审外，尚未获得人工安全签核。
+目前尚不存在针对 `render_ui` 协议格式（wire format）的无密钥 ACP／headless 快照 fixture，也没有对应的 TypeScript／Python SDK 预期输出更新——本仓库的测试策略要求任何模型／产品用户可见的变更都必须具备这两项，它们是尚未完成的后续工作，不属于本笔记已交付的决策范围；接入默认 bundle（组合包）之后，这项覆盖缺口更加突出，而非可有可无。精选组件列表除了本次变更自身的实现评审外，尚未获得人工安全签核。

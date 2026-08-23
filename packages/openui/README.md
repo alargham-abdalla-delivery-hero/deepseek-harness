@@ -9,4 +9,4 @@ The [OpenUI Lang](https://github.com/thesysdev/openui) capability: a shared, han
 | [`openui-lang/`](openui-lang/README.md) | Owns the curated component vocabulary, OpenUI Lang prompt generation, and server-side parsing/validation. | (no service; plain library) |
 | [`tool-openui/`](tool-openui/README.md) | Registers the `render_ui` tool and its system-prompt grammar section. | (registers on `ctx.tools`) |
 
-Not wired into any default preset — see `openui-lang`'s and `tool-openui`'s READMEs for the install-time dependency disclosure and the opt-in rollout rationale (`openspec/changes/openui-generative-output/design.md`).
+Registered by default (`packages/bundle/base`, `packages/bundle/web-app`) — see `openui-lang`'s and `tool-openui`'s READMEs for the install-time dependency disclosure (`openspec/changes/openui-generative-output/design.md`).

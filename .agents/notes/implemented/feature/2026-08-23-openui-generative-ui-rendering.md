@@ -20,7 +20,7 @@ The client does not use `@openuidev/react-lang`'s `<Renderer>` component. `<Rend
 
 Neither `@openuidev/lang-core` nor `@openuidev/react-lang` ships a built-in component library — every component is author-defined via `defineComponent`. `@openuidev/react-ui` is a separate, prebuilt Thesys package; it is not used here because a second unreviewed third-party component implementation is an avoidable expansion of the XSS-relevant surface for a v1.
 
-Neither package is wired into any default preset or bundle. `examples/web-openui-demo/cordis.yml` is a `dsh web --patch` overlay (the same pattern as `web-cordis`) that opts a session into `render_ui` explicitly.
+`tool-openui` is registered in `packages/bundle/base/cordis.patch.yml` (so it is host-agnostic — web, headless, ACP all get the validating tool and its generic fallback card), and `ui-openui` is registered in `packages/bundle/web-app/cordis.patch.yml` (so the web client renders the settled tree by default). Both bundles declare the matching workspace dependency in their own `package.json`, following the same pattern as `tool-web`/`ui-tool`.
 
 ## Alternatives considered
 
@@ -44,4 +44,4 @@ The model can now produce interactive, structured UI in the web chat client thro
 
 ## Deferred
 
-No keyless ACP/headless snapshot fixture and no TypeScript/Python SDK expected-output update exist yet for `render_ui`'s wire shape — both are required by this repository's testing policy for a model/product-user-visible change and are outstanding follow-up work, not part of this note's shipped decision. `examples/web-openui-demo`'s own keyless/with-key e2e smokes (required of every example leaf) are likewise not yet written. The curated component list has not received a human security sign-off beyond this change's own implementation review.
+No keyless ACP/headless snapshot fixture and no TypeScript/Python SDK expected-output update exist yet for `render_ui`'s wire shape — both are required by this repository's testing policy for a model/product-user-visible change and are outstanding follow-up work, not part of this note's shipped decision; a default-bundle addition makes this coverage gap sharper, not optional. The curated component list has not received a human security sign-off beyond this change's own implementation review.

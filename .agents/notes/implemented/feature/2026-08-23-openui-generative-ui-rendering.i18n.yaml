@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-23-openui-generative-ui-rendering.md
-2026-08-23-openui-generative-ui-rendering.md: ab4e52776d685f66a2277b9acf613641f6c5d3d0
-2026-08-23-openui-generative-ui-rendering.zh.md: 5a45608336ca521665c2e911f527e2cc0b29bffb
+2026-08-23-openui-generative-ui-rendering.md: df631cbadb81974e74a3aa89789f9a0e52b69f13
+2026-08-23-openui-generative-ui-rendering.zh.md: ac112a25ddd51cdb84e48c4bf9087f7058f164f9

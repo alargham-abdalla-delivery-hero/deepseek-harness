@@ -617,7 +617,7 @@ const TOOL_PACKAGES: ToolPackage[] = [
       await ctx.plugin(ToolOpenUI)
     },
     note:
-      'render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card. Not part of any default preset.',
+      'render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card.',
   },
 ]
 
