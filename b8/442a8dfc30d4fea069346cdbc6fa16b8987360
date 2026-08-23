@@ -1,0 +1,163 @@
+examples/web-openui-demo/README.i18n.yaml
+  s_614989ca2b851b::t_d7d1c3d29f697d 5
+  s_614989ca2b851b::t_08eca8b7042d22 1-4,6
+packages/README.i18n.yaml
+  s_614989ca2b851b::t_7bf9fe0e6e54df 5-6
+docs/tool-catalog.zh.md
+  s_614989ca2b851b::t_d4c559f57c266d 48
+  s_614989ca2b851b::t_b533c13c0907a4 2231-2257
+packages/openui/tool-openui/README.zh.md
+  s_614989ca2b851b::t_787d4cb9de41f2 25
+  s_614989ca2b851b::t_16e5e0c795e802 5
+  s_614989ca2b851b::t_ea7257200b653f 1-4,6-24,26-53
+.agents/notes/implemented/feature/2026-08-23-openui-generative-ui-rendering.i18n.yaml
+  s_614989ca2b851b::t_d7d1c3d29f697d 5
+  s_614989ca2b851b::t_08eca8b7042d22 1-4,6
+packages/client/ui-openui/README.md
+  s_614989ca2b851b::t_1c7ae2320cc88b 3-4
+packages/README.zh.md
+  s_614989ca2b851b::t_a5f9446b308145 40
+packages/client/ui-openui/README.zh.md
+  s_614989ca2b851b::t_e593b1aba625df 1-10,12-26,28-37
+  s_614989ca2b851b::t_831e2af6419ebe 27
+  s_614989ca2b851b::t_c49b4e2d963127 11
+packages/openui/tool-openui/README.md
+  s_614989ca2b851b::t_e43cbaf64c9f28 3-4
+.agents/notes/implemented/feature/2026-08-23-openui-generative-ui-rendering.md
+  s_614989ca2b851b::t_65c97d45e31d3c 5-6
+packages/openui/README.zh.md
+  s_614989ca2b851b::t_c12e713294614b 1-12
+docs/tool-catalog.i18n.yaml
+  s_614989ca2b851b::t_7bf9fe0e6e54df 5-6
+.agents/notes/implemented/feature/2026-08-23-openui-generative-ui-rendering.zh.md
+  s_614989ca2b851b::t_aadf88f48cea46 1-26,28-47
+  s_614989ca2b851b::t_59b300019b9088 27
+packages/openui/README.i18n.yaml
+  s_614989ca2b851b::t_d7d1c3d29f697d 5
+  s_614989ca2b851b::t_08eca8b7042d22 1-4,6
+packages/client/README.zh.md
+  s_614989ca2b851b::t_e95086d502bc90 27
+packages/openui/openui-lang/README.zh.md
+  s_614989ca2b851b::t_71a2a48fac10c4 1-43
+examples/web-openui-demo/README.zh.md
+  s_614989ca2b851b::t_234c06006c2072 1-15
+packages/openui/tool-openui/README.i18n.yaml
+  s_614989ca2b851b::t_08eca8b7042d22 1-4
+  s_614989ca2b851b::t_d7d1c3d29f697d 5-6
+packages/openui/openui-lang/README.i18n.yaml
+  s_614989ca2b851b::t_d7d1c3d29f697d 5
+  s_614989ca2b851b::t_08eca8b7042d22 1-4,6
+examples/web-openui-demo/README.md
+  s_614989ca2b851b::t_b96947d2f7eb67 3-4
+packages/openui/openui-lang/README.md
+  s_614989ca2b851b::t_91d7ad31d206b1 3-4
+packages/client/README.i18n.yaml
+  s_614989ca2b851b::t_7bf9fe0e6e54df 5-6
+packages/client/ui-openui/README.i18n.yaml
+  s_614989ca2b851b::t_d7d1c3d29f697d 5
+  s_614989ca2b851b::t_08eca8b7042d22 1-4,6
+packages/openui/README.md
+  s_614989ca2b851b::t_31406ebf390949 3-4
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.i18n.yaml
+  s_614989ca2b851b::t_0642e4e4138e2f 1-6
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.md
+  s_614989ca2b851b::t_05903304f1ac2d 1-41
+.agents/notes/implemented/feature/2026-08-20-composer-quick-actions.zh.md
+  s_614989ca2b851b::t_9612b24ea21697 1-41
+apps/web/tests/quick-actions-row.snapshot.ts
+  s_614989ca2b851b::t_9d546cc3920f38 1-79
+apps/web/tests/snapshots/quick-actions-row/default-row.expected.txt
+  s_614989ca2b851b::t_1ed395d2fa4bb5 1-5
+docs/config-catalog.i18n.yaml
+  s_614989ca2b851b::t_42db7662f0225d 5-6
+docs/config-catalog.md
+  s_614989ca2b851b::t_1fa2aa99e60c15 3249
+docs/config-catalog.zh.md
+  s_614989ca2b851b::t_648ad381007831 3251
+openspec/changes/chat-quick-action-buttons/.openspec.yaml
+  s_614989ca2b851b::t_f318c6979fca3a 1-2
+openspec/changes/chat-quick-action-buttons/design.md
+  s_614989ca2b851b::t_0ffba756078c38 1-42
+openspec/changes/chat-quick-action-buttons/proposal.md
+  s_614989ca2b851b::t_07439c3f532673 1-25
+openspec/changes/chat-quick-action-buttons/specs/chat-quick-actions/spec.md
+  s_614989ca2b851b::t_11c0be9be56fbc 1-50
+openspec/changes/chat-quick-action-buttons/tasks.md
+  s_614989ca2b851b::t_19f43a0146a094 1-36
+packages/bundle/web-app/cordis.patch.yml
+  s_614989ca2b851b::t_dd25424ad2ad2c 265-269
+packages/bundle/web-app/package.json
+  s_614989ca2b851b::t_e3c27cb2602695 67
+packages/client/README.md
+  s_614989ca2b851b::t_00b4527975165f 30
+packages/client/ui-conversation/src/client/apply.ts
+  s_614989ca2b851b::t_06aad4d7af46f2 430-432
+packages/client/ui-conversation/src/client/contract/slots.ts
+  s_614989ca2b851b::t_716401f7becd3e 207-215
+packages/client/ui-conversation/src/client/skeleton/ConversationRoot.tsx
+  s_614989ca2b851b::t_0fbc8cf463899f 154-157
+packages/client/ui-quick-actions/README.i18n.yaml
+  s_614989ca2b851b::t_ea3827077235d3 1-6
+packages/client/ui-quick-actions/README.md
+  s_614989ca2b851b::t_ef8ff29069518a 1-22
+packages/client/ui-quick-actions/README.zh.md
+  s_614989ca2b851b::t_8eff044bbda70a 1-22
+packages/client/ui-quick-actions/package.json
+  s_614989ca2b851b::t_8fe8f2694663ba 1-78
+packages/client/ui-quick-actions/src/client/QuickActionsRow.module.css
+  s_614989ca2b851b::t_22acb65438ebdb 1-32
+packages/client/ui-quick-actions/src/client/QuickActionsRow.tsx
+  s_614989ca2b851b::t_c77f7598f3f965 1-162
+packages/client/ui-quick-actions/src/client/contract.ts
+  s_614989ca2b851b::t_1d8a949960c057 1-41
+packages/client/ui-quick-actions/src/client/index.ts
+  s_614989ca2b851b::t_f135c781354fbe 1-94
+packages/client/ui-quick-actions/src/client/locales.ts
+  s_614989ca2b851b::t_34e2613cea9c56 1-18
+packages/client/ui-quick-actions/src/client/service.ts
+  s_614989ca2b851b::t_f17305872d288d 1-51
+packages/client/ui-quick-actions/src/css-modules.d.ts
+  s_614989ca2b851b::t_d2a5426da204b3 1-6
+packages/client/ui-quick-actions/src/index.ts
+  s_614989ca2b851b::t_b2f3bef9e60792 1-9
+packages/client/ui-quick-actions/src/invariant.ts
+  s_614989ca2b851b::t_c4b9233eb0d919 1-31
+packages/client/ui-quick-actions/tests/apply.client.spec.ts
+  s_614989ca2b851b::t_53628e2dffedd4 1-106
+packages/client/ui-quick-actions/tests/quick-actions-row.client.spec.tsx
+  s_614989ca2b851b::t_48bc31b71ea476 1-173
+packages/client/ui-quick-actions/tests/service.client.spec.ts
+  s_614989ca2b851b::t_f7e785238a1540 1-79
+packages/client/ui-quick-actions/tsconfig.json
+  s_614989ca2b851b::t_0626b8a51cfe17 1-33
+packages/client/ui-quick-actions/tsdown.config.ts
+  s_614989ca2b851b::t_e0fca4f58f788d 1-3
+packages/extensions/cordis-client-runner/src/client/slot-catalog.ts
+  s_614989ca2b851b::t_2e32141c629729 374,380-381,424,428,600,706,737,817,868
+pnpm-lock.yaml
+  s_614989ca2b851b::t_ad0da6563bd312 1359-1361,2521-2559
+scripts/gen-cordis-catalog.ts
+  s_614989ca2b851b::t_43e043dec2b72e 160
+scripts/verify-package-readme-model-experience.ts
+  s_614989ca2b851b::t_33547030018e3b 81
+tsconfig.base.json
+  s_614989ca2b851b::t_ad4b56c967655e 217
+tsconfig.client.json
+  s_614989ca2b851b::t_1492cf403231fa 83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "b8442a8dfc30d4fea069346cdbc6fa16b8987360",
+  "prompts": {},
+  "sessions": {
+    "s_614989ca2b851b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6a9e4441-5276-457c-bc14-20683c4683a5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
