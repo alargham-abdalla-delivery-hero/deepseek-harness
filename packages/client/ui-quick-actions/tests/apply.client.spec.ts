@@ -23,7 +23,7 @@ async function bench() {
   // without providing InputZone/ConversationController, which is not this
   // plugin's lifecycle signal.
   slots.register(
-    { name: 'root', children: { 'conversation.input.dock': { kind: 'list', scope: 'session' } } } as never,
+    { name: 'root', children: { 'conversation.composer.dock': { kind: 'list', scope: 'session' } } } as never,
     () => null,
   )
   // Sessions face: mint one real scope for session 'a' and resolve it by id.
@@ -52,22 +52,27 @@ describe('apply', () => {
     expect(t('more')).toBe('更多')
   })
 
-  it('mounts ctx.quickActions once sessions is up, seeded with the three default entries', async () => {
+  it('mounts ctx.quickActions once sessions is up, seeded with the default entries', async () => {
     const { ctx } = await bench()
     await ctx.plugin({ inject: [...inject], apply }).await()
     const quickActions = ctx.get('quickActions')
     expect(quickActions).toBeInstanceOf(QuickActionsService)
-    const visible = (quickActions as QuickActionsService).entries.getSnapshot().visible
-    expect(visible.map(e => e.id)).toEqual(['lead-generation', 'income-statements', 'balance-sheet'])
+    const snapshot = (quickActions as QuickActionsService).entries.getSnapshot()
+    expect(snapshot.visible.map(e => e.id)).toEqual([
+      'lead-generation', 'income-statements', 'balance-sheet', 'cash-flow-statement',
+    ])
+    expect(snapshot.overflow.map(e => e.id)).toEqual([
+      'market-research', 'competitor-analysis', 'financial-forecast', 'investor-pitch',
+    ])
   })
 
-  it('registers QuickActionsRow as the terminal dock entry and resolves the per-session scope', async () => {
+  it('registers QuickActionsRow into the composer dock band, ahead of the stats line', async () => {
     const { ctx, slots } = await bench()
     await ctx.plugin({ inject: [...inject], apply }).await()
-    const entries = slots.entries('conversation.input.dock')
+    const entries = slots.entries('conversation.composer.dock')
     expect(entries).toHaveLength(1)
     expect(entries[0]!.options.id).toBe('quick-actions')
-    expect(entries[0]!.options.order).toBe(30)
+    expect(entries[0]!.options.order).toBe(-10)
     expect(entries[0]!.locale).toBe('quickActions')
 
     const quickActions = ctx.get('quickActions') as QuickActionsService
@@ -84,18 +89,18 @@ describe('apply', () => {
     const { ctx } = await bench()
     await ctx.plugin({ inject: [...inject], apply }).await()
     const quickActions = ctx.get('quickActions') as QuickActionsService
-    quickActions.register({ id: 'extra', label: 'Extra', insertText: 'extra ', overflow: true, order: 0 })
-    expect(quickActions.entries.getSnapshot().overflow.map(e => e.id)).toEqual(['extra'])
+    quickActions.register({ id: 'extra', label: 'Extra', insertText: 'extra ', overflow: true, order: -10 })
+    expect(quickActions.entries.getSnapshot().overflow.map(e => e.id)[0]).toBe('extra')
   })
 
   it('fiber teardown removes the dock entry and unmounts the service', async () => {
     const { ctx, slots } = await bench()
     const fiber = ctx.plugin({ inject: [...inject], apply })
     await fiber.await()
-    expect(slots.entries('conversation.input.dock')).toHaveLength(1)
+    expect(slots.entries('conversation.composer.dock')).toHaveLength(1)
 
     await fiber.dispose()
-    expect(slots.entries('conversation.input.dock')).toHaveLength(0)
+    expect(slots.entries('conversation.composer.dock')).toHaveLength(0)
     expect(ctx.get('quickActions')).toBeUndefined()
   })
 })

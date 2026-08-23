@@ -1,26 +1,32 @@
-/* Plain button row (no card surface), sized to the shared composer-dock
-   width budget so it lines up with the composer card and the other
-   `.dock` entries (TodoPanel/GoalBar/QueueDock). */
+/* Plain button row (no card surface). The composer.dock footer already sits
+   inside InputBar's side-clearance-padded root, so matching the composer
+   card's own width rule (100% up to --dsh-composer-card-max-width, no
+   further inset) is what aligns the row with the card's left/right borders
+   instead of sitting inset from them. */
 
 .row {
   box-sizing: border-box;
   display: flex;
   flex: none;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px;
-  width: calc(
-    100% -
-    var(--dsh-composer-side-clearance) -
-    var(--dsh-composer-side-clearance) -
-    var(--dsh-composer-dock-inset) -
-    var(--dsh-composer-dock-inset)
-  );
-  max-width: calc(
-    var(--dsh-composer-card-max-width) -
-    var(--dsh-composer-dock-inset) -
-    var(--dsh-composer-dock-inset)
-  );
-  margin: 0 auto;
-  padding: 0 var(--dsh-composer-dock-inset);
+  width: 100%;
+  max-width: var(--dsh-composer-card-max-width);
+  margin: 8px auto 0;
+  overflow: hidden;
+}
+
+/* Off-screen probe: every candidate button plus a same-styled "More",
+   rendered in one unwrapped line so a layout effect can read real widths
+   before paint and decide the visible cutoff without a layout flash. */
+.measure {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  visibility: hidden;
+  pointer-events: none;
 }
