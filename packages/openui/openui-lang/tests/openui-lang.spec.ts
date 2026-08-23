@@ -5,10 +5,12 @@ import type { ComponentRenderers } from '../src/types.ts'
 describe('buildLibrary', () => {
   it('builds the same component graph regardless of the renderer payload type', () => {
     const serverRenderers: ComponentRenderers<undefined> = {
-      Heading: undefined, Text: undefined, ListItem: undefined, List: undefined, Table: undefined, Card: undefined, Stack: undefined,
+      Heading: undefined, Text: undefined, ListItem: undefined, List: undefined, Table: undefined,
+      BarChart: undefined, PieChart: undefined, Card: undefined, Stack: undefined,
     }
     const clientRenderers: ComponentRenderers<string> = {
-      Heading: 'Heading', Text: 'Text', ListItem: 'ListItem', List: 'List', Table: 'Table', Card: 'Card', Stack: 'Stack',
+      Heading: 'Heading', Text: 'Text', ListItem: 'ListItem', List: 'List', Table: 'Table',
+      BarChart: 'BarChart', PieChart: 'PieChart', Card: 'Card', Stack: 'Stack',
     }
     const server = buildLibrary(serverRenderers)
     const client = buildLibrary(clientRenderers)
@@ -21,7 +23,7 @@ describe('buildLibrary', () => {
 describe('promptText', () => {
   it('documents every curated component in the generated grammar', () => {
     const text = promptText()
-    for (const name of ['Stack', 'Card', 'Heading', 'Text', 'List', 'Table']) {
+    for (const name of ['Stack', 'Card', 'Heading', 'Text', 'List', 'Table', 'BarChart', 'PieChart']) {
       expect(text).toContain(name)
     }
   })
@@ -39,6 +41,19 @@ text = Text("World")
     expect(result.incomplete).toBe(false)
     expect(result.root).not.toBeNull()
     expect(result.root?.typeName).toBe('Stack')
+  })
+
+  it('parses a BarChart and a PieChart with array-of-object data points', () => {
+    const result = parseSource(`
+root = Stack([bar, pie])
+bar = BarChart([{label: "Q1", value: 100}, {label: "Q2", value: 150}], "Sales")
+pie = PieChart([{label: "A", value: 30}, {label: "B", value: 70}])
+`)
+    expect(result.errors).toEqual([])
+    const children = result.root?.props.children as { typeName: string; props: Record<string, unknown> }[]
+    expect(children.map(c => c.typeName)).toEqual(['BarChart', 'PieChart'])
+    expect(children[0]?.props.data).toEqual([{ label: 'Q1', value: 100 }, { label: 'Q2', value: 150 }])
+    expect(children[0]?.props.title).toBe('Sales')
   })
 
   it('drops an unknown component and reports it as a validation error instead of throwing', () => {

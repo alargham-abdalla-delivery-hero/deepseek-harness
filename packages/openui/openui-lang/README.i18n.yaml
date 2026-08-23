@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/openui/openui-lang/README.md
-README.md: c313a0fdd2bccd080de7872e2fbebbceedae4710
-README.zh.md: d07c99fcd29796a1ba390c0b9724755acf942cf6
+README.md: 85a182951231681b6a7b9687704ff12a442e8902
+README.zh.md: cff3d2b361e832456e1ba5f03f5d5509db5c7b30

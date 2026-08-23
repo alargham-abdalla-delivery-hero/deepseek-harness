@@ -74,6 +74,31 @@ export function buildLibrary<C>(renderers: ComponentRenderers<C>): Library<C> {
     component: renderers.Table,
   })
 
+  const chartData = z.array(z.object({
+    label: z.string().describe('The data point label.'),
+    value: z.number().describe('The data point value.'),
+  })).describe('The chart data points, in display order.')
+
+  const BarChart = defineComponent({
+    name: 'BarChart',
+    description: 'A bar chart comparing labeled numeric values.',
+    props: z.object({
+      data: chartData,
+      title: z.string().optional().describe('Optional chart title.'),
+    }),
+    component: renderers.BarChart,
+  })
+
+  const PieChart = defineComponent({
+    name: 'PieChart',
+    description: 'A pie chart showing labeled values as proportions of a whole.',
+    props: z.object({
+      data: chartData,
+      title: z.string().optional().describe('Optional chart title.'),
+    }),
+    component: renderers.PieChart,
+  })
+
   const Card = defineComponent({
     name: 'Card',
     description: 'A titled container grouping related content.',
@@ -82,7 +107,7 @@ export function buildLibrary<C>(renderers: ComponentRenderers<C>): Library<C> {
     // MUST precede the optional one, or a positional call omitting `title`
     // mis-binds its first argument (the children array) to `title` instead.
     props: z.object({
-      children: z.array(z.union([Heading.ref, Text.ref, List.ref, Table.ref]))
+      children: z.array(z.union([Heading.ref, Text.ref, List.ref, Table.ref, BarChart.ref, PieChart.ref]))
         .describe('The card body content, in display order.'),
       title: z.string().optional().describe('Optional card title.'),
     }),
@@ -93,14 +118,14 @@ export function buildLibrary<C>(renderers: ComponentRenderers<C>): Library<C> {
     name: 'Stack',
     description: 'The top-level vertical layout. Always the root element.',
     props: z.object({
-      children: z.array(z.union([Card.ref, Heading.ref, Text.ref, List.ref, Table.ref]))
+      children: z.array(z.union([Card.ref, Heading.ref, Text.ref, List.ref, Table.ref, BarChart.ref, PieChart.ref]))
         .describe('The top-level content blocks, in display order.'),
     }),
     component: renderers.Stack,
   })
 
   return createLibrary({
-    components: [Heading, Text, ListItem, List, Table, Card, Stack],
+    components: [Heading, Text, ListItem, List, Table, BarChart, PieChart, Card, Stack],
     root: 'Stack',
   })
 }
@@ -112,6 +137,8 @@ const SERVER_RENDERERS: ComponentRenderers<undefined> = {
   ListItem: undefined,
   List: undefined,
   Table: undefined,
+  BarChart: undefined,
+  PieChart: undefined,
   Card: undefined,
   Stack: undefined,
 }

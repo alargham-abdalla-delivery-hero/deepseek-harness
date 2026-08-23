@@ -34,4 +34,4 @@
 
 - **不支持流式／局部渲染。** 只有在 `render_ui` 结算后才会渲染，这与其他每一个 keyed toolview 的 pending/settled 划分保持一致；参见 design.md 中已接受的权衡取舍。
 - **不支持 `Query()`／`Mutation()`／响应式 `$variable`。** 按设计不在本包范围内——参见 `dsh-openui-lang` 的 README。
-- **样式极简。** 各组件渲染为纯语义化 HTML（`h1`–`h3`、`p`、`ul`/`li`、`table`、`section`、`div`），并带有 `data-openui-component` 属性以便测试；尚未集成任何设计系统。
+- **样式极简。** 各组件渲染为纯语义化 HTML（`h1`–`h3`、`p`、`ul`/`li`、`table`、`section`、`div`）或纯手写 SVG（`BarChart`、`PieChart`——普通的 `<rect>`/`<path>` 图形，未引入图表库依赖），并带有 `data-openui-component` 属性以便测试；尚未集成任何设计系统。

@@ -11,12 +11,16 @@
  */
 
 import type { ClientComponentMap } from './render-element.tsx'
+import { BarChart } from './components/BarChart.tsx'
 import { Card } from './components/Card.tsx'
 import { Heading } from './components/Heading.tsx'
 import { List } from './components/List.tsx'
 import { ListItem } from './components/ListItem.tsx'
+import { PieChart } from './components/PieChart.tsx'
 import { Stack } from './components/Stack.tsx'
 import { Table } from './components/Table.tsx'
 import { Text } from './components/Text.tsx'
 
-export const COMPONENTS: ClientComponentMap = { Heading, Text, ListItem, List, Table, Card, Stack }
+export const COMPONENTS: ClientComponentMap = {
+  Heading, Text, ListItem, List, Table, BarChart, PieChart, Card, Stack,
+}

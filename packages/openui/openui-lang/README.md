@@ -6,7 +6,7 @@ The shared [OpenUI Lang](https://github.com/thesysdev/openui) component vocabula
 
 ## What it does
 
-Exports `buildLibrary<C>(renderers: ComponentRenderers<C>)`, which builds an [`@openuidev/lang-core`](https://www.npmjs.com/package/@openuidev/lang-core) `Library` from one fixed, curated component graph — `Stack` (root), `Card`, `Heading`, `Text`, `List`/`ListItem`, `Table`. `C` is the opaque per-consumer renderer payload lang-core never inspects: this package's own server `Library` passes `undefined` for every component (no rendering, only validation and prompt text); the web client passes a real React component per name. Both call sites build from the identical `name`/`props`/`description` graph, so the taught grammar, the server-side validator, and the client's drawable component set cannot silently drift apart.
+Exports `buildLibrary<C>(renderers: ComponentRenderers<C>)`, which builds an [`@openuidev/lang-core`](https://www.npmjs.com/package/@openuidev/lang-core) `Library` from one fixed, curated component graph — `Stack` (root), `Card`, `Heading`, `Text`, `List`/`ListItem`, `Table`, `BarChart`, `PieChart`. `C` is the opaque per-consumer renderer payload lang-core never inspects: this package's own server `Library` passes `undefined` for every component (no rendering, only validation and prompt text); the web client passes a real React component per name. Both call sites build from the identical `name`/`props`/`description` graph, so the taught grammar, the server-side validator, and the client's drawable component set cannot silently drift apart.
 
 Also exports:
 - `promptText(options?)` — the OpenUI Lang syntax rules + component signatures, generated from the server `Library` via `Library.prompt()`.
@@ -26,7 +26,7 @@ A plain module (no `apply`/`inject`/Cordis registration) — this package has no
 
 #### What the model sees
 
-`promptText()`'s output, when [`dsh-tool-openui`](../tool-openui/README.md) contributes it as a system-prompt section: OpenUI Lang syntax rules and the seven curated component signatures (name, props, description).
+`promptText()`'s output, when [`dsh-tool-openui`](../tool-openui/README.md) contributes it as a system-prompt section: OpenUI Lang syntax rules and the nine curated component signatures (name, props, description).
 
 #### Token effect
 
@@ -39,5 +39,5 @@ Prefix-stable while the component vocabulary is unchanged; adding or removing a 
 ## Known Limitations and Deferred Work
 
 - **`@openuidev/lang-core` sends pseudonymous installation telemetry to PostHog by default** (a random install ID, a salted-hash project identifier, and Lang/Node/OS/package-manager versions — no source, prompts, paths, or repository URLs per its documented disclosure). Set `OPENUI_TELEMETRY_DISABLED=1` (or rely on an existing `DO_NOT_TRACK=1`) wherever this package is installed. This repository's default pnpm configuration does not run third-party postinstall scripts unless explicitly approved (`pnpm approve-builds`) — leave `@openuidev/lang-core`'s build script unapproved rather than opting in.
-- **The curated component set is intentionally small** (`Stack`, `Card`, `Heading`, `Text`, `List`/`ListItem`, `Table`) and has no component accepting a URL, raw markup, or script. Expand only against an evidenced product need, with the same security review this initial set received.
+- **The curated component set is intentionally small** (`Stack`, `Card`, `Heading`, `Text`, `List`/`ListItem`, `Table`, `BarChart`, `PieChart`) and has no component accepting a URL, raw markup, or script. `BarChart`/`PieChart` render with plain hand-rolled SVG, not a charting dependency. Expand only against an evidenced product need, with the same security review this initial set received.
 - **No `Query()`/`Mutation()`/`$variables` wiring.** OpenUI Lang's reactive runtime (tool-calling from within rendered UI) is out of scope; this package only builds the static display vocabulary.

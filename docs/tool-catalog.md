@@ -2227,7 +2227,7 @@ web_search and web_fetch keep provider selection behind ctx.web so model-visible
 
 ### `render_ui`
 
-Render structured or visual content (a card, table, list, or heading layout) as UI in the chat, instead of describing it in prose. Send OpenUI Lang source text; the syntax and the available components are taught in a separate system instruction. On success the UI renders in the chat. On failure the result lists what to fix — correct the source and call again.
+Render structured or visual content (a card, table, list, heading layout, bar chart, or pie chart) as UI in the chat, instead of describing it in prose. Use this whenever the user asks for a chart, graph, or visual breakdown of data — do not describe chart data in prose or a text table when a bar or pie chart is available and appropriate. Send OpenUI Lang source text; the syntax and the available components are taught in a separate system instruction. On success the UI renders in the chat. On failure the result lists what to fix — correct the source and call again.
 
 ```json
 {

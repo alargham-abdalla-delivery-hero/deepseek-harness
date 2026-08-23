@@ -6,7 +6,7 @@
 
 ## 功能说明
 
-导出 `buildLibrary<C>(renderers: ComponentRenderers<C>)`，用于从一份固定的、经过整理的组件图——`Stack`（根组件）、`Card`、`Heading`、`Text`、`List`／`ListItem`、`Table`——构建出一个 [`@openuidev/lang-core`](https://www.npmjs.com/package/@openuidev/lang-core) 的 `Library`。`C` 是 lang-core 从不检查的、按消费方各异的不透明渲染载荷：本包自身的服务端 `Library` 对每个组件都传入 `undefined`（不做渲染，只做校验和提示词文本生成）；网页客户端则为每个组件名传入一个真实的 React 组件。两个调用点都基于同一份 `name`／`props`／`description` 图进行构建，因此教给模型的语法、服务端校验器与客户端可绘制的组件集合不会悄然产生分歧。
+导出 `buildLibrary<C>(renderers: ComponentRenderers<C>)`，用于从一份固定的、经过整理的组件图——`Stack`（根组件）、`Card`、`Heading`、`Text`、`List`／`ListItem`、`Table`、`BarChart`、`PieChart`——构建出一个 [`@openuidev/lang-core`](https://www.npmjs.com/package/@openuidev/lang-core) 的 `Library`。`C` 是 lang-core 从不检查的、按消费方各异的不透明渲染载荷：本包自身的服务端 `Library` 对每个组件都传入 `undefined`（不做渲染，只做校验和提示词文本生成）；网页客户端则为每个组件名传入一个真实的 React 组件。两个调用点都基于同一份 `name`／`props`／`description` 图进行构建，因此教给模型的语法、服务端校验器与客户端可绘制的组件集合不会悄然产生分歧。
 
 此外还导出：
 - `promptText(options?)`——OpenUI Lang 的语法规则与组件签名，通过 `Library.prompt()` 从服务端 `Library` 生成。
@@ -26,7 +26,7 @@
 
 #### 模型看到的内容
 
-`promptText()` 的输出，当 [`dsh-tool-openui`](../tool-openui/README.zh.md) 将其贡献为系统提示词的一个小节时：OpenUI Lang 的语法规则与七个经过整理的组件签名（名称、props、描述）。
+`promptText()` 的输出，当 [`dsh-tool-openui`](../tool-openui/README.zh.md) 将其贡献为系统提示词的一个小节时：OpenUI Lang 的语法规则与九个经过整理的组件签名（名称、props、描述）。
 
 #### Token 影响
 
@@ -39,5 +39,5 @@
 ## Known Limitations and Deferred Work
 
 - **`@openuidev/lang-core` 默认会向 PostHog 发送假名化（pseudonymous）的安装遥测数据**（一个随机安装 ID、一个加盐哈希的项目标识符，以及 Lang／Node／OS／包管理器的版本号——根据其文档披露，不包含源代码、提示词、路径或仓库 URL）。在安装本包的任何位置设置 `OPENUI_TELEMETRY_DISABLED=1`（或依赖已有的 `DO_NOT_TRACK=1`）。本仓库默认的 pnpm 配置不会运行第三方的 postinstall 脚本，除非显式批准（`pnpm approve-builds`）——应让 `@openuidev/lang-core` 的构建脚本保持未批准状态，而不是选择启用。
-- **经过整理的组件集合被有意保持得很小**（`Stack`、`Card`、`Heading`、`Text`、`List`／`ListItem`、`Table`），且没有任何组件接受 URL、原始标记或脚本。只有在有证据支撑的产品需求下才应扩充，并且要经过与这一初始集合相同的安全审查。
+- **经过整理的组件集合被有意保持得很小**（`Stack`、`Card`、`Heading`、`Text`、`List`／`ListItem`、`Table`、`BarChart`、`PieChart`），且没有任何组件接受 URL、原始标记或脚本。`BarChart`／`PieChart` 使用纯手写 SVG 渲染，未引入图表库依赖。只有在有证据支撑的产品需求下才应扩充，并且要经过与这一初始集合相同的安全审查。
 - **没有 `Query()`／`Mutation()`／`$variables` 接线。** OpenUI Lang 的响应式运行时（从渲染出的 UI 内部发起工具调用）不在本包范围内；本包只构建静态展示词汇。

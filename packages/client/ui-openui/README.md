@@ -34,4 +34,4 @@ No effect. This package renders only for the human viewing the chat and never co
 
 - **No streaming/partial rendering.** Renders only after `render_ui` settles, consistent with every other keyed toolview's pending/settled split; see design.md's accepted trade-off.
 - **No `Query()`/`Mutation()`/reactive `$variable` support.** Out of scope by design — see `dsh-openui-lang`'s README.
-- **Minimal styling.** Components render plain semantic HTML (`h1`–`h3`, `p`, `ul`/`li`, `table`, `section`, `div`) with `data-openui-component` attributes for testability; no design-system integration yet.
+- **Minimal styling.** Components render plain semantic HTML (`h1`–`h3`, `p`, `ul`/`li`, `table`, `section`, `div`) or hand-rolled SVG (`BarChart`, `PieChart` — plain `<rect>`/`<path>` shapes, no charting dependency) with `data-openui-component` attributes for testability; no design-system integration yet.

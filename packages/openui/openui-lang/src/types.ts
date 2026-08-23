@@ -17,8 +17,16 @@ export interface ComponentRenderers<C> {
   readonly ListItem: C
   readonly List: C
   readonly Table: C
+  readonly BarChart: C
+  readonly PieChart: C
   readonly Card: C
   readonly Stack: C
+}
+
+/** One labeled numeric data point shared by `BarChart` and `PieChart`. */
+export interface ChartDatum {
+  readonly label: string
+  readonly value: number
 }
 
 /**

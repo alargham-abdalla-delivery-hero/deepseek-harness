@@ -10,7 +10,7 @@ Status: implemented
 
 ## 决策
 
-`render_ui` 是一个面向模型的工具（`@deepseek-ai/dsh-tool-openui`），它在服务端针对一套固定的、手工编写的组件词汇（`@deepseek-ai/dsh-openui-lang`：`Stack` 根节点、`Card`、`Heading`、`Text`、`List`/`ListItem`、`Table`——没有任何组件接受 URL、原始标记或脚本）解析并校验一条 OpenUI Lang 源字符串。语法错误或未知／无效组件从不会抛出异常——它是 OpenUI 自身宽松解析结果的一部分（`{ root, errors, incomplete }`），会被回传给模型以便其自我纠正，就像一个非零的 shell 退出码一样。网页客户端（`@deepseek-ai/dsh-client-ui-openui`）在既有的具名 `tool.call.toolview` slot（`packages/client/ui-tool`）中认领该工具的名字，并渲染已确定的元素树；其他所有宿主都会得到 `generic` 卡片兜底渲染。共享的组件词汇只定义一次（`ComponentRenderers<C>`，对某个 lang-core 从不检视的、不透明的按消费方渲染器 payload 是泛型的），并被两侧共同消费，因此所教授的系统提示词语法、服务端校验器与客户端可渲染集合就不会互相漂移。
+`render_ui` 是一个面向模型的工具（`@deepseek-ai/dsh-tool-openui`），它在服务端针对一套固定的、手工编写的组件词汇（`@deepseek-ai/dsh-openui-lang`：`Stack` 根节点、`Card`、`Heading`、`Text`、`List`/`ListItem`、`Table`、`BarChart`、`PieChart`——没有任何组件接受 URL、原始标记或脚本）解析并校验一条 OpenUI Lang 源字符串。`BarChart`／`PieChart` 是应明确要求后新增的——此前模型在被要求给出图表／图形时无组件可用，只能退化为散文描述；两者均以纯手写 SVG 渲染（饼图使用弧线路径数学，柱状图使用等比例的 `<rect>`），而非引入图表库依赖，从而保持封闭词汇表的安全姿态不变。语法错误或未知／无效组件从不会抛出异常——它是 OpenUI 自身宽松解析结果的一部分（`{ root, errors, incomplete }`），会被回传给模型以便其自我纠正，就像一个非零的 shell 退出码一样。网页客户端（`@deepseek-ai/dsh-client-ui-openui`）在既有的具名 `tool.call.toolview` slot（`packages/client/ui-tool`）中认领该工具的名字，并渲染已确定的元素树；其他所有宿主都会得到 `generic` 卡片兜底渲染。共享的组件词汇只定义一次（`ComponentRenderers<C>`，对某个 lang-core 从不检视的、不透明的按消费方渲染器 payload 是泛型的），并被两侧共同消费，因此所教授的系统提示词语法、服务端校验器与客户端可渲染集合就不会互相漂移。
 
 解析后的元素树通过工具上的 `output.presentationMeta: (_args, value) => value` 到达客户端，落在持久化的 `tool/result` 事件的 `meta` 字段中，并从那里进入 `ToolResultNode.meta`——这一点已直接对照 `packages/client/ui-conversation/src/client/conversation-nodes/tool.ts:66` 验证过，因为该协议原本只携带 `content` 以及封闭的 `callView`/`resultView` 卡片联合类型，从不携带工具的原始规范值。
 
@@ -36,11 +36,11 @@ Status: implemented
 
 ## 测试
 
-目前只有包级别的单元／集成测试（尚无快照或 SDK 预期输出 fixture——见"待完成事项"）：`dsh-openui-lang`（7 项测试）覆盖有效、未知组件、缺失必填项、无法解析的解析场景以及提示词生成；`dsh-tool-openui`（8 项测试）通过 `ctx.tools.execute()` 驱动真实工具，包括 `result.meta` 的投影以及 `presentResult` 的 `isError` 分支；`dsh-client-ui-openui`（16 项测试，jsdom + `@testing-library/react`）覆盖每个精选组件、嵌套的 Card/Stack 组合、未知组件的兜底渲染、toolview 的 pending/error/success 状态，以及具名 slot 的注册。三个包均达到逐文件 100% 覆盖率。`tsc --build`、`run-oxlint`，以及逐一运行的 doc-sync／hygiene 检查项（`verify-cordis-config`、`verify-package-invariants`、`verify-client-packages`、两个 README 门禁、`gen-tool-catalog --check`、`verify-runtime-closure`、`verify-dsh-package-licenses`、`verify-optional-dependency-imports`）均已通过。
+目前只有包级别的单元／集成测试（尚无快照或 SDK 预期输出 fixture——见"待完成事项"）：`dsh-openui-lang`（9 项测试）覆盖有效、未知组件、缺失必填项、无法解析的解析场景，以及提示词生成和图表数据的对象数组格式；`dsh-tool-openui`（9 项测试）通过 `ctx.tools.execute()` 驱动真实工具，包括 `result.meta` 的投影以及 `presentResult` 的 `isError` 分支；`dsh-client-ui-openui`（22 项测试，jsdom + `@testing-library/react`）覆盖每个精选组件（含 `BarChart`／`PieChart` 的有标题／无标题／空数据／总和为零／单一扇区等边界情形）、嵌套的 Card/Stack 组合、未知组件的兜底渲染、toolview 的 pending/error/success 状态，以及具名 slot 的注册。三个包均达到逐文件 100% 覆盖率。`tsc --build`、`run-oxlint`，以及逐一运行的 doc-sync／hygiene 检查项（`verify-cordis-config`、`verify-package-invariants`、`verify-client-packages`、两个 README 门禁、`gen-tool-catalog --check`、`verify-runtime-closure`、`verify-dsh-package-licenses`、`verify-optional-dependency-imports`）均已通过。
 
 ## 后果
 
-模型现在可以通过一个有文档记录的、增量式的扩展点，在网页聊天客户端中产出交互式的结构化 UI，无需新增任何托管后端，浏览器构建产物的成本约为 8.5 kB。代价是：需要维护两个新的 workspace 包外加一个客户端包、一套固定的（目前为六个组件的）词汇必须经过刻意扩展而非随意增长，以及对 `@openuidev/lang-core` 接受了一项安装期遥测依赖（已缓解，但未消除）。
+模型现在可以通过一个有文档记录的、增量式的扩展点，在网页聊天客户端中产出交互式的结构化 UI，无需新增任何托管后端，浏览器构建产物的成本约为 8.5 kB。代价是：需要维护两个新的 workspace 包外加一个客户端包、一套固定的（目前为九个组件的）词汇必须经过刻意扩展而非随意增长，以及对 `@openuidev/lang-core` 接受了一项安装期遥测依赖（已缓解，但未消除）。
 
 ## 待完成事项
 
