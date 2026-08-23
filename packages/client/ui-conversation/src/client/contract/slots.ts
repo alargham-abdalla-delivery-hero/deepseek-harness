@@ -204,11 +204,15 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
      */
     'conversation.input.dock': { kind: 'list'; scope: 'session'; owner: InputZone }
     /**
-     * The band under the composer card, inside the bar's width column — the
-     * seat for an ambient readout about the conversation (the shipped stats
-     * line lives here). Same {@link InputZone} owner share as the other
-     * regions. Anything the user must click belongs in the tool row instead
-     * (`conversation.input.left` / `.right`); anything needing its own line
+     * The band under the composer card, inside the bar's width column,
+     * rendered whether or not the session is in hero (blank) posture — the
+     * seat for content anchored to the composer itself: an ambient readout
+     * (the shipped stats line, self-gated to real turn/token data so it
+     * stays absent in hero) or a row of controls the composer's own turn
+     * would act on (the shipped quick-actions row). Same {@link InputZone}
+     * owner share as the other regions. A small always-visible control that
+     * belongs beside the resident chrome instead goes in
+     * `conversation.input.left` / `.right`; content needing its own line
      * above the card belongs in `conversation.input.dock`.
      */
     'conversation.composer.dock': { kind: 'list'; scope: 'session'; owner: InputZone }
