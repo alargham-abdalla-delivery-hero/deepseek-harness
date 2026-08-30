@@ -1,0 +1,94 @@
+packages/client/ui-openui/src/client/components/ListItem.tsx
+  s_20cfeb2d63e3e8::t_05c6b3d5688286 2,8,10-15
+packages/client/ui-openui/src/client/components/PieChart.tsx
+  s_20cfeb2d63e3e8::t_5450b05a4fdff0 39-40
+  s_20cfeb2d63e3e8::t_27ec8b95f53575 104
+  s_20cfeb2d63e3e8::t_63b8d99b652d59 2,15,52-55,60-64,84-97,103,105-106,110-118,124-134
+  s_20cfeb2d63e3e8::t_a29baacf4dfc03 109,119-123
+  s_20cfeb2d63e3e8::t_93b7587b3e4945 5,12-14,23-28,30-36,41-46,69,74-82,107-108,135-136
+  s_20cfeb2d63e3e8::t_da3a8ec263b722 83,98-102
+  s_20cfeb2d63e3e8::t_1c1de2313eb8c6 47-50,56-59
+packages/client/ui-openui/src/client/components/List.module.css
+  s_20cfeb2d63e3e8::t_0097bbc3d2ec99 1-8
+packages/client/ui-openui/src/client/components/ListItem.module.css
+  s_20cfeb2d63e3e8::t_1888bff9c1bd0c 1-4,8-9,15-24
+  s_20cfeb2d63e3e8::t_584c7f41c24242 5-7,10-14
+packages/client/ui-openui/README.md
+  s_20cfeb2d63e3e8::t_4a035dac1754cd 68-69
+packages/client/ui-openui/src/client/components/chart-colors.ts
+  s_20cfeb2d63e3e8::t_c9b6ec1cc3365a 1-20,29
+  s_20cfeb2d63e3e8::t_fed77b1a6c580c 23-27
+packages/client/ui-openui/src/client/components/Table.tsx
+  s_20cfeb2d63e3e8::t_02722112e7344f 2,9-19,22-26,28-39
+packages/client/ui-openui/src/client/components/PieChart.module.css
+  s_20cfeb2d63e3e8::t_d0a1c4583f5c1b 45-47,49-50,53-62,72-90
+  s_20cfeb2d63e3e8::t_6468d944e01ac7 1-20,28-34,36-44,48,51-52,63-69,71,91
+  s_20cfeb2d63e3e8::t_06ed8aa99fa96d 21-27,35
+  s_20cfeb2d63e3e8::t_89ebf422de15e0 70
+packages/client/ui-openui/src/client/components/Table.module.css
+  s_20cfeb2d63e3e8::t_38088ce21c00fb 13,17,22,30
+  s_20cfeb2d63e3e8::t_fd8e34c7379a78 51
+  s_20cfeb2d63e3e8::t_19a05f033fac4d 1-12,14-16,18-21,23-25,27-29,35-50,52
+  s_20cfeb2d63e3e8::t_cd26182d3ba88d 26,31-34
+packages/client/ui-openui/src/client/components/Heading.module.css
+  s_20cfeb2d63e3e8::t_38c0ba3fc634b4 1-16
+packages/client/ui-openui/src/client/components/Text.module.css
+  s_20cfeb2d63e3e8::t_071ce33c90cd97 1-5
+packages/client/ui-openui/src/css-modules.d.ts
+  s_20cfeb2d63e3e8::t_753d60c6991abe 1-4
+packages/client/ui-openui/tests/render-element.client.spec.tsx
+  s_20cfeb2d63e3e8::t_d6a36e6d3e723f 3
+  s_20cfeb2d63e3e8::t_0a147e4d4bfdf8 107-132,134-136,138-147,149-151
+  s_20cfeb2d63e3e8::t_f6e43ff4229ccf 133,137,148
+  s_20cfeb2d63e3e8::t_f16c59ed35845b 200,202
+  s_20cfeb2d63e3e8::t_8e44333597a29c 206
+  s_20cfeb2d63e3e8::t_9a352aa8cf4e2b 188-199,201,203-205,207-208
+packages/client/ui-openui/src/client/components/Heading.tsx
+  s_20cfeb2d63e3e8::t_9522907570a3b0 3,10-11,14-15
+.agents/notes/implemented/feature/2026-08-30-openui-theme-styling.md
+  s_20cfeb2d63e3e8::t_a8f2bb21635191 21-22
+  s_20cfeb2d63e3e8::t_6bad24899e0cbb 7
+  s_20cfeb2d63e3e8::t_48c8165ab12050 1-6,8-20,24-32,37-38
+  s_20cfeb2d63e3e8::t_176414f59348bd 23
+  s_20cfeb2d63e3e8::t_8342b121ffdaed 33-36
+  s_20cfeb2d63e3e8::t_4e9c1280c64160 39
+packages/client/ui-openui/src/client/components/Card.tsx
+  s_20cfeb2d63e3e8::t_88394eec5cde5d 3,10,13-15
+packages/client/ui-openui/src/client/components/Stack.module.css
+  s_20cfeb2d63e3e8::t_db1bfca93ff644 1-13
+packages/client/ui-openui/src/client/components/List.tsx
+  s_20cfeb2d63e3e8::t_46cf9310c44cd2 3,11
+packages/client/ui-openui/src/client/components/Text.tsx
+  s_20cfeb2d63e3e8::t_be8e87d691ea6c 2,10
+packages/client/ui-openui/src/client/components/BarChart.tsx
+  s_20cfeb2d63e3e8::t_652ade14c82ef2 47-49
+  s_20cfeb2d63e3e8::t_e3cf1beb8d4726 2,19,40,42-46,50-55,67-72,86-88,90-96,102-104
+  s_20cfeb2d63e3e8::t_7bbf73ed9b4299 97-101
+  s_20cfeb2d63e3e8::t_535276aa40ecf2 4,11-18,21-39,56-64,66,73-81,83-85,105
+packages/client/ui-openui/src/client/components/Stack.tsx
+  s_20cfeb2d63e3e8::t_4bba56298b218f 3,11
+packages/client/ui-openui/src/client/components/Card.module.css
+  s_20cfeb2d63e3e8::t_aabb6d2c2bc81e 1-17
+packages/client/ui-openui/src/client/components/BarChart.module.css
+  s_20cfeb2d63e3e8::t_a75551f8a7099d 7-13,18-24
+  s_20cfeb2d63e3e8::t_f9d809aa32e1c7 50-62,65-74
+  s_20cfeb2d63e3e8::t_8d02dec1c0ecad 1-6,14-17,25-49,63-64,75
+packages/client/ui-openui/tests/chart-colors.client.spec.ts
+  s_20cfeb2d63e3e8::t_5fdfe1829c0e30 6,14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "2849d6d772b8a5911ff09e3868a7edfbbb84e147",
+  "prompts": {},
+  "sessions": {
+    "s_20cfeb2d63e3e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f70701d4-96b6-4948-86f7-073e69425ada",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
