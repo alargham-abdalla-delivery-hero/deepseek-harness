@@ -12,7 +12,7 @@
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
+import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
 import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
 import { fitVisibleCount, QuickActionsRow, type QuickActionsRowProps } from '../src/client/QuickActionsRow.tsx'
 import type { QuickActionEntry, QuickActionsSnapshot } from '../src/client/contract.ts'
@@ -37,7 +37,7 @@ let fireResize: (() => void) | null = null
 class ResizeObserverStub {
   #cb: ResizeObserverCallback
   constructor(cb: ResizeObserverCallback) { this.#cb = cb }
-  observe(): void { fireResize = () => { this.#cb([], this as unknown as ResizeObserver) } }
+  observe(): void { fireResize = () => { this.#cb([], this) } }
   unobserve(): void {}
   disconnect(): void { fireResize = null }
 }
@@ -52,7 +52,7 @@ beforeEach(() => {
   vi.stubGlobal('ResizeObserver', ResizeObserverStub)
   vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function (this: Element) {
     const width = widths[this.textContent ?? ''] ?? 100
-    return { width, height: 0, top: 0, left: 0, right: width, bottom: 0, x: 0, y: 0, toJSON: () => ({}) } as DOMRect
+    return { width, height: 0, top: 0, left: 0, right: width, bottom: 0, x: 0, y: 0, toJSON: () => ({}) }
   })
   Object.defineProperty(HTMLDivElement.prototype, 'clientWidth', {
     configurable: true,

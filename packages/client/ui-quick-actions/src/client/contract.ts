@@ -4,7 +4,7 @@
  * other plugins see `register` alone, while the QuickActionsRow dock entry
  * (this package's own client/index.ts) also reads the live `entries` split.
  */
-import type { SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
+import type { SnapshotStore } from '@deepseek-ai/dsh-client-store'
 
 /** One quick-action entry: a labeled control that writes `insertText` into the composer draft. */
 export interface QuickActionEntry {

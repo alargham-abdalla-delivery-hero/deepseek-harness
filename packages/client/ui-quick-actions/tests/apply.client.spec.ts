@@ -7,9 +7,10 @@
  */
 import { Context } from '@deepseek-ai/cordis'
 import { describe, expect, it } from 'vitest'
+import { createScope, scopeOf } from '@deepseek-ai/dsh-api-session-controller/client'
 import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { createScope, scopeOf, SlotRegistry } from '@deepseek-ai/dsh-client-runtime/client'
-import type { SessionId } from '@deepseek-ai/dsh-client-runtime/client'
+import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
+import type { SessionId } from '@deepseek-ai/dsh-session/types'
 import { apply, inject, QuickActionsService } from '@deepseek-ai/dsh-client-ui-quick-actions/client'
 import type { QuickActionsRowInjected } from '@deepseek-ai/dsh-client-ui-quick-actions/client'
 

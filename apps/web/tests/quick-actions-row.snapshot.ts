@@ -24,7 +24,7 @@ installAssembledBootEnv()
 
 beforeEach(() => {
   vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(
-    () => ({ width: 80, height: 0, top: 0, left: 0, right: 80, bottom: 0, x: 0, y: 0, toJSON: () => ({}) }) as DOMRect,
+    () => ({ width: 80, height: 0, top: 0, left: 0, right: 80, bottom: 0, x: 0, y: 0, toJSON: () => ({}) }),
   )
   Object.defineProperty(HTMLDivElement.prototype, 'clientWidth', { configurable: true, get: () => 5_000 })
 })

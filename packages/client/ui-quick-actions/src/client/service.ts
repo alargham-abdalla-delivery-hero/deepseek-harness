@@ -7,8 +7,8 @@
  */
 import { Service } from '@deepseek-ai/cordis'
 import type { Context } from '@deepseek-ai/cordis'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
-import type { SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
+import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import type { SnapshotStore } from '@deepseek-ai/dsh-client-store'
 import type { QuickActionEntry, QuickActionsServiceContract, QuickActionsSnapshot } from './contract.ts'
 
 const EMPTY_SNAPSHOT: QuickActionsSnapshot = { visible: [], overflow: [] }
