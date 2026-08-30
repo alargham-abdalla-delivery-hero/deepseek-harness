@@ -1,0 +1,19 @@
+pnpm-lock.yaml
+  s_c1df42909c5daf::t_c73c9da3622b6a 2887-2889,2893,2895,2905-2907,2914-2916
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "fad4132af05fea0d2d8d9b31940f2a93404bb076",
+  "prompts": {},
+  "sessions": {
+    "s_c1df42909c5daf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b57a58c7-f9b3-49a9-9837-df1f9bd6f635",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
