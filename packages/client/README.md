@@ -47,6 +47,7 @@ The kernel packages boot and serve the page; the UI feature packages present it.
 | [`ui-chat/`](ui-chat/README.md) | Projects and renders the Chat conversation target | — |
 | [`ui-approval/`](ui-approval/README.md) | Presents approval requests and returns user decisions | — |
 | [`ui-tool/`](ui-tool/README.md) | Composes Tool call trees and keyed per-Tool views | — |
+| [`ui-openui/`](ui-openui/README.md) | Renders `render_ui`'s settled OpenUI element tree as live UI via a keyed Tool view | — |
 | [`ui-workflow-run/`](ui-workflow-run/README.md) | Replays durable workflow runs as nested chat disclosures | — |
 | [`ui-goal/`](ui-goal/README.md) | Presents and manages the current goal | — |
 | [`ui-quick-actions/`](ui-quick-actions/README.md) | Presents one-click quick-action buttons above the composer, with overflow in a "More" menu | — |

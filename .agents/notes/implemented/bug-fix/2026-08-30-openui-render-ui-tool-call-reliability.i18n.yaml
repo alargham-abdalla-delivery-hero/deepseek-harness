@@ -1,0 +1,6 @@
+# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
+# side as of the last confirmed-consistent state. Both languages carry equal authority;
+# after editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write .agents/notes/implemented/bug-fix/2026-08-30-openui-render-ui-tool-call-reliability.md
+2026-08-30-openui-render-ui-tool-call-reliability.md: fdaaaefd3c75357874fe63bb06d13f5b0997915f
+2026-08-30-openui-render-ui-tool-call-reliability.zh.md: fd32c7a07f7cc307c41e3ef3cb0c91dea7467390

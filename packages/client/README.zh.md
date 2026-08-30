@@ -47,6 +47,7 @@ kind: "package-group"
 | [`ui-chat/`](ui-chat/README.zh.md) | 投影并渲染 Chat 对话 target | — |
 | [`ui-approval/`](ui-approval/README.zh.md) | 展示批准请求并返回用户决策 | — |
 | [`ui-tool/`](ui-tool/README.zh.md) | 编排工具调用树与按工具键控的视图 | — |
+| [`ui-openui/`](ui-openui/README.zh.md) | 通过按工具键控的视图，将 `render_ui` 已结算的 OpenUI 元素树渲染为实时 UI | — |
 | [`ui-workflow-run/`](ui-workflow-run/README.zh.md) | 把持久工作流运行回放为嵌套对话折叠项 | — |
 | [`ui-goal/`](ui-goal/README.zh.md) | 展示与管理当前目标 | — |
 | [`ui-quick-actions/`](ui-quick-actions/README.zh.md) | 在 composer 上方展示一键 quick-action 按钮，溢出条目进入 "More" 菜单 | — |

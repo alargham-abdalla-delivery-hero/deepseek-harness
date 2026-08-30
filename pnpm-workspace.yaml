@@ -45,6 +45,11 @@ allowBuilds:
   # The Python runtime deploy includes the reviewed workspace postinstall that
   # restores the executable bit on node-pty's macOS spawn helper.
   '@deepseek-ai/dsh-subprocess-local@file:packages/subprocess/subprocess-local': true
+  # Its postinstall sends pseudonymous installation telemetry to PostHog by
+  # default (see dsh-openui-lang's README); deny the script rather than opt in.
+  # OPENUI_TELEMETRY_DISABLED=1 is the belt-and-suspenders env var if this is
+  # ever flipped to true.
+  '@openuidev/lang-core': false
 
 minimumReleaseAgeExclude:
   # Fresh pi-ai releases carry the model catalog updates that are the whole

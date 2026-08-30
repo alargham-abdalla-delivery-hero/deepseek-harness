@@ -41,6 +41,7 @@ This table connects model-visible tool names to the plugin package and service s
 | `@deepseek-ai/dsh-tool-todo` | `todo_write` | `ctx.tools`, `owning Agent session` | `tool/call`, `todo/write`, `tool/result` | - | todo_write is session-owned state; UIs render the latest todo/write event as a checklist. `allowParallelInProgress` is required with no default, so the catalog states its choice: `true`, whose description invites several `in_progress` items. A deployment choosing `false` receives the same tool with a description asking for exactly one active task. |
 | `@deepseek-ai/dsh-tool-workflow` | `workflow` | `ctx.tools`, `ctx.workflowEngine`, `ctx.systemPrompt`, `a calling Agent (exec.agent parents the script children)` | `tool/call`, `tool/result` | - | - |
 | `@deepseek-ai/dsh-tool-web` | `web_fetch`, `web_search` | `ctx.tools`, `ctx.web`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps. |
+| `@deepseek-ai/dsh-tool-openui` | `render_ui` | `ctx.tools`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card. |
 
 <a id="deepseek-aidsh-tool-ask-user"></a>
 
@@ -2277,3 +2278,30 @@ Search the web for current information. Provide 1–4 queries in the required qu
 Source: [`packages/web/tool-web/src/index.ts`](../packages/web/tool-web/src/index.ts)
 
 web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps.
+
+<a id="deepseek-aidsh-tool-openui"></a>
+
+## `@deepseek-ai/dsh-tool-openui`
+
+### `render_ui`
+
+Render structured or visual content (a card, table, list, heading layout, bar chart, or pie chart) as UI in the chat, instead of describing it in prose. Use this whenever the user asks for a chart, graph, or visual breakdown of data — do not describe chart data in prose or a text table when a bar or pie chart is available and appropriate. Send OpenUI Lang source text; the syntax and the available components are taught in a separate system instruction. On success the UI renders in the chat. On failure the result lists what to fix — correct the source and call again.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "OpenUI Lang source text (see the render_ui system instruction for syntax and components)."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+Source: [`packages/openui/tool-openui/src/index.ts`](../packages/openui/tool-openui/src/index.ts)
+
+render_ui parses and validates OpenUI Lang against the curated component vocabulary in dsh-openui-lang; the web client (dsh-client-ui-openui) renders the settled result, other hosts see the generic fallback card.

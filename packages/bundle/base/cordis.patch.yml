@@ -413,6 +413,13 @@
       config:
         allowParallelInProgress: true
 
+    # render_ui: OpenUI Lang generative UI. Host-agnostic (validates and
+    # teaches the grammar everywhere); only the web client
+    # (dsh-client-ui-openui, web-app bundle) actually renders the element
+    # tree — other hosts see the tool's generic fallback card.
+    - id: tool-openui
+      name: '@deepseek-ai/dsh-tool-openui'
+
     # Persisted same-session goals reach the model and the slash menu here; the
     # domain, driver, and `/goal` command are above.
     - id: tool-goal
