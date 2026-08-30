@@ -24,6 +24,7 @@ dsh web GUI 的浏览器侧：shell 启动、浏览器与宿主通信、共享 U
 | [`ui-workspace/`](ui-workspace/README.zh.md) | 提供工作区选择与创建界面。 |
 | [`ui-conversation/`](ui-conversation/README.zh.md) | 展示当前对话及其输入界面。 |
 | [`ui-tool/`](ui-tool/README.zh.md) | 编排工具调用树和按工具键控的视图。 |
+| [`ui-openui/`](ui-openui/README.zh.md) | 通过按工具键控的视图，将 `render_ui` 已结算的 OpenUI 元素树渲染为实时 UI。 |
 | [`ui-workflow-run/`](ui-workflow-run/README.zh.md) | 把持久工作流运行回放为 Chat 嵌套折叠项，并只为实时子 Session 提供导航。 |
 | [`ui-goal/`](ui-goal/README.zh.md) | 展示和管理当前目标。 |
 | [`ui-quick-actions/`](ui-quick-actions/README.zh.md) | 在 composer 上方展示一键 quick-action 按钮，溢出条目进入 "More" 菜单。 |
