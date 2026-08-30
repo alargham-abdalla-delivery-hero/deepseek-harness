@@ -1,0 +1,78 @@
+packages/openui/tool-openui/src/index.ts
+  s_c1df42909c5daf::t_e4c26fe3f06f75 107-113
+  s_c1df42909c5daf::t_188829144d7fca 210-219,221-238
+  s_c1df42909c5daf::t_69983d488ea091 7-9,14-17,23,28-44
+  s_c1df42909c5daf::t_7f474e5b740da3 163-165,167,169,173
+  s_c1df42909c5daf::t_9b3e8eb62f683d 220
+  s_c1df42909c5daf::t_b4ff7e76a48992 55-106,114-137
+  s_c1df42909c5daf::t_ec8fa3756fc194 45
+openspec/changes/openui-tool-call-reliability/tasks.md
+  s_c1df42909c5daf::t_7587b1c3b89f7b 11
+  s_c1df42909c5daf::t_e84a2ff9b0385e 9
+  s_c1df42909c5daf::t_15cd8495aca300 3-5
+  s_c1df42909c5daf::t_5b991cfda26a49 25-28
+  s_c1df42909c5daf::t_6c91773ece3022 14
+  s_c1df42909c5daf::t_961cb41efa9683 16-21
+  s_c1df42909c5daf::t_b4c4e9d0e0747c 1-2,6,8,13,15,22-24
+  s_c1df42909c5daf::t_50a41bcda609da 7
+  s_c1df42909c5daf::t_33cf2509614248 12
+  s_c1df42909c5daf::t_f8f92f96885977 10
+packages/openui/tool-openui/README.md
+  s_c1df42909c5daf::t_9dddb91c5c4ee7 9-28
+  s_c1df42909c5daf::t_e0692559a62f19 52-66
+  s_c1df42909c5daf::t_aaf7180d4129dc 86-87
+openspec/changes/openui-tool-call-reliability/specs/openui-render-tool/spec.md
+  s_c1df42909c5daf::t_e068abc91091f5 1-2,21-39,42-52
+  s_c1df42909c5daf::t_81ac51996bb7a8 14-20
+  s_c1df42909c5daf::t_c5870d1f46d565 3-13
+  s_c1df42909c5daf::t_e2497db08c80f9 40-41
+openspec/changes/openui-tool-call-reliability/proposal.md
+  s_c1df42909c5daf::t_c6f7b5998ea999 21
+  s_c1df42909c5daf::t_e9e8b23d445fed 1-4,6-8,11-20,22-29
+  s_c1df42909c5daf::t_3d333447b4ffb7 5,9-10
+openspec/changes/openui-tool-call-reliability/.openspec.yaml
+  s_c1df42909c5daf::t_902995696d786b 1-2
+packages/openui/tool-openui/tsconfig.json
+  s_c1df42909c5daf::t_9077dcb8e189d7 17-19,26-28,32-34
+packages/openui/tool-openui/src/invariant.ts
+  s_c1df42909c5daf::t_31aa5b9a71fb5d 20-22
+packages/openui/tool-openui/tests/tool-openui.spec.ts
+  s_c1df42909c5daf::t_2663235bcf9e6d 167-171,182
+  s_c1df42909c5daf::t_9e52421cf998b2 172-181,183-198
+  s_c1df42909c5daf::t_ea4d0a1fe1d469 105-166,219-261,263-280
+  s_c1df42909c5daf::t_cebcb7f750b509 11,14
+  s_c1df42909c5daf::t_1ec8e4da3e4d0d 8-10,12,15,17
+  s_c1df42909c5daf::t_dae29ea0a2a4a2 262
+  s_c1df42909c5daf::t_c70e1fecf7045f 199-218
+openspec/changes/openui-tool-call-reliability/design.md
+  s_c1df42909c5daf::t_550444c6ad10d0 51,55
+  s_c1df42909c5daf::t_832d4fcd0ad5b1 47,49
+  s_c1df42909c5daf::t_bf7d734d720057 65
+  s_c1df42909c5daf::t_7b10279a76f5bf 7-13,15
+  s_c1df42909c5daf::t_4aad033e4bb4bb 22
+  s_c1df42909c5daf::t_c0a3d13be45d88 35,37,39-43
+  s_c1df42909c5daf::t_c0b3c001a4e33c 1-6,14,16-21,23-34,36,38,44-46,48,50,52-54,56-64,66-78
+  s_c1df42909c5daf::t_c8d543236cbde4 79
+packages/openui/tool-openui/package.json
+  s_c1df42909c5daf::t_0b013b1c398c86 35-36,39,41,47-49,51-52
+.agents/notes/implemented/bug-fix/2026-08-30-openui-render-ui-tool-call-reliability.md
+  s_c1df42909c5daf::t_a8d9cff591cd5b 1-39
+pnpm-lock.yaml
+  s_c1df42909c5daf::t_7b3363a4ae6658 5913-5915,5920-5928,5932-5937
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "08016ca63b16c36fb682b004aff1febadbde9d56",
+  "prompts": {},
+  "sessions": {
+    "s_c1df42909c5daf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b57a58c7-f9b3-49a9-9837-df1f9bd6f635",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
