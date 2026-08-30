@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font: var(--dsw-font-markdown-h2);
+  color: var(--dsw-alias-label-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

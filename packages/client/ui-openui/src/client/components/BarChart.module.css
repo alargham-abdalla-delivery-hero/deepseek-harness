@@ -1,0 +1,75 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font: var(--dsw-font-markdown-h3);
+  color: var(--dsw-alias-label-primary);
+}
+
+.readout {
+  font: var(--dsw-font-markdown-table);
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+  white-space: nowrap;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+.gridline {
+  stroke: var(--dsw-alias-border-l2);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  font: var(--dsw-font-markdown-table);
+  font-size: 10px;
+  fill: var(--dsw-alias-label-tertiary);
+}
+
+.categoryLabel {
+  font: var(--dsw-font-markdown-table);
+  font-size: 10px;
+  fill: var(--dsw-alias-label-secondary);
+  text-anchor: middle;
+}
+
+.barGroup {
+  cursor: pointer;
+}
+
+.barGroup:focus-visible {
+  outline: none;
+}
+
+.barGroup:focus-visible .bar {
+  outline: 2px solid var(--dsw-alias-state-business-primary);
+  outline-offset: 2px;
+}
+
+.bar {
+  fill: var(--dsw-alias-state-business-primary);
+  transition: opacity 120ms ease, filter 120ms ease;
+}
+
+.barGroup:hover .bar,
+.barActive {
+  filter: brightness(1.2);
+}
+
+.barDimmed {
+  opacity: 0.45;
+}

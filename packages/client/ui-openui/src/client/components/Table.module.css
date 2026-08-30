@@ -1,0 +1,52 @@
+.wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headCell {
+  padding: 10px 16px;
+  text-align: left;
+  font: var(--dsw-font-markdown-table-head);
+  color: var(--dsw-alias-label-tertiary);
+  border-bottom: 1px solid var(--dsw-alias-border-l3);
+  white-space: nowrap;
+}
+
+.cell {
+  padding: 10px 16px;
+  text-align: left;
+  font: var(--dsw-font-markdown-table);
+  color: var(--dsw-alias-label-primary);
+  transition: background 120ms ease;
+}
+
+.row:not(:last-child) .cell {
+  border-bottom: 1px solid var(--dsw-alias-border-l2);
+}
+
+.row:hover .cell {
+  background: var(--dsw-alias-bg-layer-2);
+}
+
+.delta {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.deltaPositive {
+  color: var(--dsw-alias-state-success-secondary);
+  background: var(--dsw-alias-state-success-tertiary);
+}
+
+.deltaNegative {
+  color: var(--dsw-alias-state-error-secondary);
+  background: var(--dsw-alias-interactive-bg-hover-danger);
+}

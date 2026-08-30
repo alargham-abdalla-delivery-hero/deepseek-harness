@@ -1,0 +1,16 @@
+.heading {
+  margin: 0;
+  color: var(--dsw-alias-label-primary);
+}
+
+.level1 {
+  font: var(--dsw-font-markdown-h1);
+}
+
+.level2 {
+  font: var(--dsw-font-markdown-h2);
+}
+
+.level3 {
+  font: var(--dsw-font-markdown-h3);
+}

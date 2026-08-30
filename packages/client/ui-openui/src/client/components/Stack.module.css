@@ -1,0 +1,13 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Attribute selector: every curated component's root tag carries this
+   attribute, so it passes through CSS Modules unhashed and matches any
+   direct child regardless of which component rendered it. */
+.stack > [data-openui-component]:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--dsw-alias-border-l2);
+}

@@ -1,0 +1,91 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font: var(--dsw-font-markdown-h3);
+  color: var(--dsw-alias-label-primary);
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.svg {
+  /* `BarChart` and `Table` both fill the card's available width (`width: 100%`);
+     a donut can't do the same (it shares its row with the legend and a full-width
+     circle would be enormous), so it scales the same way up to a size that reads
+     as comparably sized next to them instead of a small fixed icon. */
+  width: min(100%, 260px);
+  aspect-ratio: 1;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px -6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font: var(--dsw-font-markdown-table);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.legendItem:hover,
+.legendItemActive {
+  background: var(--dsw-alias-bg-layer-2);
+}
+
+.legendItem:focus-visible {
+  outline: 2px solid var(--dsw-alias-state-business-primary);
+  outline-offset: 2px;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legendText {
+  color: var(--dsw-alias-label-primary);
+}
+
+.slice {
+  cursor: pointer;
+  transition: opacity 120ms ease, filter 120ms ease;
+}
+
+.slice:hover,
+.sliceActive {
+  filter: brightness(1.2);
+}
+
+.sliceDimmed {
+  opacity: 0.45;
+}
+
+.slice:focus-visible {
+  outline: 2px solid var(--dsw-alias-state-business-primary);
+  outline-offset: 2px;
+}

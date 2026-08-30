@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest'
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, fireEvent, render } from '@testing-library/react'
 import type { ElementNode } from '@deepseek-ai/dsh-openui-lang'
 import { COMPONENTS } from '../src/client/library.ts'
 import { renderElement } from '../src/client/render-element.tsx'
@@ -104,6 +104,51 @@ describe('renderElement', () => {
     expect(view.container.querySelectorAll('rect')).toHaveLength(0)
   })
 
+  it('shows a BarChart bar\'s value on hover and hides it again on mouse-leave', () => {
+    const chart: ElementNode = {
+      type: 'element',
+      typeName: 'BarChart',
+      partial: false,
+      props: { data: [{ label: 'Q1', value: 100 }, { label: 'Q2', value: 150 }] },
+    }
+    const view = render(<>{renderElement(chart, COMPONENTS)}</>)
+    expect(view.queryByText('Q1: 100')).toBeNull()
+    const [firstBar] = view.container.querySelectorAll('[role="button"]')
+    fireEvent.mouseEnter(firstBar as Element)
+    expect(view.getByText('Q1: 100')).toBeTruthy()
+    fireEvent.mouseLeave(firstBar as Element)
+    expect(view.queryByText('Q1: 100')).toBeNull()
+  })
+
+  it('pins a BarChart bar\'s value on click, keeping it visible after the mouse leaves', () => {
+    const chart: ElementNode = {
+      type: 'element',
+      typeName: 'BarChart',
+      partial: false,
+      props: { data: [{ label: 'Q1', value: 100 }] },
+    }
+    const view = render(<>{renderElement(chart, COMPONENTS)}</>)
+    const [bar] = view.container.querySelectorAll('[role="button"]')
+    fireEvent.click(bar as Element)
+    expect(bar?.getAttribute('aria-pressed')).toBe('true')
+    fireEvent.mouseLeave(bar as Element)
+    expect(view.getByText('Q1: 100')).toBeTruthy()
+    fireEvent.click(bar as Element)
+    expect(bar?.getAttribute('aria-pressed')).toBe('false')
+    expect(view.queryByText('Q1: 100')).toBeNull()
+  })
+
+  it('activates a BarChart bar via the keyboard (Enter toggles the pin, same as a click)', () => {
+    const chart: ElementNode = {
+      type: 'element', typeName: 'BarChart', partial: false, props: { data: [{ label: 'Q1', value: 100 }] },
+    }
+    const view = render(<>{renderElement(chart, COMPONENTS)}</>)
+    const [bar] = view.container.querySelectorAll('[role="button"]')
+    fireEvent.keyDown(bar as Element, { key: 'Enter' })
+    expect(bar?.getAttribute('aria-pressed')).toBe('true')
+    expect(view.getByText('Q1: 100')).toBeTruthy()
+  })
+
   it('renders a PieChart with a title and one slice per data point', () => {
     const chart: ElementNode = {
       type: 'element',
@@ -138,6 +183,27 @@ describe('renderElement', () => {
     expect(view.getByText('A: 0')).toBeTruthy()
     expect(view.getByText('B: 0')).toBeTruthy()
     expect(view.container.querySelectorAll('path')).toHaveLength(2)
+  })
+
+  it('cross-highlights a PieChart slice and its legend row: hovering the slice marks the legend row pressed, and vice versa', () => {
+    const chart: ElementNode = {
+      type: 'element',
+      typeName: 'PieChart',
+      partial: false,
+      props: { data: [{ label: 'A', value: 30 }, { label: 'B', value: 70 }] },
+    }
+    const view = render(<>{renderElement(chart, COMPONENTS)}</>)
+    const [sliceA] = view.container.querySelectorAll('path[role="button"]')
+    const legendRowA = view.getByText('A: 30').closest('[role="button"]')
+
+    fireEvent.mouseEnter(sliceA as Element)
+    expect(legendRowA?.getAttribute('class')).toMatch(/legendItemActive/)
+    fireEvent.mouseLeave(sliceA as Element)
+    expect(legendRowA?.getAttribute('class')).not.toMatch(/legendItemActive/)
+
+    fireEvent.click(legendRowA as Element)
+    expect(legendRowA?.getAttribute('aria-pressed')).toBe('true')
+    expect(sliceA?.getAttribute('class')).toMatch(/sliceActive/)
   })
 
   it('renders a List of ListItems', () => {

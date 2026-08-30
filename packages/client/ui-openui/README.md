@@ -65,7 +65,8 @@ No effect. This package renders only for the human viewing the chat and never co
 
 - **No streaming/partial rendering.** Renders only after `render_ui` settles, consistent with every other keyed toolview's pending/settled split; see design.md's accepted trade-off.
 - **No `Query()`/`Mutation()`/reactive `$variable` support.** Out of scope by design — see `dsh-openui-lang`'s README.
-- **Minimal styling.** Components render plain semantic HTML (`h1`–`h3`, `p`, `ul`/`li`, `table`, `section`, `div`) or hand-rolled SVG (`BarChart`, `PieChart` — plain `<rect>`/`<path>` shapes, no charting dependency) with `data-openui-component` attributes for testability; no design-system integration yet.
+- **Styled against `dsh-client-ui-theme` tokens, not a third-party component kit.** Each component ships a colocated CSS Module (`Card.module.css`, `Table.module.css`, …) referencing the theme's CSS custom properties (`--dsw-alias-*`, `--dsw-font-markdown-*`), matching the reference [OpenUI](https://github.com/thesysdev/openui) playground's look (dividers between top-level `Stack` children, a bordered/scrollable `Table`, a `BarChart` with axis gridlines and a single accent color, a donut `PieChart` with a side legend) without depending on `@openuidev/react-ui` (Decision 5 in design.md). `Table` renders a leading `+`/`-` signed cell (`+12%`, `-3.4`) as a colored pill by pattern, not by column name.
+- **No per-item icon or subtitle.** `ListItem`'s only prop is `text` (`dsh-openui-lang`'s schema has no icon/subtitle field), so items render a plain bullet marker; a reference render that shows a per-issue icon and caption line is doing so from data this renderer's schema does not carry.
 
 <a id="dev-note"></a>
 ### Dev Note
