@@ -15,13 +15,22 @@
       "path": "../../../vendor/cordis"
     },
     {
+      "path": "../../../vendor/schemastery"
+    },
+    {
       "path": "../openui-lang"
     },
     {
       "path": "../../core/tools"
     },
     {
+      "path": "../../core/agent"
+    },
+    {
       "path": "../../core/system-prompt"
+    },
+    {
+      "path": "../../llm/llm"
     },
     {
       "path": "../../runtime-diagnostics/invariants"

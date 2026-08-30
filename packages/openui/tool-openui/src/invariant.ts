@@ -17,6 +17,9 @@ export const inject = ['invariants']
 /**
  * No runtime invariant: this model-facing tool has no independent lifecycle stream or custom
  * durable event type; its `tool/result` persistence is owned by the tool-execution seam it calls.
+ * The package's `agent/turn-stopping` self-correction listener reads the already-owned derived
+ * session transcript and injects an ordinary `agent.steer()`-driven `user/message` event — owned
+ * by the agent-loop/session infrastructure, not a new event type this package introduces.
  */
 const install: InvariantInstaller = () => {}
 
