@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/cloudflare/cloudflare-worker/README.md
-README.md: fb48517063ac9dd9b6ef68226fe9adb8e897fcfe
-README.zh.md: 22a18f5f8df172dc8f79ca07d11f12dc3410f6e8
+README.md: 02c184b3eccd4745c268701214e1420e361a8355
+README.zh.md: d7f7ec25250235fac36bd50bf54c99f1f886baa5
