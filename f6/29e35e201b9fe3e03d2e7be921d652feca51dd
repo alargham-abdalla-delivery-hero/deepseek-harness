@@ -1,0 +1,84 @@
+packages/storage/storage-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 26-30
+packages/client/connection/tsconfig.client.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 17-18
+packages/client/ui-settings/src/client/index.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 60-66
+packages/credentials/README.zh.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 12,25,31
+packages/client/connection/src/client/index.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 16,113-125,187-191
+docs/config-catalog.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 429-454,458,595-617,2932-2954
+packages/credentials/credentials-d1/tests/invariant.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-12
+packages/bundle/cloudflare-app/tests/bundle-disposal.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 7,24,33,35-37,43,45-48,53
+packages/credentials/credentials-d1/tsconfig.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-30
+packages/bundle/cloudflare-app/src/index.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 4-5,19-20
+packages/client/ui-settings/tests/plugin.client.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 8,13,37-48
+packages/api/workspace-controller/tests/transport.client.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 201
+packages/session/session-persistence-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 25-29
+packages/client/connection/tsconfig.host.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 18-19
+packages/bundle/cloudflare-app/package.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 3,43-44
+packages/credentials/credentials-d1/src/invariant.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-30
+packages/client/connection/src/trusted-as-host.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-13
+packages/credentials/credentials-d1/README.zh.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-131
+tsconfig.base.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 277-280,306-307,310-311,415-416,468-469
+packages/credentials/credentials-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-63
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_ac41e83647e1be::t_cca0a471b83f6b 5-7,17-19,44-50,100-108
+  s_ac41e83647e1be::t_cd17211d7455ea 114
+packages/credentials/credentials-d1/tests/d1-provider.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-229
+packages/credentials/README.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 12,25,31
+openspec/changes/cloudflare-hosted-backend/tasks.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 91-98
+packages/client/connection/tests/trusted-as-host.host.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-49
+packages/credentials/credentials-d1/README.md
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-131
+packages/credentials/credentials-d1/src/schema.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-55
+packages/credentials/credentials-d1/package.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-48
+packages/credentials/credentials-d1/src/index.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-287
+packages/client/connection/tests/client-apply.client.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 13,18,24,88-103
+packages/client/connection/src/index.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 13,94-110,118,134,139-146
+tsconfig.host.json
+  s_ac41e83647e1be::t_cca0a471b83f6b 176
+packages/api/session-controller/tests/client-apply.client.spec.ts
+  s_ac41e83647e1be::t_cca0a471b83f6b 53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "f629e35e201b9fe3e03d2e7be921d652feca51dd",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
