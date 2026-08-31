@@ -1,0 +1,22 @@
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_ac41e83647e1be::t_08746add9e3960 95-118
+packages/cloudflare/cloudflare-worker/src/host-container.ts
+  s_ac41e83647e1be::t_b13d5bb0bcff2f 84
+  s_ac41e83647e1be::t_d582a1e4721dd7 36-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "288912a8848589115822f18c2247a1a48951a5bc",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
