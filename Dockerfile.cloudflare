@@ -53,7 +53,10 @@ EXPOSE 8080
 
 # --no-open: no browser exists inside a container. `--host 0.0.0.0` is
 # deliberately rejected by dsh-web-app's own CLI ("would expose remote code
-# execution to the network"); 127.0.0.1 is correct here anyway — Cloudflare
-# Containers reaches the container through a proxy sharing its network
-# namespace (pod-local), not raw Docker bridge networking.
-CMD ["node", "apps/cli/lib/bin.js", "--profile", "cloudflare", "--host", "127.0.0.1", "--port", "8080", "--no-open"]
+# execution to the network"), and — confirmed against a real deployment —
+# 127.0.0.1 is NOT reachable from Cloudflare's own container port health
+# check, which connects via this instance's actual assigned private IP, not
+# loopback. docker-entrypoint.cloudflare.sh discovers that address at boot and
+# execs the real process with it, keeping PID 1 semantics intact; see the
+# script for the full explanation.
+CMD ["sh", "/app/docker-entrypoint.cloudflare.sh"]
