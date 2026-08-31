@@ -1,0 +1,30 @@
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_ac41e83647e1be::t_5d11d2b28f5d45 73-89
+packages/client/connection/tests/browser-auth.host.spec.ts
+  s_ac41e83647e1be::t_62079efbbf8871 230-246
+packages/client/connection/src/browser-auth.ts
+  s_ac41e83647e1be::t_0eb48e4a2ba8d5 191-195
+  s_ac41e83647e1be::t_afda639194d10d 302
+  s_ac41e83647e1be::t_73fb300df8fa60 196,213-216,223,225
+  s_ac41e83647e1be::t_4658809784fdf2 252
+packages/client/connection/src/index.ts
+  s_ac41e83647e1be::t_4d0b9b479056b7 114
+  s_ac41e83647e1be::t_25136bf9f33073 122
+  s_ac41e83647e1be::t_4a08a4bc32c7d6 84-92,99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "5276cac761b246877b7335bb6cb642840ef9b63d",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
