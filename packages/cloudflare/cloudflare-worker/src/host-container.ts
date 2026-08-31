@@ -18,6 +18,14 @@ export interface Env {
   readonly CLOUDFLARE_D1_DATABASE_ID: string
   /** Cloudflare API token authorizing D1 REST access (forwarded into the container as an env var). */
   readonly CLOUDFLARE_D1_API_TOKEN: string
+  /**
+   * This deployment's own public hostname (forwarded into the container as
+   * an env var). The container binds all interfaces, so requests arrive with
+   * this hostname in `Host`, not loopback — the Host/Origin trust fence in
+   * `@deepseek-ai/dsh-client-connection` refuses every `/api` request whose
+   * Host is neither loopback nor an explicitly configured trusted authority.
+   */
+  readonly CLOUDFLARE_WORKER_HOSTNAME: string
 }
 
 /**
@@ -57,6 +65,7 @@ export class HostContainer extends Container<Env> {
       CLOUDFLARE_ACCOUNT_ID: env.CLOUDFLARE_ACCOUNT_ID,
       CLOUDFLARE_D1_DATABASE_ID: env.CLOUDFLARE_D1_DATABASE_ID,
       CLOUDFLARE_D1_API_TOKEN: env.CLOUDFLARE_D1_API_TOKEN,
+      CLOUDFLARE_WORKER_HOSTNAME: env.CLOUDFLARE_WORKER_HOSTNAME,
     }
   }
 

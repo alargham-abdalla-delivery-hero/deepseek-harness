@@ -44,13 +44,18 @@
       name: '@deepseek-ai/dsh-cloudflare-app'
 
 # ── no local browser or LAN handoff inside a container ───────────────────────
+#
+# trustedHosts names this deployment's own public hostname: the container
+# binds all interfaces, so requests arrive with that hostname in Host, not
+# loopback, and dsh-client-connection's Host/Origin trust fence (fed from
+# this value via ctx.webRuntime.trustedHosts) refuses every other Host.
 
 - id: web-runtime
   config:
     openBrowser: false
     printUrl: false
     surfaceContext: true
-    trustedHosts: []
+    trustedHosts: !!js [process.env.CLOUDFLARE_WORKER_HOSTNAME]
 
 # ── bind every interface: dsh-web-app's own patch resolves this row's host
 #    from the invocation's --host flag, but dsh-web-app's startup CLI guard

@@ -26,7 +26,12 @@
   "vars": {
     // A single-Workspace deployment's one Workspace id; see
     // src/gateway.ts's resolveWorkspaceId. Override per deployment.
-    "DEFAULT_WORKSPACE_ID": "default"
+    "DEFAULT_WORKSPACE_ID": "default",
+    // This deployment's own public hostname, forwarded into the container so
+    // its Host/Origin trust fence (dsh-client-connection) accepts requests
+    // arriving with this Host instead of loopback. Override per deployment —
+    // a custom domain replaces the workers.dev default here.
+    "CLOUDFLARE_WORKER_HOSTNAME": "dsh-cloudflare-worker.alargham-abdalla.workers.dev"
   },
   // Required to see Container boot logs (stdout/stderr) in the dashboard and
   // `wrangler tail` — without this, only Worker/Durable-Object-level
