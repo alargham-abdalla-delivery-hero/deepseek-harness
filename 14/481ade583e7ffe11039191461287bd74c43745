@@ -1,0 +1,103 @@
+packages/credentials/credentials-d1/package.json
+  s_ac41e83647e1be::t_f24507522a9777 1-48
+packages/credentials/credentials-d1/tests/invariant.spec.ts
+  s_ac41e83647e1be::t_4ae38f261f3cff 1-12
+tsconfig.host.json
+  s_ac41e83647e1be::t_282d6293965d10 176
+packages/client/connection/src/index.ts
+  s_ac41e83647e1be::t_e3e7ce2bbe057d 134,139-146
+  s_ac41e83647e1be::t_626f4069ba3f6d 13
+  s_ac41e83647e1be::t_7655180cb4f6fc 94-110,118
+packages/client/connection/src/trusted-as-host.ts
+  s_ac41e83647e1be::t_f839fa8984456e 1-13
+packages/client/connection/tsconfig.client.json
+  s_ac41e83647e1be::t_25936c9fe0dd8e 17-18
+packages/storage/storage-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_5944ced586624a 26-30
+packages/bundle/cloudflare-app/tests/bundle-disposal.spec.ts
+  s_ac41e83647e1be::t_719413591a4ee7 24,33,35-37,43,45-48,53
+  s_ac41e83647e1be::t_28181b8cd4299c 7
+packages/client/connection/tests/trusted-as-host.host.spec.ts
+  s_ac41e83647e1be::t_f69dffa757e606 1-49
+tsconfig.base.json
+  s_ac41e83647e1be::t_d01dfa284635b5 277-280,306-307,310-311,415-416,468-469
+openspec/changes/cloudflare-hosted-backend/tasks.md
+  s_ac41e83647e1be::t_7d4a400e16a287 91-98
+packages/credentials/credentials-d1/README.md
+  s_ac41e83647e1be::t_e17ed631abb7a7 1-131
+packages/credentials/README.md
+  s_ac41e83647e1be::t_68de7a356cdc16 25,31
+  s_ac41e83647e1be::t_4c8ac3adb34813 12
+packages/credentials/README.zh.md
+  s_ac41e83647e1be::t_c5656b7084883a 25,31
+  s_ac41e83647e1be::t_07aa6d29834e41 12
+packages/api/workspace-controller/tests/transport.client.spec.ts
+  s_ac41e83647e1be::t_209230ea9b56f8 201
+packages/session/session-persistence-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_1248f3bb294362 25-29
+packages/client/connection/src/client/index.ts
+  s_ac41e83647e1be::t_7f182e7c37deea 16
+  s_ac41e83647e1be::t_edea6b9ec26e0b 187-191
+  s_ac41e83647e1be::t_a4233c8c825462 113-125
+packages/bundle/cloudflare-app/package.json
+  s_ac41e83647e1be::t_8064f814170f1f 3
+  s_ac41e83647e1be::t_fa7651b79db8af 43-44
+packages/credentials/credentials-d1/tests/d1-provider.spec.ts
+  s_ac41e83647e1be::t_ab27bf85c7f0f2 1-229
+packages/bundle/cloudflare-app/src/index.ts
+  s_ac41e83647e1be::t_49e9805b820c66 4-5,19-20
+docs/config-catalog.md
+  s_ac41e83647e1be::t_9c4a1deeb84416 429-454,458,595-617,2932-2954
+  s_ac41e83647e1be::t_53e7a4a33a618c 2955
+packages/credentials/credentials-d1/tsconfig.json
+  s_ac41e83647e1be::t_a99e345a841603 1-30
+packages/credentials/credentials-d1/tests/fake-d1-server.ts
+  s_ac41e83647e1be::t_bb0db33ebd7d10 27-31
+  s_ac41e83647e1be::t_ac7ccb43d52f35 1-26,32-63
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_ac41e83647e1be::t_1f2f962c333fd5 100-108,114
+  s_ac41e83647e1be::t_bae5bf6f344ed8 5-7,17-19,44-45
+  s_ac41e83647e1be::t_bbe0cf9aa0ed06 46-50
+packages/credentials/credentials-d1/src/index.ts
+  s_ac41e83647e1be::t_7e4c589a936108 144-146
+  s_ac41e83647e1be::t_dde06b3524aeaa 1-29,31-143,147-206,210-287
+  s_ac41e83647e1be::t_ae5a740f9e9d6f 207-209
+  s_ac41e83647e1be::t_af3ec55f6f4a61 30
+packages/client/ui-settings/src/client/index.ts
+  s_ac41e83647e1be::t_c867614aa167b7 60-66
+packages/client/connection/tsconfig.host.json
+  s_ac41e83647e1be::t_0596a896ef73cc 18-19
+packages/credentials/credentials-d1/README.zh.md
+  s_ac41e83647e1be::t_eeae7f96f8b784 1-131
+packages/credentials/credentials-d1/src/schema.ts
+  s_ac41e83647e1be::t_5e28162a4bc836 1-55
+packages/credentials/credentials-d1/src/invariant.ts
+  s_ac41e83647e1be::t_d9baef3e2b52c6 1-30
+packages/client/connection/tests/client-apply.client.spec.ts
+  s_ac41e83647e1be::t_f8eb9740408c5c 24
+  s_ac41e83647e1be::t_876d70f2c6aa71 88-104
+  s_ac41e83647e1be::t_964c9b52231279 13,18
+packages/api/session-controller/tests/client-apply.client.spec.ts
+  s_ac41e83647e1be::t_fd56bf60cfd564 53
+packages/client/ui-settings/tests/plugin.client.spec.ts
+  s_ac41e83647e1be::t_4fa2e28cdee968 8,13
+  s_ac41e83647e1be::t_972735e30dcc03 37-49
+pnpm-lock.yaml
+  s_ac41e83647e1be::t_9b7fd43966691b 1305-1307,4587-4605
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "14481ade583e7ffe11039191461287bd74c43745",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
