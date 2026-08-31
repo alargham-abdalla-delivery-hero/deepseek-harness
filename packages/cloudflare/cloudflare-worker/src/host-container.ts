@@ -26,6 +26,13 @@ export interface Env {
    * Host is neither loopback nor an explicitly configured trusted authority.
    */
   readonly CLOUDFLARE_WORKER_HOSTNAME: string
+  /**
+   * DeepSeek API key, forwarded into the container as an env var when set
+   * (`wrangler secret put DEEPSEEK_API_KEY`). Optional: a Workspace with no
+   * key configured still creates and persists Sessions, only failing the
+   * specific turn that calls the model.
+   */
+  readonly DEEPSEEK_API_KEY?: string
 }
 
 /**
@@ -66,6 +73,7 @@ export class HostContainer extends Container<Env> {
       CLOUDFLARE_D1_DATABASE_ID: env.CLOUDFLARE_D1_DATABASE_ID,
       CLOUDFLARE_D1_API_TOKEN: env.CLOUDFLARE_D1_API_TOKEN,
       CLOUDFLARE_WORKER_HOSTNAME: env.CLOUDFLARE_WORKER_HOSTNAME,
+      ...env.DEEPSEEK_API_KEY !== undefined && { DEEPSEEK_API_KEY: env.DEEPSEEK_API_KEY },
     }
   }
 
