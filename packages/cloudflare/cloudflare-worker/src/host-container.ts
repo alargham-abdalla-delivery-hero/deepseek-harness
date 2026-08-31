@@ -20,8 +20,18 @@ export interface Env {
   readonly CLOUDFLARE_D1_API_TOKEN: string
 }
 
-/** Bounded wait for the container's HTTP port before reporting a distinct "starting" status. */
-const PORT_READY_TIMEOUT_MS = 5_000
+/**
+ * Bounded wait for the container's HTTP port before reporting a distinct
+ * "starting" status. Confirmed against a real deployment: the container does
+ * not stay resident across separate requests that each time out here — a
+ * failed port check tears the instance down, so the next request starts a
+ * fresh cold boot rather than resuming an already-progressing one. This
+ * repository's full Cordis composition (`dsh --profile cloudflare`, ~1000
+ * workspace packages) takes longer to cold-boot than a short window allows
+ * for, so the window has to cover one real cold start, not just a health-check
+ * poll interval.
+ */
+const PORT_READY_TIMEOUT_MS = 60_000
 
 /**
  * The `dsh` Host container for one Workspace. `fetch` starts the container
