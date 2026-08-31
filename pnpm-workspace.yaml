@@ -34,6 +34,14 @@ allowBuilds:
   lefthook: true
   # Cross-platform boundary for the persistent PTY backend, including ConPTY on Windows.
   node-pty: true
+  # Cloudflare Workers local runtime, pulled in by @cloudflare/vitest-pool-workers
+  # for Miniflare-based edge-gateway/host-container tests; its postinstall
+  # fetches the platform-specific workerd binary the pool actually runs.
+  workerd: true
+  # Transitive dependency of the same Cloudflare Workers tooling; its postinstall
+  # builds the native image-processing binary some of that tooling's asset
+  # handling uses.
+  sharp: true
   # Pulled in by @earendil-works/pi-ai (optional LLM API backend). pnpm lists
   # them only because they ship lifecycle scripts, but those are no-ops we don't
   # need, so we deny them — install still succeeds.
@@ -78,6 +86,7 @@ minimumReleaseAgeExclude:
   # All platform aliases resolve to the @openai/codex package name, so their
   # reviewed exact versions must share one version-union policy entry.
   - '@openai/codex@0.149.1||0.149.1-darwin-arm64||0.149.1-darwin-x64||0.149.1-linux-arm64||0.149.1-linux-x64||0.149.1-win32-arm64||0.149.1-win32-x64'
+  - '@cloudflare/workers-types@5.20260830.1'
 
 patchedDependencies:
   node-pty@1.2.0-beta.15: patches/node-pty@1.2.0-beta.15.patch

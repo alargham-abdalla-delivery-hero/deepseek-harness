@@ -48,6 +48,20 @@ const repositoryUrl = 'git+https://github.com/deepseek-harness/deepseek-harness.
  * their trusted publishing against the repository that runs the workflow.
  */
 const publishedRepositoryUrl = 'git+https://github.com/deepseek-ai/deepseek-harness.git'
+/**
+ * Packages whose source never runs under Node and is never imported as a
+ * library: deploy-only Cloudflare Worker code, bundled by `wrangler` directly
+ * from its own `main` entrypoint (never through npm `main`/`exports["."]`).
+ * Their source needs `@cloudflare/workers-types`' ambient globals
+ * (Request/Response/DurableObjectNamespace), which conflict with the rest of
+ * the workspace's Node-flavored `tsconfig.host.json` program the standard
+ * `lib/index.js` release-member shape below assumes — so they stay private
+ * and skip that shape, the same way `packages/experimental/*` does, while
+ * still publishing the `./invariant` companion every package owns.
+ */
+const deployOnlyWorkerPackages = new Set([
+  '@deepseek-ai/dsh-cloudflare-worker',
+])
 /** Private packages that participate in workspace checks but not releases. */
 const experimentalPackageDirectory = /^packages\/experimental\/[^/]+$/
 /** npm namespace reserved for private experimental packages. */
@@ -185,8 +199,12 @@ export function expectedDshPackageFiles(manifest: PackageManifest): readonly str
     ...bundleFiles,
     ...(manifest.name ? packageFileExtras[manifest.name] ?? [] : []),
   ]
+  const isDeployOnlyWorkerPackage = manifest.name !== undefined && deployOnlyWorkerPackages.has(manifest.name)
   return [
-    'lib/index.js',
+    // Deploy-only Worker packages have no npm-consumable "." entry point
+    // (see deployOnlyWorkerPackages) — wrangler bundles their own `main`
+    // directly, never through lib/index.js.
+    ...isDeployOnlyWorkerPackage ? [] : ['lib/index.js'],
     // Every package publishes its invariant ownership companion as a separate
     // bundle; the package-invariant gate validates the companion itself.
     'lib/invariant.js',
@@ -294,7 +312,7 @@ export function checkWorkspaceManifest({ dir, manifest }: WorkspaceManifest): st
       || manifest.repository.directory !== expectedDirectory) {
       errors.push(`${label}: published Landlock package repository must use ${repositoryUrl} with directory ${expectedDirectory} for trusted publishing`)
     }
-  } else if (releaseMemberDirectory.test(dir)) {
+  } else if (releaseMemberDirectory.test(dir) && !(manifest.name && deployOnlyWorkerPackages.has(manifest.name))) {
     // Release members state that they are publishable: npm refuses a private
     // package, and the repository field is how a consumer finds the source of
     // the package it installed.
@@ -366,19 +384,22 @@ export function checkWorkspaceManifest({ dir, manifest }: WorkspaceManifest): st
     if (manifest.type !== 'module') {
       errors.push(`${label}: package.json must set "type": "module"`)
     }
-    if (manifest.main !== 'lib/index.js') {
-      errors.push(`${label}: package.json must set "main": "lib/index.js"`)
-    }
-    if (manifest.types !== 'lib/types/index.d.ts') {
-      errors.push(`${label}: package.json must set "types": "lib/types/index.d.ts"`)
-    }
-    const rootExport = manifest.exports?.['.']
-    const rootEntry = typeof rootExport === 'object' && rootExport !== null ? rootExport : undefined
-    if (rootEntry?.types !== './lib/types/index.d.ts') {
-      errors.push(`${label}: package.json exports["."].types must be "./lib/types/index.d.ts"`)
-    }
-    if (rootEntry?.default !== './lib/index.js') {
-      errors.push(`${label}: package.json exports["."].default must be "./lib/index.js"`)
+    const isDeployOnlyWorkerPackage = deployOnlyWorkerPackages.has(manifest.name)
+    if (!isDeployOnlyWorkerPackage) {
+      if (manifest.main !== 'lib/index.js') {
+        errors.push(`${label}: package.json must set "main": "lib/index.js"`)
+      }
+      if (manifest.types !== 'lib/types/index.d.ts') {
+        errors.push(`${label}: package.json must set "types": "lib/types/index.d.ts"`)
+      }
+      const rootExport = manifest.exports?.['.']
+      const rootEntry = typeof rootExport === 'object' && rootExport !== null ? rootExport : undefined
+      if (rootEntry?.types !== './lib/types/index.d.ts') {
+        errors.push(`${label}: package.json exports["."].types must be "./lib/types/index.d.ts"`)
+      }
+      if (rootEntry?.default !== './lib/index.js') {
+        errors.push(`${label}: package.json exports["."].default must be "./lib/index.js"`)
+      }
     }
     const invariantRaw = manifest.exports?.['./invariant']
     const invariantExport = typeof invariantRaw === 'object' && invariantRaw !== null ? invariantRaw : undefined

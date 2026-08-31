@@ -1845,6 +1845,35 @@ export type SessionLogCompressionLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 来源：[`packages/session-query/session-log-export/src/index.ts:41`](../packages/session-query/session-log-export/src/index.ts)
 
+<a id="deepseek-aidsh-session-persistence-d1"></a>
+
+## `@deepseek-ai/dsh-session-persistence-d1`
+
+需要：`sessions`
+
+```ts config-catalog
+/** Plugin configuration: the D1 database identity, its REST credential, and coordinator tuning. */
+export interface Config {
+  /** Cloudflare account id owning the D1 database. */
+  accountId: string
+  /** D1 database id (from `wrangler d1 create`'s output — not the human-readable database name). */
+  databaseId: string
+  /**
+   * Cloudflare API token authorizing D1 REST access (requires D1 Edit
+   * permission on the account). Source this from an environment variable at
+   * the cordis.yml layer (for example `!!js process.env.CLOUDFLARE_D1_API_TOKEN`)
+   * — never commit a literal token.
+   */
+  apiToken: string
+  /** Maximum cold Session preparations retained for history-to-resume reuse. */
+  preparedSessionCacheSize?: number
+  /** Fixed live-event coalescing window; not a backend completion deadline. */
+  writeBatchMaxDelayMs?: number
+}
+```
+
+来源：[`packages/session/session-persistence-d1/src/index.ts:36`](../packages/session/session-persistence-d1/src/index.ts)
+
 <a id="deepseek-aidsh-session-persistence-jsonl"></a>
 
 ## `@deepseek-ai/dsh-session-persistence-jsonl`
@@ -2231,6 +2260,31 @@ export interface Config {
 ```
 
 来源：[`packages/spill/spill-policy/src/index.ts:60`](../packages/spill/spill-policy/src/index.ts)
+
+<a id="deepseek-aidsh-storage-d1"></a>
+
+## `@deepseek-ai/dsh-storage-d1`
+
+需要：`storage`
+
+```ts config-catalog
+/** Plugin configuration: the D1 database identity and the REST API credential that reaches it. */
+export interface Config {
+  /** Cloudflare account id owning the D1 database. */
+  accountId: string
+  /** D1 database id (from `wrangler d1 create`'s output — not the human-readable database name). */
+  databaseId: string
+  /**
+   * Cloudflare API token authorizing D1 REST access (requires D1 Edit
+   * permission on the account). Source this from an environment variable at
+   * the cordis.yml layer (for example `!!js process.env.CLOUDFLARE_D1_API_TOKEN`)
+   * — never commit a literal token.
+   */
+  apiToken: string
+}
+```
+
+来源：[`packages/storage/storage-d1/src/index.ts:31`](../packages/storage/storage-d1/src/index.ts)
 
 <a id="deepseek-aidsh-storage-domain"></a>
 
@@ -3429,6 +3483,7 @@ export interface Config {
 - `@deepseek-ai/dsh-client-ui-layout`（[`packages/client/ui-layout/src/index.ts`](../packages/client/ui-layout/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-message-feedback`（[`packages/client/ui-message-feedback/src/index.ts`](../packages/client/ui-message-feedback/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-model-selection`（[`packages/client/ui-model-selection/src/index.ts`](../packages/client/ui-model-selection/src/index.ts)）
+- `@deepseek-ai/dsh-client-ui-openui`（[`packages/client/ui-openui/src/index.ts`](../packages/client/ui-openui/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-permission-presets`（[`packages/client/ui-permission-presets/src/index.ts`](../packages/client/ui-permission-presets/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-plan`（[`packages/client/ui-plan/src/index.ts`](../packages/client/ui-plan/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-quick-actions`（[`packages/client/ui-quick-actions/src/index.ts`](../packages/client/ui-quick-actions/src/index.ts)）
@@ -3449,6 +3504,7 @@ export interface Config {
 - `@deepseek-ai/dsh-client-ui-user-questions`（[`packages/client/ui-user-questions/src/index.ts`](../packages/client/ui-user-questions/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-workflow-run`（[`packages/client/ui-workflow-run/src/index.ts`](../packages/client/ui-workflow-run/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-workspace`（[`packages/client/ui-workspace/src/index.ts`](../packages/client/ui-workspace/src/index.ts)）
+- `@deepseek-ai/dsh-cloudflare-app`（[`packages/bundle/cloudflare-app/src/index.ts`](../packages/bundle/cloudflare-app/src/index.ts)）
 - `@deepseek-ai/dsh-command-compact` — 需要 `commands` · `compact`（[`packages/compaction/command-compact/src/index.ts`](../packages/compaction/command-compact/src/index.ts)）
 - `@deepseek-ai/dsh-command-feedback` — 需要 `commands`（[`packages/feedback/command-feedback/src/index.ts`](../packages/feedback/command-feedback/src/index.ts)）
 - `@deepseek-ai/dsh-command-goal` — 需要 `commands` · `goals`（[`packages/goal/command-goal/src/index.ts`](../packages/goal/command-goal/src/index.ts)）
@@ -3517,8 +3573,10 @@ export interface Config {
 - `@deepseek-ai/dsh-client-ui-primitives`（[`packages/client/ui-primitives/src/index.ts`](../packages/client/ui-primitives/src/index.ts)）
 - `@deepseek-ai/dsh-client-ui-slots`（[`packages/client/ui-slots/src/index.ts`](../packages/client/ui-slots/src/index.ts)）
 - `@deepseek-ai/dsh-client-web`（[`packages/client/web/src/index.ts`](../packages/client/web/src/index.ts)）
+- `@deepseek-ai/dsh-cloudflare-worker`（[`packages/cloudflare/cloudflare-worker/src/index.ts`](../packages/cloudflare/cloudflare-worker/src/index.ts)）
 - `@deepseek-ai/dsh-cmdline`（[`packages/boot/cmdline/src/index.ts`](../packages/boot/cmdline/src/index.ts)）
 - `@deepseek-ai/dsh-code-runtime-python`（[`packages/code-runtime/code-runtime-python/src/index.ts`](../packages/code-runtime/code-runtime-python/src/index.ts)）
+- `@deepseek-ai/dsh-d1-client`（[`packages/util/d1-client/src/index.ts`](../packages/util/d1-client/src/index.ts)）
 - `@deepseek-ai/dsh-experimental-agent-team-profile`（[`packages/experimental/agent-team-profile/src/index.ts`](../packages/experimental/agent-team-profile/src/index.ts)）
 - `@deepseek-ai/dsh-experimental-agent-team-web-profile`（[`packages/experimental/agent-team-web-profile/src/index.ts`](../packages/experimental/agent-team-web-profile/src/index.ts)）
 - `@deepseek-ai/dsh-experimental-webworker-packer`（[`packages/experimental/webworker-packer/src/index.ts`](../packages/experimental/webworker-packer/src/index.ts)）
@@ -3529,6 +3587,7 @@ export interface Config {
 - `@deepseek-ai/dsh-llm-mock-server`（[`packages/test-support/llm-mock-server/src/index.ts`](../packages/test-support/llm-mock-server/src/index.ts)）
 - `@deepseek-ai/dsh-loader-smoke`（[`packages/test-support/loader-smoke/src/index.ts`](../packages/test-support/loader-smoke/src/index.ts)）
 - `@deepseek-ai/dsh-native-command`（[`packages/util/native-command/src/index.ts`](../packages/util/native-command/src/index.ts)）
+- `@deepseek-ai/dsh-openui-lang`（[`packages/openui/openui-lang/src/index.ts`](../packages/openui/openui-lang/src/index.ts)）
 - `@deepseek-ai/dsh-output-retention`（[`packages/util/output-retention/src/index.ts`](../packages/util/output-retention/src/index.ts)）
 - `@deepseek-ai/dsh-sandbox-windows-acl`（[`packages/sandbox/sandbox-windows-acl/src/index.ts`](../packages/sandbox/sandbox-windows-acl/src/index.ts)）
 - `@deepseek-ai/dsh-scope`（[`packages/core/scope/src/index.ts`](../packages/core/scope/src/index.ts)）

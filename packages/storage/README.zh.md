@@ -9,7 +9,7 @@ kind: "package-group"
 
 ## 概述
 
-存储组为组合提供会话事件日志以外一切数据的持久存储：工作区记录、会话伴随数据，以及其他宿主侧应用数据。借助它，宿主包可以经 schema 校验过的领域数据形式持久化类型化记录，在人类可读的 JSON 后端与支持定点更新的 SQLite 后端之间选择，并在每次持久写入后收到变更事件。本家族是可选项，且只面向宿主侧：它不注册工具、不注入提示词，也不写入会话事件，因此模型与 agent loop（智能体循环）永远不会看到它。当产品需要跨重启保留应用状态时使用它；没有任何此类数据的组合可以省略整个组。
+存储组为组合提供会话事件日志以外一切数据的持久存储：工作区记录、会话伴随数据，以及其他宿主侧应用数据。借助它，宿主包可以经 schema 校验过的领域数据形式持久化类型化记录，在人类可读的 JSON 后端、支持定点更新的 SQLite 后端，以及面向必须独立于任何一台机器存活的数据的 Cloudflare D1 后端之间选择，并在每次持久写入后收到变更事件。本家族是可选项，且只面向宿主侧：它不注册工具、不注入提示词，也不写入会话事件，因此模型与 agent loop（智能体循环）永远不会看到它。当产品需要跨重启保留应用状态时使用它；没有任何此类数据的组合可以省略整个组。
 
 ## 目录
 
@@ -27,6 +27,7 @@ kind: "package-group"
 | [`storage`](storage/README.zh.md) | 把已注册后端与已挂载的数据形式设施连接起来 | `ctx.storage` |
 | [`storage-json`](storage-json/README.zh.md) | 把每个单元存为一个人类可读的 JSON 文件 | 注册后端 `json` |
 | [`storage-sqlite`](storage-sqlite/README.zh.md) | 把单元作为 JSON 文档存进一个 SQLite 数据库 | 注册后端 `sqlite` |
+| [`storage-d1`](storage-d1/README.zh.md) | 把单元作为 JSON 文档存进一个 Cloudflare D1 数据库，经 D1 REST API 访问 | 注册后端 `d1` |
 | [`storage-domain`](storage-domain/README.zh.md) | 在已路由后端之上提供经过 schema 校验、发出变更事件的 KV 领域 | `ctx.storageDomain` |
 
 -----

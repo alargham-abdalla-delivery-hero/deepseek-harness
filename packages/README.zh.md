@@ -37,6 +37,7 @@ harness 由 `packages/` 下的 npm 包组装而成，按能力系列分组：会
 | [`identity/`](identity/README.zh.md) | 共享匿名身份 |
 | [`llm/`](llm/README.zh.md) | LLM 能力系列：抽象服务 + 提供方适配器 |
 | [`e2b/`](e2b/README.zh.md) | E2B 远程运行时提供方 |
+| [`cloudflare/`](cloudflare/README.zh.md) | Cloudflare 托管后端：边缘 Worker + Container 支持的 Durable Object |
 | [`subprocess/`](subprocess/README.zh.md) | 子进程能力系列：Service Definition + 本地进程树提供方 |
 | [`shell/`](shell/README.zh.md) | Bash 能力系列：执行器 seam、本地实现、面向模型的工具 |
 | [`terminal/`](terminal/README.zh.md) | 持久 PTY 能力系列：限定所有者范围的会话、本地实现、面向模型的工具 |

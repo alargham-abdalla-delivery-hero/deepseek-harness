@@ -1,0 +1,19 @@
+{
+  // Compiles only src/invariant.ts, isolated from tsconfig.json's Workers-typed
+  // program (gateway.ts/host-container.ts need @cloudflare/workers-types,
+  // incompatible with this repo's Node-flavored tsconfig.base.json). This is
+  // the only file of this package the workspace-release-member shape needs
+  // built: verify-built-package-invariants loads every package's declared
+  // ./invariant export from a real lib/invariant.js, so it must exist even
+  // though nothing else in this package goes through the standard pipeline
+  // (see deployOnlyWorkerPackages in scripts/check-workspace-constraints.ts).
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib/types"
+  },
+  "include": ["src/invariant.ts"],
+  "references": [
+    { "path": "../../runtime-diagnostics/invariants" }
+  ]
+}

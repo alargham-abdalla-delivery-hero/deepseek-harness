@@ -1,0 +1,59 @@
+# The dsh Host image for Cloudflare Containers: packages the already-built
+# `dsh` CLI (the same lib/ output the local `dsh --profile web` path uses,
+# per this repo's pre-release stance of testing what ships) and boots the
+# `cloudflare` profile — dsh-base + dsh-web-app + dsh-cloudflare-app — bound
+# to the container's own network interface. Credentials (CLOUDFLARE_ACCOUNT_ID,
+# CLOUDFLARE_D1_DATABASE_ID, CLOUDFLARE_D1_API_TOKEN) arrive as container
+# environment variables set by the owning Durable Object, never baked into
+# the image.
+#
+# node_modules is reinstalled fresh here rather than copied from the host: a
+# pnpm workspace's node_modules is a tree of symlinks into a store keyed by
+# absolute host paths, which do not survive copying into another filesystem
+# (let alone from a macOS/arm64 dev host to this Linux image).
+FROM node:22-slim AS install
+
+WORKDIR /app
+
+RUN corepack enable && corepack prepare pnpm@11.7.0 --activate
+
+# The full source tree (node_modules/.git/build-output excluded by
+# .dockerignore) — pnpm-workspace.yaml's globs need every member's
+# package.json present to resolve a frozen-lockfile install correctly.
+COPY . .
+
+# Not --prod: this repo's convention is peerDependencies satisfied through a
+# sibling devDependency entry (see packages/CLAUDE.md), so a prod-only install
+# would drop packages several runtime imports actually need. Reduced
+# concurrency trades build time for peak memory — a low-memory build host
+# (verified: a ~1.9 GiB Docker daemon) OOM-kills the default concurrency
+# partway through this monorepo's ~1000-package install.
+RUN pnpm install --frozen-lockfile --network-concurrency=1 --child-concurrency=1
+
+FROM node:22-slim
+
+WORKDIR /app
+
+# The whole install stage, not a cherry-picked subset: every workspace member
+# under packages/*, native/, and apps/* owns its own pnpm-linked node_modules
+# (per-package symlinks into the root store), and missing even one breaks
+# resolution for whatever that package imports at runtime. apps/cli/lib and
+# apps/web/dist already reflect the host's build (COPY . . above pulled them
+# in as ordinary files; this repo's pre-release stance runs what ships, not a
+# second build inside the image).
+COPY --from=install /app ./
+
+# The container's disk is ephemeral (resets on stop, per Cloudflare Containers'
+# lifecycle) — $DSH_HOME lives on that same ephemeral disk, not a durable
+# mount. Nothing under it is relied on to survive a restart; durable data
+# lives in D1 via dsh-cloudflare-app's storage/session-persistence backends.
+ENV DSH_HOME=/app/.dsh-home
+
+EXPOSE 8080
+
+# --no-open: no browser exists inside a container. `--host 0.0.0.0` is
+# deliberately rejected by dsh-web-app's own CLI ("would expose remote code
+# execution to the network"); 127.0.0.1 is correct here anyway — Cloudflare
+# Containers reaches the container through a proxy sharing its network
+# namespace (pod-local), not raw Docker bridge networking.
+CMD ["node", "apps/cli/lib/bin.js", "--profile", "cloudflare", "--host", "127.0.0.1", "--port", "8080", "--no-open"]

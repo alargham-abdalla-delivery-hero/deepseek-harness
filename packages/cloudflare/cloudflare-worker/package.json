@@ -1,0 +1,52 @@
+{
+  "name": "@deepseek-ai/dsh-cloudflare-worker",
+  "description": "Edge Worker + Container-backed Durable Object running the dsh Host as a Cloudflare Container, one instance per Workspace",
+  "version": "0.1.2-alpha.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/cloudflare/cloudflare-worker"
+  },
+  "type": "module",
+  "exports": {
+    "./invariant": {
+      "types": "./lib/types/invariant.d.ts",
+      "default": "./lib/invariant.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/invariant.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "pretypecheck": "wrangler types",
+    "typecheck": "tsc --noEmit",
+    "pretest": "wrangler types",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/containers": "^0.3.7",
+    "@deepseek-ai/dsh-d1-client": "workspace:^"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@deepseek-ai/cordis": "workspace:^"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@cloudflare/workers-types": "^5.20260830.1",
+    "@deepseek-ai/cordis": "workspace:^",
+    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@types/node": "^22.20.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8",
+    "wrangler": "^4.127.1"
+  }
+}

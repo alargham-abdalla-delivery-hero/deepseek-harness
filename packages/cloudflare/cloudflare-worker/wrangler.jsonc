@@ -1,0 +1,34 @@
+{
+  "name": "dsh-cloudflare-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-10",
+  "containers": [
+    {
+      "class_name": "HostContainer",
+      // Resolved relative to this file: repository_root/Dockerfile.cloudflare.
+      // Cloudflare Containers uses the Dockerfile's own directory as the
+      // build context (no separate context setting), and this image needs
+      // the whole repository as context (COPY packages, COPY apps/cli/lib,
+      // …) — a path only the repository root can provide.
+      "image": "../../../Dockerfile.cloudflare",
+      "instance_type": "standard-1",
+      "max_instances": 10
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "HOST_CONTAINER", "class_name": "HostContainer" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["HostContainer"] }
+  ],
+  "vars": {
+    // A single-Workspace deployment's one Workspace id; see
+    // src/gateway.ts's resolveWorkspaceId. Override per deployment.
+    "DEFAULT_WORKSPACE_ID": "default"
+  }
+  // CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_D1_DATABASE_ID / CLOUDFLARE_D1_API_TOKEN
+  // are deployment secrets (`wrangler secret put`), never committed here —
+  // see the package README.
+}

@@ -1,0 +1,53 @@
+# The dsh-cloudflare-app bundle patch: applied AFTER dsh-web-app's own patch
+# (profile bundle order: dsh-base -> dsh-web-app -> dsh-cloudflare-app), so
+# this layer keeps the entire browser UI, workspace controller, and session
+# controller dsh-web-app already assembles, and only swaps the local-file
+# storage/session backends for their Cloudflare D1 equivalents plus disables
+# the local-machine browser handoff. A patch replaces the targeted row's whole
+# `config`, so each row below restates every key it owns.
+
+# ── disable the local-file backends dsh-base mounts by default ──────────────
+
+- id: session-persistence-jsonl
+  disabled: true
+
+- id: storage-json
+  disabled: true
+
+# ── route the schema-validated domain form at the D1 backend ────────────────
+
+- id: storage-domain
+  config:
+    backend: d1
+
+# ── Cloudflare D1 backends, credentials sourced from the container's own
+#    environment (set by the host-container Durable Object, never committed) ─
+
+- insert:
+    - id: storage-d1
+      name: '@deepseek-ai/dsh-storage-d1'
+      config:
+        accountId: !!js process.env.CLOUDFLARE_ACCOUNT_ID
+        databaseId: !!js process.env.CLOUDFLARE_D1_DATABASE_ID
+        apiToken: !!js process.env.CLOUDFLARE_D1_API_TOKEN
+
+    - id: session-persistence-d1
+      name: '@deepseek-ai/dsh-session-persistence-d1'
+      config:
+        accountId: !!js process.env.CLOUDFLARE_ACCOUNT_ID
+        databaseId: !!js process.env.CLOUDFLARE_D1_DATABASE_ID
+        apiToken: !!js process.env.CLOUDFLARE_D1_API_TOKEN
+
+    # Fails loud at boot when a required Cloudflare credential is missing,
+    # instead of surfacing as an opaque D1 REST failure on first storage use.
+    - id: cloudflare-app-startup
+      name: '@deepseek-ai/dsh-cloudflare-app'
+
+# ── no local browser or LAN handoff inside a container ───────────────────────
+
+- id: web-runtime
+  config:
+    openBrowser: false
+    printUrl: false
+    surfaceContext: true
+    trustedHosts: []

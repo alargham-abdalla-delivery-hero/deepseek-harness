@@ -68,6 +68,13 @@ const nonLinuxWebWorkerTests = process.platform === 'linux'
 
 const platformUnsupportedTests = [...windowsUnsupportedTests, ...nonLinuxWebWorkerTests]
 
+// `*.workers.spec.ts` runs inside the actual Workers runtime via
+// `@cloudflare/vitest-pool-workers`, a different pool with its own ambient
+// globals (fetch/Request/Response) incompatible with this config's Node
+// projects. It has its own package-local vitest.config.ts and runs there —
+// see packages/cloudflare/cloudflare-worker.
+const workersPoolTests = ['packages/*/*/tests/**/*.workers.spec.ts']
+
 const windowsUnsupportedCoveragePackages = process.platform === 'win32'
   ? [...windowsUnsupportedPackages, 'packages/subprocess/*']
   : []
@@ -152,7 +159,7 @@ export default defineConfig({
     setupFiles: ['./scripts/test-invariants.ts'],
     // .tsx: client component specs (jsdom via per-file @vitest-environment pragma).
     include: testIncludes,
-    exclude: platformUnsupportedTests,
+    exclude: [...platformUnsupportedTests, ...workersPoolTests],
     // One coverage invocation aggregates both projects. Every suite forks for
     // Node stability; process-bound suites stay separate for inventory control.
     projects: [
@@ -171,6 +178,7 @@ export default defineConfig({
             ...platformUnsupportedTests,
             ...processBoundTests,
             ...coverageExemptExcludes,
+            ...workersPoolTests,
           ],
         },
       },
@@ -185,6 +193,7 @@ export default defineConfig({
           exclude: [
             ...platformUnsupportedTests,
             ...coverageExemptExcludes,
+            ...workersPoolTests,
           ],
         },
       },

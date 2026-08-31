@@ -103,13 +103,19 @@
   // Under packages/client a test file names the face it covers: `*.client.*`
   // belongs to the Client aggregate, `*.host.spec.ts` to this one. The two
   // suffixes are mutually exclusive, so each aggregate excludes the other's
-  // and the package test glob above needs no per-file entry.
+  // and the package test glob above needs no per-file entry. `*.workers.spec.ts`
+  // is the analogous third face: `@cloudflare/workers-types`' ambient globals
+  // (fetch/Request/Response) conflict with this program's Node ones, exactly
+  // as the Client face's DOM globals do — packages/cloudflare/cloudflare-worker
+  // type-checks these under its own package-local tsconfig.json instead.
   "exclude": [
     "packages/client/*/src/**",
     "packages/*/*/tests/**/*.client.ts",
     "packages/*/*/tests/**/*.client.tsx",
     "packages/*/*/tests/**/*.client.spec.ts",
     "packages/*/*/tests/**/*.client.spec.tsx",
+    "packages/*/*/tests/**/*.workers.ts",
+    "packages/*/*/tests/**/*.workers.spec.ts",
     "packages/client/tsdown.client.ts",
     "scripts/*.client.spec.ts",
     "scripts/client-bundle-css.spec.ts",
@@ -127,6 +133,7 @@
     { "path": "./vendor/hmr" },
     { "path": "./vendor/logger-console" },
     { "path": "./packages/util/brand" },
+    { "path": "./packages/util/d1-client" },
     { "path": "./packages/util/launch-environment" },
     { "path": "./packages/util/native-command" },
     { "path": "./packages/util/home-paths" },
@@ -153,6 +160,7 @@
     { "path": "./packages/session/session-persistence" },
     { "path": "./packages/session/session-checkpoint-policy" },
     { "path": "./packages/session/session-log-deepseek" },
+    { "path": "./packages/session/session-persistence-d1" },
     { "path": "./packages/session/session-persistence-jsonl" },
     { "path": "./packages/session/session-persistence-sqlite" },
     { "path": "./packages/session/session-projection" },
@@ -170,6 +178,7 @@
     { "path": "./packages/storage/storage" },
     { "path": "./packages/storage/storage-json" },
     { "path": "./packages/storage/storage-sqlite" },
+    { "path": "./packages/storage/storage-d1" },
     { "path": "./packages/storage/storage-domain" },
     { "path": "./packages/feedback/message-feedback" },
     { "path": "./packages/workspace/workspace" },
@@ -264,6 +273,12 @@
     { "path": "./packages/acp/acp" },
     { "path": "./packages/bundle/acp-app" },
     { "path": "./packages/bundle/base" },
+    { "path": "./packages/bundle/cloudflare-app" },
+    // Not the package's own tsconfig.json (its gateway.ts/host-container.ts
+    // need @cloudflare/workers-types, incompatible with this program's Node
+    // globals) — only its isolated invariant-only sub-project, so `pnpm run
+    // build` still produces the lib/invariant.js every package publishes.
+    { "path": "./packages/cloudflare/cloudflare-worker/tsconfig.invariant.json" },
     { "path": "./packages/bundle/headless" },
     { "path": "./packages/bundle/sdk-app" },
     { "path": "./packages/bundle/sdk-minimal" },
