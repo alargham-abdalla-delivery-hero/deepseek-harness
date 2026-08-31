@@ -21,7 +21,7 @@ describe('D1Client', () => {
     expect(result).toEqual({ results: [{ n: 1 }], success: true, meta: {} })
   })
 
-  it('sends multiple statements as an array body for batch()', async () => {
+  it('sends multiple statements wrapped in a batch object for batch()', async () => {
     let capturedBody: string | undefined
     const httpClient: D1HttpClient = async (_url, init) => {
       capturedBody = init?.body as string
@@ -32,7 +32,7 @@ describe('D1Client', () => {
     }
     const client = new D1Client({ accountId: 'acc', databaseId: 'db', apiToken: 'tok' }, httpClient)
     const results = await client.batch([{ sql: 'A' }, { sql: 'B', params: [1] }])
-    expect(JSON.parse(capturedBody!)).toEqual([{ sql: 'A' }, { sql: 'B', params: [1] }])
+    expect(JSON.parse(capturedBody!)).toEqual({ batch: [{ sql: 'A' }, { sql: 'B', params: [1] }] })
     expect(results).toHaveLength(2)
   })
 

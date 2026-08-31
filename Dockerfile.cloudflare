@@ -51,12 +51,8 @@ ENV DSH_HOME=/app/.dsh-home
 
 EXPOSE 8080
 
-# --no-open: no browser exists inside a container. `--host 0.0.0.0` is
-# deliberately rejected by dsh-web-app's own CLI ("would expose remote code
-# execution to the network"), and — confirmed against a real deployment —
-# 127.0.0.1 is NOT reachable from Cloudflare's own container port health
-# check, which connects via this instance's actual assigned private IP, not
-# loopback. docker-entrypoint.cloudflare.sh discovers that address at boot and
-# execs the real process with it, keeping PID 1 semantics intact; see the
-# script for the full explanation.
+# --no-open: no browser exists inside a container. The webserver's bind host
+# is fixed to 0.0.0.0 by dsh-cloudflare-app's own config patch, not by a flag
+# here — see docker-entrypoint.cloudflare.sh. --port only is passed through
+# PID 1 via exec, keeping signal handling intact.
 CMD ["sh", "/app/docker-entrypoint.cloudflare.sh"]

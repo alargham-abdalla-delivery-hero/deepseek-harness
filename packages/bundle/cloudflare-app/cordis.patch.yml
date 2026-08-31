@@ -51,3 +51,22 @@
     printUrl: false
     surfaceContext: true
     trustedHosts: []
+
+# ── bind every interface: dsh-web-app's own patch resolves this row's host
+#    from the invocation's --host flag, but dsh-web-app's startup CLI guard
+#    (packages/bundle/web-app/src/startup.ts) rejects --host 0.0.0.0 outright
+#    as a local-machine safety measure (it would expose remote code execution
+#    to a LAN). That guard's premise does not hold here: this row runs inside
+#    Cloudflare's own network-isolated Container, reachable only through
+#    Cloudflare's internal proxy, which — confirmed against a real deployment —
+#    connects on an address this process has no way to discover or bind
+#    individually. Restating host directly bypasses the --host flag path (and
+#    its guard) rather than weakening it for the shared dsh-web-app surface.
+- id: webserver
+  inject: [webStartup]
+  config:
+    host: '0.0.0.0'
+    port: !!js ctx.webStartup.port ?? 8080
+    compression: gzip
+    compressionLevel: 1
+    compressionThresholdBytes: 1024

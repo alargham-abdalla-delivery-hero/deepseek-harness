@@ -82,7 +82,7 @@ export class D1Client {
   }
 
   private async send(statements: readonly D1Statement[]): Promise<readonly D1QueryResult[]> {
-    const body = statements.length === 1 ? JSON.stringify(statements[0]) : JSON.stringify(statements)
+    const body = statements.length === 1 ? JSON.stringify(statements[0]) : JSON.stringify({ batch: statements })
     let response: Response
     try {
       response = await this.httpClient(this.endpoint, {
