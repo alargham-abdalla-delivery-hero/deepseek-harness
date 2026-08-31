@@ -1,0 +1,395 @@
+openspec/changes/cloudflare-hosted-backend/.openspec.yaml
+  s_e22863b78ca518::t_c0aee733f5e783 1-2
+packages/cloudflare/cloudflare-worker/README.i18n.yaml
+  s_ac41e83647e1be::t_1d9d60acc6ae58 5-6
+  s_ac41e83647e1be::t_6147c41b54b5de 1-4
+packages/cloudflare/README.md
+  s_ac41e83647e1be::t_87075e315ca10a 1-48
+tsconfig.host.json
+  s_ac41e83647e1be::t_bde72bd86a7a44 277-281
+  s_ac41e83647e1be::t_f4fdc428626109 106-110,117-118
+  s_e22863b78ca518::t_0792312a2df626 163
+  s_e22863b78ca518::t_5c93b5fefa1b58 136
+  s_e22863b78ca518::t_a93c8e2bd62dfe 181
+  s_e22863b78ca518::t_58ca9109ec57b2 276
+packages/storage/storage-d1/tests/invariant.spec.ts
+  s_e22863b78ca518::t_e9a78312e151c6 1-12
+scripts/check-workspace-constraints.ts
+  s_ac41e83647e1be::t_d210ec7d94bcb7 51-64
+  s_ac41e83647e1be::t_f0b85f0f87c504 388-402
+  s_ac41e83647e1be::t_808bfca3e25fcb 315
+  s_ac41e83647e1be::t_d99b3402e40d50 202,204-207
+  s_ac41e83647e1be::t_758d6181e769c9 387
+packages/storage/storage-d1/tests/fake-d1-server.ts
+  s_e22863b78ca518::t_83721181221ed4 30
+  s_e22863b78ca518::t_18a3c2f757f4ef 1-10,12-25,27-29,31-59
+  s_e22863b78ca518::t_2026e520a52624 11
+  s_e22863b78ca518::t_71174cc3281af2 26
+packages/storage/README.zh.md
+  s_e22863b78ca518::t_9e30d98317dc8c 12
+  s_e22863b78ca518::t_a5bb28f6dd200a 30
+packages/storage/storage-d1/src/index.ts
+  s_e22863b78ca518::t_f50bc31d578f0c 1-13,16-17,19-21,24-160
+  s_e22863b78ca518::t_75e27e86aa78e6 14-15,22-23
+  s_e22863b78ca518::t_304ec54bf3f682 18
+packages/cloudflare/cloudflare-worker/tests/gateway.workers.spec.ts
+  s_ac41e83647e1be::t_76562459717fc6 17,20-21,24-25,27-43,48-49,52-53,66
+  s_ac41e83647e1be::t_ca5f4d81800f4a 44-47,50-51
+  s_ac41e83647e1be::t_7b9b09ccefb58d 14-16
+  s_ac41e83647e1be::t_966892b734969d 18-19
+  s_ac41e83647e1be::t_eac8bd3d8330ff 22-23
+  s_ac41e83647e1be::t_acdf5e3ba0a3df 26
+  s_ac41e83647e1be::t_f84b6145c5b023 54-56,63-65
+  s_ac41e83647e1be::t_36fbf396528e6f 67
+  s_e22863b78ca518::t_ce26cfbfe753ab 1-13,57-62
+packages/cloudflare/cloudflare-worker/package.json
+  s_ac41e83647e1be::t_180a06d9db4715 27-28,30
+  s_e22863b78ca518::t_262746f35903b7 1,3-5,11,24-26,32,34,41-42,44,48,50-52
+  s_ac41e83647e1be::t_5e0e4992a858ba 43
+  s_ac41e83647e1be::t_d6b076e5aa2f00 2,6-10,29,31,33,35-36,45-46,49
+  s_ac41e83647e1be::t_1219ae00856681 47
+  s_ac41e83647e1be::t_fd21e83a741c5e 12-23,37-40
+openspec/changes/cloudflare-hosted-backend/specs/cloudflare/host-container/spec.md
+  s_e22863b78ca518::t_2864e469677760 1-44
+.dockerignore
+  s_e22863b78ca518::t_bdb4f0ab275aa5 1-6
+packages/util/README.md
+  s_e22863b78ca518::t_0ad3553cdbf5aa 12
+  s_e22863b78ca518::t_71ae971b0899bf 2
+  s_e22863b78ca518::t_6ce57b673d8f4a 31
+packages/bundle/cloudflare-app/README.i18n.yaml
+  s_e22863b78ca518::t_23f4ab3dd180d0 5-6
+  s_e22863b78ca518::t_f0658fb3d5034f 1-4
+packages/session/session-persistence-d1/tests/invariant.spec.ts
+  s_e22863b78ca518::t_2e0c2d506d2b01 1-12
+scripts/verify-package-readme-model-experience.ts
+  s_e22863b78ca518::t_8f950468aef809 64
+  s_e22863b78ca518::t_9e735988961eec 65
+packages/bundle/README.zh.md
+  s_e22863b78ca518::t_b030c70cca3b9c 28
+  s_e22863b78ca518::t_49dda9b9302b86 12
+packages/cloudflare/cloudflare-worker/tsconfig.json
+  s_ac41e83647e1be::t_668faba3b7d6cd 16-18
+  s_e22863b78ca518::t_41c4b97f432a37 12-13
+  s_e22863b78ca518::t_3be9d4b54b7bb6 1-11,14,19
+  s_ac41e83647e1be::t_20be2b31020291 15
+packages/bundle/cloudflare-app/tests/startup.spec.ts
+  s_e22863b78ca518::t_421eda7ea2b409 27
+  s_e22863b78ca518::t_0db99ed246c6eb 21
+  s_e22863b78ca518::t_6441e07b7f6d94 12
+  s_e22863b78ca518::t_44964d6b9b19ab 26,28-29
+  s_e22863b78ca518::t_ea2f9be711b1f4 1-11,13-20,22-25,30-46
+packages/storage/storage-d1/README.zh.md
+  s_ac41e83647e1be::t_a4987b3a420cdd 86
+  s_e22863b78ca518::t_d16a99ab4635ea 1-55,57-85,87-98,102-142
+  s_e22863b78ca518::t_21e62017f76d33 99-101
+  s_e22863b78ca518::t_01fdfd887a6c0b 56
+.github/workflows/deploy-cloudflare-worker.yml
+  s_ac41e83647e1be::t_e2fa7edf6ca7c6 1-63
+packages/cloudflare/README.i18n.yaml
+  s_ac41e83647e1be::t_36199a52230bf3 1-6
+openspec/changes/cloudflare-hosted-backend/specs/cloudflare/workspace-persistence/spec.md
+  s_e22863b78ca518::t_bdbc6e80619f8e 1-41
+packages/util/README.zh.md
+  s_e22863b78ca518::t_182e5116976b76 31
+  s_e22863b78ca518::t_abd80d26b3384a 2
+  s_e22863b78ca518::t_c553f16a6e9159 12
+openspec/changes/cloudflare-hosted-backend/specs/cloudflare/edge-gateway/spec.md
+  s_ac41e83647e1be::t_4572a746ee42eb 23
+  s_e22863b78ca518::t_6640729b7ab536 1-17,20,24,27,32-49
+  s_ac41e83647e1be::t_4a0d0cb1aad2b4 18-19,21-22,25-26,28-31
+packages/bundle/cloudflare-app/tests/invariant.spec.ts
+  s_e22863b78ca518::t_27edee3f802725 1-12
+packages/bundle/README.md
+  s_e22863b78ca518::t_e8c629eb88531d 12
+  s_e22863b78ca518::t_d49cf6d51dbf67 28
+vitest.config.ts
+  s_ac41e83647e1be::t_3caf7755ef34ce 162,181,196
+  s_ac41e83647e1be::t_b6157cbcbde87f 71-77
+packages/util/d1-client/src/index.ts
+  s_e22863b78ca518::t_ff56d27d32d34a 1-115
+  s_ac41e83647e1be::t_6de6a04040e245 116-130
+packages/cloudflare/cloudflare-worker/vitest.config.ts
+  s_ac41e83647e1be::t_5a8a99dbcfa99c 1-2,4-5
+  s_ac41e83647e1be::t_1216040a001367 3,6
+packages/cloudflare/cloudflare-worker/src/gateway.ts
+  s_ac41e83647e1be::t_a4709541304abc 41-53,59-66,69,71,75,78
+  s_ac41e83647e1be::t_326cd8bd0431d6 12
+  s_e22863b78ca518::t_130336fd68e65d 30
+  s_e22863b78ca518::t_854df62a4d67bc 1-11,13-29,31-32,39-40,54-58,67-68,70,72-73,76-77,79-83,105,108-110,112-120,132-138
+  s_ac41e83647e1be::t_aa239b6db10386 33-38
+  s_ac41e83647e1be::t_ae041d19762cd3 84-104,111,121
+  s_e22863b78ca518::t_c8f9ba83dac9fd 74
+  s_ac41e83647e1be::t_d918f54ed64490 106-107,122-131
+packages/README.i18n.yaml
+  s_ac41e83647e1be::t_729f8164daa939 5-6
+openspec/config.yaml
+  s_e22863b78ca518::t_c0aee733f5e783 1
+packages/bundle/cloudflare-app/tsconfig.json
+  s_e22863b78ca518::t_94d943a157dd80 1-18
+packages/bundle/cloudflare-app/tests/bundle-disposal.spec.ts
+  s_ac41e83647e1be::t_868cb5d8eb9552 1-4,6-54
+  s_ac41e83647e1be::t_ec1a92950e11a1 5
+packages/cloudflare/cloudflare-worker/tsconfig.invariant.json
+  s_ac41e83647e1be::t_cac1b38bad8563 1-19
+packages/session/README.zh.md
+  s_e22863b78ca518::t_e823597409a76c 34
+packages/bundle/cloudflare-app/README.zh.md
+  s_e22863b78ca518::t_0596558a1c5c47 112,114-115
+  s_e22863b78ca518::t_7bb0a1fb06d3c7 50,53-55
+  s_e22863b78ca518::t_9876fc115fe766 31,34
+  s_e22863b78ca518::t_c941fb1a73b8b1 49
+  s_e22863b78ca518::t_ad57bc4b657170 1-30,32-33,35-48,51-52,56-82,84-111,113,116-125
+  s_e22863b78ca518::t_a002ec6a42d107 83
+packages/README.zh.md
+  s_ac41e83647e1be::t_df44dbc3cc3736 40
+packages/storage/storage-d1/tests/workspace-swap-in.spec.ts
+  s_e22863b78ca518::t_7d206bc62eaa89 12
+  s_e22863b78ca518::t_baccc3aef6bdb5 32,35-41
+  s_e22863b78ca518::t_12177e1eea7e84 1-11,13-20,24-26,29-31,33-34,42-52
+  s_e22863b78ca518::t_28c216733ee524 21-23,27-28
+packages/storage/storage-d1/package.json
+  s_e22863b78ca518::t_78c965c5580970 40
+  s_e22863b78ca518::t_ebe993afda5490 1-39,41-45,48-50
+  s_e22863b78ca518::t_3f2a7ee9eea2b5 46-47
+packages/session/session-persistence-d1/src/schema.ts
+  s_e22863b78ca518::t_f8982fb8a71a05 1-127,131-182
+  s_e22863b78ca518::t_382d03d31ba79e 128-130
+pnpm-workspace.yaml
+  s_e22863b78ca518::t_e15c96e2f4b2d7 89
+  s_ac41e83647e1be::t_8a2facdf14a08c 37-44
+packages/bundle/cloudflare-app/package.json
+  s_ac41e83647e1be::t_aa83e580c25a23 51-53
+  s_e22863b78ca518::t_24dd540938b8bd 1-50,54-55
+packages/bundle/cloudflare-app/README.md
+  s_e22863b78ca518::t_ec48e3321be637 1-30,32-33,35-49,51-52,56-82,84-111,113,116-125
+  s_e22863b78ca518::t_15fd89765a0190 50,53-55
+  s_e22863b78ca518::t_4f37f698885cac 112,114-115
+  s_e22863b78ca518::t_6c5a0e60879f1f 31,34
+  s_e22863b78ca518::t_d5268c0e436f83 83
+apps/cli/package.json
+  s_e22863b78ca518::t_1972fadc09232c 35
+packages/session/session-persistence-d1/README.zh.md
+  s_e22863b78ca518::t_806c1794433538 1-131
+openspec/changes/cloudflare-hosted-backend/proposal.md
+  s_e22863b78ca518::t_b6c3313b52c24a 7-12,19,26,34
+  s_e22863b78ca518::t_1a7bf9a0b41d2b 1-6,13-18,20-25,27-29,31-33
+  s_ac41e83647e1be::t_776ac2f173415e 30
+packages/util/d1-client/package.json
+  s_e22863b78ca518::t_573383ec00f61f 21-24,30,34-41
+  s_e22863b78ca518::t_3db17e08b23138 1-20,25-29,31-33,42
+packages/bundle/cloudflare-app/src/invariant.ts
+  s_e22863b78ca518::t_fcb4b22fa6f9e1 1-28
+packages/session/session-persistence-d1/package.json
+  s_e22863b78ca518::t_4edfa046c6f6cb 47
+  s_e22863b78ca518::t_c8e77978cfb815 1-46,48-52
+packages/cloudflare/cloudflare-worker/wrangler.jsonc
+  s_e22863b78ca518::t_be841341af419d 1-34
+packages/cloudflare/cloudflare-worker/src/index.ts
+  s_e22863b78ca518::t_25a378c8248ccc 1-3,5-11,13-15
+  s_ac41e83647e1be::t_b45c8cacfb1610 4,12
+packages/storage/storage-d1/src/unit.ts
+  s_e22863b78ca518::t_2c855ba45c4677 1-10,12-121
+  s_e22863b78ca518::t_1e65c4c62969ba 11
+packages/cloudflare/cloudflare-worker/README.zh.md
+  s_ac41e83647e1be::t_da20eea3a199c7 1-39,41-65,68-75,77-89,91-107,111-121
+  s_ac41e83647e1be::t_611039d052f244 110
+  s_ac41e83647e1be::t_6204e92afc1e6c 76
+  s_ac41e83647e1be::t_3201c9b6b68796 90
+  s_ac41e83647e1be::t_8f9035169ad129 108
+  s_ac41e83647e1be::t_1fefcd76ba61c2 109
+  s_ac41e83647e1be::t_8578e45cb46dcd 40
+  s_ac41e83647e1be::t_5187edea590686 66-67
+THIRD_PARTY_NOTICES.md
+  s_ac41e83647e1be::t_85965ca21402d2 38,144-145,198
+packages/bundle/cloudflare-app/src/index.ts
+  s_e22863b78ca518::t_faa9119b746d66 1-29
+packages/session/session-persistence-d1/src/index.ts
+  s_e22863b78ca518::t_a0681aa268f7f1 11
+  s_e22863b78ca518::t_5ee8eb2d4cbdd4 1-10,12-140
+.gitignore
+  h_16595315dda295 42-43
+  s_ac41e83647e1be::t_3d9f6b0cad51cd 44-45
+packages/README.md
+  s_ac41e83647e1be::t_852d11bde35aeb 40
+openspec/changes/cloudflare-hosted-backend/specs/cloudflare/backend-bundle/spec.md
+  s_e22863b78ca518::t_6336c5e1ff09e3 1-30
+packages/storage/README.md
+  s_e22863b78ca518::t_80868b480c6df0 30
+  s_e22863b78ca518::t_0d6e0abe53c9be 12
+packages/session/session-persistence-d1/tests/fake-d1-server.ts
+  s_e22863b78ca518::t_0c5b5a17bc77f4 1-57
+packages/cloudflare/README.zh.md
+  s_ac41e83647e1be::t_774511a4d6b653 1-48
+packages/boot/app-boot/src/profile.ts
+  s_e22863b78ca518::t_0a165f7c4f8088 146-149
+packages/util/d1-client/README.md
+  s_e22863b78ca518::t_a53c8198aeb5bb 3
+  s_e22863b78ca518::t_933c3485e4fecc 41
+  s_e22863b78ca518::t_3d761296987432 1-2,4-40,42-62
+packages/cloudflare/cloudflare-worker/README.md
+  s_ac41e83647e1be::t_2912ded67976ce 1-39,41-65,68-89,91-107,111-121
+  s_ac41e83647e1be::t_51a419d9f8a9ef 90
+  s_ac41e83647e1be::t_609eb76331bc12 110
+  s_ac41e83647e1be::t_d53f2cf165d141 66-67
+  s_ac41e83647e1be::t_16d3ec37f06943 109
+  s_ac41e83647e1be::t_4c21a9aadd9c8b 108
+  s_ac41e83647e1be::t_1118005fcf5e23 40
+openspec/changes/cloudflare-hosted-backend/specs/cloudflare/session-persistence/spec.md
+  s_e22863b78ca518::t_b461957dc22222 1-33
+docs/config-catalog.i18n.yaml
+  s_ac41e83647e1be::t_3e0a74e80d5b1a 5
+  s_ac41e83647e1be::t_05523762f9e803 6
+packages/session/README.md
+  s_e22863b78ca518::t_209d6653ff0deb 34
+Dockerfile.cloudflare
+  s_ac41e83647e1be::t_329e6ef4342230 14,33
+  s_e22863b78ca518::t_5872bdaba063be 27-30
+  s_ac41e83647e1be::t_c57820e3d167f1 11-13
+  s_ac41e83647e1be::t_f66cd33352db31 34-36
+  s_e22863b78ca518::t_bad6d56ecbc9e6 1-10,15-26,31-32,37-59
+packages/storage/storage-d1/src/schema.ts
+  s_e22863b78ca518::t_1e65c4c62969ba 12
+  s_ac41e83647e1be::t_472ba9c30985ce 11,13-14
+  s_e22863b78ca518::t_87475947b34528 1-10,15-50
+packages/session/session-persistence-d1/src/store.ts
+  s_e22863b78ca518::t_ea8d7405ad1627 102-103
+  s_e22863b78ca518::t_038730d7cdabef 35
+  s_e22863b78ca518::t_61aeeaec82b951 185-189
+  s_e22863b78ca518::t_97331f6f5bb4da 143-148
+  s_e22863b78ca518::t_02b513bb7e5f83 155
+  s_e22863b78ca518::t_0bf7d43ddabca9 1-34,36-53,55-62,64-101,104-142,149-154,156-184,190-211
+  s_e22863b78ca518::t_c0ab576feeaf5c 54,63
+packages/session/session-persistence-d1/tests/d1-persistence.spec.ts
+  s_e22863b78ca518::t_507dcf82917a36 139-234
+  s_e22863b78ca518::t_c672f029b272fb 126,135
+  s_e22863b78ca518::t_a931209f0078b0 236-307
+  s_e22863b78ca518::t_eb7337e6fe571d 6
+  s_e22863b78ca518::t_4b86cb2563db22 1-5,7-125,127-134,136-138,235
+packages/util/d1-client/tsconfig.json
+  s_e22863b78ca518::t_53dda7d09af5fa 1-15
+packages/storage/storage-d1/src/invariant.ts
+  s_e22863b78ca518::t_6ceec93880c29d 1-30
+openspec/changes/cloudflare-hosted-backend/tasks.md
+  s_ac41e83647e1be::t_02bb87e168464b 77-78
+  s_ac41e83647e1be::t_2d295732d89551 79
+  s_e22863b78ca518::t_96c3fd2e1d8ecf 1-2,6,8,14,19,22,30,40,42,44,54,56,68,70,74,76,85,87
+  s_e22863b78ca518::t_87ed5994898541 23-29
+  s_ac41e83647e1be::t_349e66a8e655f4 41,43,45-49,51,55,58
+  s_ac41e83647e1be::t_72981ee02b9c4d 5
+  s_ac41e83647e1be::t_de203fb7bb94c4 53
+  s_ac41e83647e1be::t_cd8b8781f130ac 61
+  s_e22863b78ca518::t_648daf43dc2def 31-37,39
+  s_ac41e83647e1be::t_c92a4a8af8d62c 80-84
+  s_ac41e83647e1be::t_e187516b40809d 52
+  s_ac41e83647e1be::t_2c1144c86dd634 50
+  s_e22863b78ca518::t_3a0ef7bb23edb6 57,59-60
+  s_e22863b78ca518::t_b87f6b4e0a2f8b 62-64
+  s_e22863b78ca518::t_a2bd0df19ffb8f 3-4,7,9-13
+  s_ac41e83647e1be::t_c077af42551c05 38
+  s_ac41e83647e1be::t_ea71c42c7a0812 65-67
+  s_e22863b78ca518::t_33233e8aed78e4 15-18,20-21
+  s_e22863b78ca518::t_e4b39b91998d82 69,73,75,86,88-91
+  s_ac41e83647e1be::t_cc93078fb1d263 71-72
+packages/session/session-persistence-d1/README.md
+  s_e22863b78ca518::t_d54fa8d4ad64de 87
+  s_e22863b78ca518::t_d05487147d6bed 1-86,88-131
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_e22863b78ca518::t_ac0035f68979cc 1-53
+packages/session/session-persistence-d1/tsconfig.json
+  s_e22863b78ca518::t_62725f8b09ff26 1-39
+packages/session/session-persistence-d1/src/invariant.ts
+  s_e22863b78ca518::t_521e876970193e 1-29
+docs/config-catalog.zh.md
+  s_ac41e83647e1be::t_946c5d6831f0c5 3486
+  s_ac41e83647e1be::t_5e6e7bb75e940f 3507
+  s_ac41e83647e1be::t_fcb7016c3755d2 3579
+  s_ac41e83647e1be::t_3af032eec2a64f 1848-1876
+  s_ac41e83647e1be::t_e71ab14f5812e2 3576
+  s_ac41e83647e1be::t_9bbe41014d64e2 2264-2288
+  s_ac41e83647e1be::t_8d647a1f97d708 3590
+packages/storage/storage-d1/README.i18n.yaml
+  s_ac41e83647e1be::t_87b0c2fb33a790 5-6
+  s_e22863b78ca518::t_8ec8bfc4161b66 1-4
+packages/util/d1-client/tests/invariant.spec.ts
+  s_e22863b78ca518::t_62f7052824b2d7 1-12
+packages/util/d1-client/README.zh.md
+  s_e22863b78ca518::t_7044f2831f9fbd 1-62
+packages/util/d1-client/tests/client.spec.ts
+  s_e22863b78ca518::t_d5d10a48ee4e18 42,45
+  s_e22863b78ca518::t_fff35cef0ae209 1-41,43-44,46-85
+packages/storage/storage-d1/tsconfig.json
+  s_e22863b78ca518::t_475b722ee7f852 1-23,33-36
+  s_e22863b78ca518::t_899eb98426787e 27-32
+  s_e22863b78ca518::t_24d7af2aa46ce2 24-26
+scripts/verify-subsystem-pages.ts
+  s_ac41e83647e1be::t_f1a41e380c02f6 21
+packages/storage/storage-d1/README.md
+  s_e22863b78ca518::t_92a6e28f953414 1-85,87-142
+  s_ac41e83647e1be::t_f126597952d07f 86
+openspec/changes/cloudflare-hosted-backend/design.md
+  s_e22863b78ca518::t_9db8ce31b0e111 5-6
+  s_ac41e83647e1be::t_c83ef0a70d3bba 35
+  s_e22863b78ca518::t_2c0598a96c7a2f 29-30
+  s_ac41e83647e1be::t_fd774330151cbd 25-27
+  s_e22863b78ca518::t_0452bf9cdb8e2a 1-4,7-24,28,32-34,36-61
+  s_ac41e83647e1be::t_be5af12c75cbc1 31
+packages/storage/storage-d1/tests/d1-backend.spec.ts
+  s_e22863b78ca518::t_fd61cfd8bd8b4b 1-6,8-64,66-123,148-198
+  s_e22863b78ca518::t_0795903d8e5df2 65
+  s_e22863b78ca518::t_a0a2d13d689ba8 7
+  s_e22863b78ca518::t_00574a044c29a9 124-147
+packages/util/d1-client/src/invariant.ts
+  s_e22863b78ca518::t_78dee888cbe25b 1-28
+packages/cloudflare/cloudflare-worker/src/host-container.ts
+  s_e22863b78ca518::t_38dc8899872ef7 1-40,42-81
+  s_e22863b78ca518::t_9c729ab89e498c 41
+packages/storage/README.i18n.yaml
+  s_e22863b78ca518::t_6e440a7d53daaf 5-6
+docs/config-catalog.md
+  s_ac41e83647e1be::t_ab3ab1b0e0819f 1846-1874,2262-2286,3484,3505,3575,3578,3589
+packages/cloudflare/cloudflare-worker/src/invariant.ts
+  s_ac41e83647e1be::t_8c81f77dff6adc 1-5,7-34
+  s_ac41e83647e1be::t_435be7aff1ddb3 6
+packages/bundle/README.i18n.yaml
+  s_e22863b78ca518::t_c8e9ff380e3b60 5-6
+packages/session/README.i18n.yaml
+  s_e22863b78ca518::t_52c3c243da497f 5-6
+packages/session/session-persistence-d1/README.i18n.yaml
+  s_e22863b78ca518::t_1ed016587c6889 1-6
+packages/util/README.i18n.yaml
+  s_e22863b78ca518::t_710fab76c04906 5-6
+packages/util/d1-client/README.i18n.yaml
+  s_e22863b78ca518::t_24d01b6f982a6b 1-6
+pnpm-lock.yaml
+  s_ac41e83647e1be::t_aeb0b43c96e3dd 165-167,1303-1324,3928-3961,7461-7488,8452-8476,9685-9693,11104-11189,11201-11204,11831-11836,11843-11848,11855-11859,11865-11869,11875-11879,11885-11890,11897-11902,11909-11914,11921-11926,11933-11938,11945-11950,11957-11962,11969-11974,11981-11987,11995-12001,12009-12015,12023-12029,12037-12043,12051-12057,12065-12071,12079-12085,12093-12096,12101-12105,12111-12116,12123-12128,12135-12140,12178-12180,12931-12939,13366-13369,13414-13416,14053-14055,14152-14154,14215-14218,14548-14550,15215-15218,15588-15595,15872-15874,16169-16172,16301-16304,16475-16478,16483-16485,16805-16834,16893-16898,17493-17555,17565-17568,17987-17991,17997-18001,18007-18011,18017-18019,18023-18025,18029-18031,18035-18037,18041-18043,18047-18049,18053-18055,18059-18061,18065-18067,18071-18073,18077-18081,18087-18091,18097-18101,18107-18111,18117-18121,18127-18131,18137-18141,18147-18151,18157-18161,18167-18171,18177-18179,18183-18185,18189-18191,18231-18235,18804-18815,19101-19102,19159-19160,19865-19866,19961-19962,20009-20010,20344-20345,21141-21142,21701-21724,22021-22022,22375-22406,22572-22573,22708-22709,22712-22715,23062-23111,23149-23161
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "15178f4b3ef86d76b6741ac1ccddca975d192f01",
+  "prompts": {},
+  "humans": {
+    "h_16595315dda295": {
+      "author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  },
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    },
+    "s_e22863b78ca518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0ed5681a-69b9-4522-b2fb-2ca59d9ac2c5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
