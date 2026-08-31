@@ -18,7 +18,7 @@ kind: "package-reference"
 - [延伸阅读](#further-exploration)
 - [模型体验](#model-experience)
 - [已知限制与待办事项](#known-limitations-and-deferred-work)
-- [开发说明](#dev-note)
+- [开发备注](#dev-note)
 
 -----
 
@@ -132,7 +132,7 @@ kind: "package-reference"
 - **未使用 Sessions API** — 未使用 D1 的长时会话（用于超出 D1 默认语句超时的操作）；每次调用都是单次无状态的查询或批处理。
 
 <a id="dev-note"></a>
-### 开发说明
+### 开发备注
 
 <details>
 <summary>面向维护者的工作背景——点击展开</summary>

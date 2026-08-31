@@ -1,6 +1,6 @@
 ---
 description: "面向维护者的共享 Cloudflare D1 REST HTTP 客户端，用于构建或调试基于 D1 的存储提供方。"
-kind: "package-library"
+kind: "package-reference"
 ---
 
 # @deepseek-ai/dsh-d1-client
@@ -16,7 +16,7 @@ kind: "package-library"
 - [使用本包](#use-this-package)
 - [模型体验](#model-experience)
 - [已知限制与待办事项](#known-limitations-and-deferred-work)
-- [开发说明](#dev-note)
+- [开发备注](#dev-note)
 
 -----
 
@@ -52,7 +52,7 @@ await client.batch([{ sql: 'CREATE TABLE IF NOT EXISTS a (k TEXT)' }, { sql: 'CR
 - **未支持 D1 Sessions API** — 未暴露 D1 的长时会话（用于超出 D1 默认语句超时的操作）；每次调用都是单次无状态的查询或批处理。
 
 <a id="dev-note"></a>
-### 开发说明
+### 开发备注
 
 <details>
 <summary>面向维护者的工作背景——点击展开</summary>

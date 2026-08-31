@@ -1,6 +1,6 @@
 ---
 description: "The shared Cloudflare D1 REST HTTP client for maintainers building or debugging a D1-backed provider."
-kind: "package-library"
+kind: "package-reference"
 ---
 
 # @deepseek-ai/dsh-d1-client

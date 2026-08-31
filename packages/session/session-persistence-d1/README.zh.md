@@ -18,7 +18,7 @@ kind: "package-reference"
 - [延伸阅读](#further-exploration)
 - [模型体验](#model-experience)
 - [已知限制与待办事项](#known-limitations-and-deferred-work)
-- [开发说明](#dev-note)
+- [开发备注](#dev-note)
 
 -----
 
@@ -121,7 +121,7 @@ D1 的 REST API 没有跨调用的事务概念——每次 `query`/`batch` 调�
 - **单次操作的网络延迟** — 每个持久化原语都是一次或多次到 Cloudflare API 的 HTTP 往返；对于高频写入场景，该后端在性能上并非本地 SQLite/JSONL 后端的直接等价替代。
 
 <a id="dev-note"></a>
-### 开发说明
+### 开发备注
 
 <details>
 <summary>面向维护者的工作背景——点击展开</summary>

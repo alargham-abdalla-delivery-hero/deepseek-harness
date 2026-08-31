@@ -428,10 +428,36 @@ export interface ConnectionConfig {
   cookieMaxAgeDays?: number
   /** Maximum buffered JSON body for every `/api` request. Default: 300 MiB. */
   maxRequestBodyBytes?: number
+  /**
+   * Enforce the launch-token/cookie browser session. Default true. A
+   * deployment sets this false only when an upstream layer this process
+   * cannot see already authenticates every caller before the request reaches
+   * here (for example, Cloudflare Access in front of a Container-hosted
+   * profile) — the launch-token URL this process would print is unreachable
+   * there, so the token exchange can never be satisfied.
+   */
+  requireBrowserSession?: boolean
+  /**
+   * Declare this non-loopback deployment safe to treat as reaching a
+   * privileged Host process, for client-side surfaces that otherwise gate
+   * Host-persistable behavior behind `ctx.connection.isLoopback` (for
+   * example `dsh-ui-settings`'s decision to keep the Models Settings UI
+   * writable). Default false. A deployment sets this true only on the exact
+   * terms `requireBrowserSession: false` already documents: an upstream
+   * layer this process cannot see verifies every caller before the request
+   * reaches here at all (Cloudflare Access's signed JWT check in front of a
+   * Container-hosted profile), so the browser's non-loopback origin no
+   * longer implies an untrusted LAN caller the way it does for a plain
+   * `dsh web` deployment bound to `0.0.0.0`. Setting this true without such
+   * an upstream authenticator would let any caller who can reach this
+   * process's origin write credentials through an otherwise Host-only
+   * surface — do not set it true on trust alone.
+   */
+  trustedAsHost?: boolean
 }
 ```
 
-来源：[`packages/client/connection/src/index.ts:55`](../packages/client/connection/src/index.ts)
+来源：[`packages/client/connection/src/index.ts:71`](../packages/client/connection/src/index.ts)
 
 <a id="deepseek-aidsh-client-hmr"></a>
 
@@ -567,6 +593,29 @@ export interface Config {
 ```
 
 来源：[`packages/extensions/cordis-host-runner/src/index.ts:88`](../packages/extensions/cordis-host-runner/src/index.ts)
+
+<a id="deepseek-aidsh-credentials-d1"></a>
+
+## `@deepseek-ai/dsh-credentials-d1`
+
+```ts config-catalog
+/** Plugin configuration: the D1 database identity and the REST API credential that reaches it. */
+export interface Config {
+  /** Cloudflare account id owning the D1 database. */
+  accountId: string
+  /** D1 database id (from `wrangler d1 create`'s output — not the human-readable database name). */
+  databaseId: string
+  /**
+   * Cloudflare API token authorizing D1 REST access (requires D1 Edit
+   * permission on the account). Source this from an environment variable at
+   * the cordis.yml layer (for example `!!js process.env.CLOUDFLARE_D1_API_TOKEN`)
+   * — never commit a literal token.
+   */
+  apiToken: string
+}
+```
+
+来源：[`packages/credentials/credentials-d1/src/index.ts:37`](../packages/credentials/credentials-d1/src/index.ts)
 
 <a id="deepseek-aidsh-credentials-local"></a>
 
@@ -2881,6 +2930,30 @@ export interface Config {
 ```
 
 来源：[`packages/lsp/tool-lsp/src/index.ts:58`](../packages/lsp/tool-lsp/src/index.ts)
+
+<a id="deepseek-aidsh-tool-openui"></a>
+
+## `@deepseek-ai/dsh-tool-openui`
+
+需要：`tools` · `systemPrompt`
+
+```ts config-catalog
+/**
+ * Plugin config: `maxCorrectionAttempts` is a deployment-varying tunable
+ * (repo convention: no hardcoded tunables in plugins), not a constant.
+ */
+export interface Config {
+  /**
+   * Maximum consecutive corrective steers issued for a model that keeps
+   * writing OpenUI Lang directly as chat text instead of calling
+   * `render_ui`, before the turn is allowed to close with its text answer
+   * unrendered (default 2).
+   */
+  maxCorrectionAttempts?: number
+}
+```
+
+来源：[`packages/openui/tool-openui/src/index.ts:32`](../packages/openui/tool-openui/src/index.ts)
 
 <a id="deepseek-aidsh-tool-pwsh"></a>
 

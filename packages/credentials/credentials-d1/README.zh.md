@@ -18,7 +18,7 @@ kind: "package-reference"
 - [延伸阅读](#further-exploration)
 - [模型体验](#model-experience)
 - [已知限制与待办事项](#known-limitations-and-deferred-work)
-- [开发说明](#dev-note)
+- [开发备注](#dev-note)
 
 -----
 
@@ -121,7 +121,7 @@ kind: "package-reference"
 - **单次操作的网络延迟** — 每个提供方原语都是一到两次到 Cloudflare API 的 HTTP 往返；对于本地文件读取场景，该提供方在性能上并非 `dsh-credentials-local` 的直接等价替代。
 
 <a id="dev-note"></a>
-### 开发说明
+### 开发备注
 
 <details>
 <summary>面向维护者的工作背景——点击展开</summary>
