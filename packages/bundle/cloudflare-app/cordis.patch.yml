@@ -70,3 +70,20 @@
     compression: gzip
     compressionLevel: 1
     compressionThresholdBytes: 1024
+
+# ── trust Cloudflare Access as the sole authentication boundary ─────────────
+#
+# dsh-client-connection's own browser-session gate (a random per-process
+# launch token, normally satisfied by opening the URL dsh web prints) can
+# never be satisfied here: this profile disables both printing and opening
+# that URL (web-runtime's config above), so the token has no way to reach a
+# caller. Cloudflare Access already verifies a signed JWT on every request
+# before it reaches this container (edge-gateway's 401 on a missing
+# Cf-Access-Jwt-Assertion header) — requiring this second, unsatisfiable gate
+# on top of Access would make the deployment permanently inaccessible, not
+# more secure.
+- id: connection
+  inject: [webRuntime]
+  config:
+    trustedHosts: !!js ctx.webRuntime.trustedHosts
+    requireBrowserSession: false

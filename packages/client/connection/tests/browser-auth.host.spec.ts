@@ -227,6 +227,23 @@ describe('BrowserAuth', () => {
     expect(store).toMatchObject({ reads: 0, modifies: 2 })
   })
 
+  it('trusts every caller and never reads or writes the credential store when disabled', async () => {
+    const store = new RecordCredentials()
+    const auth = await BrowserAuth.create({}, credentials(store), 30, false)
+
+    expect(auth.isAuthenticated({ headers: {} })).toBe(true)
+    expect(auth.isAuthenticated(request('/', '127.0.0.1:3080'))).toBe(true)
+
+    const allowed = response()
+    expect(auth.authorizeIndex(request('/'), allowed.value)).toBe(true)
+    expect(allowed.state).toEqual({})
+    const allowedWithToken = response()
+    expect(auth.authorizeIndex(request('/?token=anything'), allowedWithToken.value)).toBe(true)
+    expect(allowedWithToken.state).toEqual({})
+
+    expect(store).toMatchObject({ reads: 0, modifies: 0 })
+  })
+
   it('fails loud on an invalid owner record instead of replacing it', async () => {
     const unsupported = new RecordCredentials()
     unsupported.record = { kind: 'api-key', key: 'not-a-cookie-secret' }

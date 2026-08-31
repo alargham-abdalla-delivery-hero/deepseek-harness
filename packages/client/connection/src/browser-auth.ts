@@ -188,7 +188,12 @@ export class BrowserAuth {
 
   private constructor(
     processOwner: object,
-    private readonly secret: Buffer,
+    /**
+     * `undefined` means this deployment enforces authentication upstream of
+     * this process instead (see {@link create}'s `enabled` parameter) —
+     * every gate below trusts the caller unconditionally.
+     */
+    private readonly secret: Buffer | undefined,
     maxAgeDays: number,
   ) {
     this.launchToken = processLaunchToken(processOwner)
@@ -205,13 +210,19 @@ export class BrowserAuth {
    * @param processOwner - root application context retaining one token across Connection reloads.
    * @param credentials - persistent credential provider for the Web profile.
    * @param maxAgeDays - positive absolute browser-cookie lifetime in days.
+   * @param enabled - false when an upstream layer this process cannot see already authenticates every
+   * caller (for example, Cloudflare Access in front of a Container-hosted deployment) — the launch-token
+   * URL this process would print is unreachable there, so every gate below trusts the caller instead of
+   * enforcing an unsatisfiable token exchange. Default true.
    * @returns initialized authentication owner with the process owner's launch token.
    */
   static async create(
     processOwner: object,
     credentials: CredentialProvider,
     maxAgeDays: number,
+    enabled = true,
   ): Promise<BrowserAuth> {
+    if (!enabled) return new BrowserAuth(processOwner, undefined, maxAgeDays)
     return new BrowserAuth(processOwner, await initializeSecret(credentials), maxAgeDays)
   }
 
@@ -238,6 +249,7 @@ export class BrowserAuth {
    * @returns true only when the caller may serve index.html.
    */
   authorizeIndex(req: ConnectionIndexRequest, res: ConnectionIndexResponse): boolean {
+    if (this.secret === undefined) return true
     /* v8 ignore next -- node:http always supplies url on server requests. */
     const url = new URL(req.url ?? '/', 'http://dsh.invalid')
     const tokens = url.searchParams.getAll(TOKEN_QUERY)
@@ -287,6 +299,7 @@ export class BrowserAuth {
    * @returns true only for an unexpired cookie signed by this activation's loaded secret.
    */
   isAuthenticated(request: ConnectionTrustRequest): boolean {
+    if (this.secret === undefined) return true
     const authority = requestAuthority(request.headers)
     const rawCookie = header(request.headers, 'cookie')
     if (authority === undefined || rawCookie === undefined) return false
