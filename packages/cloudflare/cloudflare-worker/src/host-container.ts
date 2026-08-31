@@ -33,6 +33,13 @@ export interface Env {
    * specific turn that calls the model.
    */
   readonly DEEPSEEK_API_KEY?: string
+  /**
+   * Anthropic API key, forwarded into the container as an env var when set
+   * (`wrangler secret put ANTHROPIC_API_KEY`). Optional, same as
+   * {@link DEEPSEEK_API_KEY}; read by the `anthropic` pi-ai provider route
+   * `dsh-cloudflare-app`'s config patch declares.
+   */
+  readonly ANTHROPIC_API_KEY?: string
 }
 
 /**
@@ -74,6 +81,7 @@ export class HostContainer extends Container<Env> {
       CLOUDFLARE_D1_API_TOKEN: env.CLOUDFLARE_D1_API_TOKEN,
       CLOUDFLARE_WORKER_HOSTNAME: env.CLOUDFLARE_WORKER_HOSTNAME,
       ...env.DEEPSEEK_API_KEY !== undefined && { DEEPSEEK_API_KEY: env.DEEPSEEK_API_KEY },
+      ...env.ANTHROPIC_API_KEY !== undefined && { ANTHROPIC_API_KEY: env.ANTHROPIC_API_KEY },
     }
   }
 

@@ -92,3 +92,27 @@
   config:
     trustedHosts: !!js ctx.webRuntime.trustedHosts
     requireBrowserSession: false
+
+# ── default model: Claude Haiku via the pi-ai anthropic route ───────────────
+#
+# llm-pi-ai ships mounted dormant (zero provider routes) until something
+# supplies a `providers` profile; the base bundle relies on the Models
+# Settings page writing one to $DSH_HOME/settings.yaml, which this deployment
+# cannot use for a durable default (the container's own disk is ephemeral —
+# see Dockerfile.cloudflare). Declaring the route directly in composition
+# works independently of any settings document or of whether the Settings UI
+# is reachable at all.
+
+- id: llm-pi-ai
+  config:
+    providers:
+      anthropic:
+        apiKeyEnv: ANTHROPIC_API_KEY
+        models:
+          - id: claude-haiku-4-5-20251001
+            name: Claude Haiku 4.5
+
+- id: agent-default-model
+  config:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
