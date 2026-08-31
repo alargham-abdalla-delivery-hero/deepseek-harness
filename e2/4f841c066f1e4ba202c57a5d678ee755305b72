@@ -1,0 +1,69 @@
+packages/storage/storage-d1/README.i18n.yaml
+  s_ac41e83647e1be::t_c3948bd4d58d24 6
+packages/credentials/README.i18n.yaml
+  s_ac41e83647e1be::t_c3948bd4d58d24 5-6
+openspec/changes/cloudflare-hosted-backend/tasks.md
+  s_ac41e83647e1be::t_74a9c254405db1 89-91
+packages/bundle/cloudflare-app/README.md
+  s_ac41e83647e1be::t_1ffa9a1f6e217e 115,117-121
+  s_ac41e83647e1be::t_5d12f680e9f5ee 81,85
+  s_ac41e83647e1be::t_fa903bc598f137 12
+  s_ac41e83647e1be::t_a309585b8fe7e8 31,34,43,45
+  s_ac41e83647e1be::t_07df15bb62cf4e 96,98
+packages/bundle/cloudflare-app/README.i18n.yaml
+  s_ac41e83647e1be::t_c3948bd4d58d24 5-6
+packages/session/session-persistence-d1/README.i18n.yaml
+  s_ac41e83647e1be::t_c3948bd4d58d24 6
+packages/session/session-persistence-d1/README.zh.md
+  s_ac41e83647e1be::t_93b07fc27077ff 21,124
+.agents/notes/implemented/architecture/2026-08-31-cloudflare-hosted-backend.i18n.yaml
+  s_ac41e83647e1be::t_1c9d46c04a780b 1-6
+packages/util/d1-client/README.i18n.yaml
+  s_ac41e83647e1be::t_a3cb897204280c 5-6
+.agents/notes/implemented/architecture/2026-08-31-cloudflare-hosted-backend.zh.md
+  s_ac41e83647e1be::t_c3dfd26e5dd9ef 1-41
+packages/credentials/credentials-d1/README.zh.md
+  s_ac41e83647e1be::t_743b670e12baae 21,124
+docs/config-catalog.i18n.yaml
+  s_ac41e83647e1be::t_c41e55f12d1a55 6
+  s_ac41e83647e1be::t_c3948bd4d58d24 5
+packages/credentials/credentials-d1/README.i18n.yaml
+  s_ac41e83647e1be::t_c3948bd4d58d24 1-6
+packages/util/d1-client/README.zh.md
+  s_ac41e83647e1be::t_1d9e64a0aa82a9 3
+  s_ac41e83647e1be::t_38bf4543b06881 19,55
+docs/config-catalog.zh.md
+  s_ac41e83647e1be::t_2f094d26b56146 597-619
+  s_ac41e83647e1be::t_d85488146922e9 2934-2957
+  s_ac41e83647e1be::t_40bd753a2d132f 431-456,460
+.agents/notes/implemented/architecture/2026-08-31-cloudflare-hosted-backend.md
+  s_ac41e83647e1be::t_1ca676958f0e46 1-41
+packages/util/d1-client/README.md
+  s_ac41e83647e1be::t_1e629fab387f00 3
+packages/storage/storage-d1/README.zh.md
+  s_ac41e83647e1be::t_93b07fc27077ff 21,135
+packages/bundle/cloudflare-app/README.zh.md
+  s_ac41e83647e1be::t_2a543f5aa7e2c4 96,98
+  s_ac41e83647e1be::t_8895e2a3464872 115,117-121
+  s_ac41e83647e1be::t_8b42cf09b799a7 124
+  s_ac41e83647e1be::t_c93dbe64d15879 31,34,43,45
+  s_ac41e83647e1be::t_5183c6411bee13 12
+  s_ac41e83647e1be::t_a47eaccabc352f 21
+  s_ac41e83647e1be::t_805a7397342b0f 81,85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "e24f841c066f1e4ba202c57a5d678ee755305b72",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
