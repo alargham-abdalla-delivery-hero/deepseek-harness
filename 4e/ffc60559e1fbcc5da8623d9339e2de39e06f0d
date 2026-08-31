@@ -1,72 +1,106 @@
 packages/credentials/credentials-d1/tests/fake-d1-server.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-63
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-63
 packages/client/connection/tests/trusted-as-host.host.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-49
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-49
 openspec/changes/cloudflare-hosted-backend/tasks.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 91-98
+  s_ac41e83647e1be::t_cca0a471b83f6b 91-98
 packages/bundle/cloudflare-app/cordis.patch.yml
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 5-7,17-19,44-50,100-108,114
+  s_ac41e83647e1be::t_cca0a471b83f6b 5-7,17-19,44-50,100-108
+  s_ac41e83647e1be::t_cd17211d7455ea 114
 packages/bundle/cloudflare-app/package.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 3,43-44
+  s_ac41e83647e1be::t_cca0a471b83f6b 3,43-44
 packages/credentials/credentials-d1/src/invariant.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-30
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-30
 packages/session/session-persistence-d1/tests/fake-d1-server.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 25-29
+  s_ac41e83647e1be::t_cca0a471b83f6b 25-29
 packages/credentials/README.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 12,25,31
+  s_ac41e83647e1be::t_cca0a471b83f6b 12,25,31
 packages/bundle/cloudflare-app/src/index.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 4-5,19-20
+  s_ac41e83647e1be::t_cca0a471b83f6b 4-5,19-20
 packages/client/connection/src/index.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 13,94-110,118,134,139-146
+  s_ac41e83647e1be::t_cca0a471b83f6b 13,94-110,118,134,139-146
 packages/client/ui-settings/tests/plugin.client.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 8,13,37-48
   s_ac41e83647e1be::t_73a36682c73de0 49
+  s_ac41e83647e1be::t_cca0a471b83f6b 8,13,37-48
 packages/client/connection/tsconfig.host.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 18-19
+  s_ac41e83647e1be::t_cca0a471b83f6b 18-19
 packages/credentials/credentials-d1/README.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-131
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-131
 docs/config-catalog.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 429-454,458,595-617,2932-2954
   s_ac41e83647e1be::t_cfe7781e6bedb9 2955
+  s_ac41e83647e1be::t_cca0a471b83f6b 429-454,458,595-617,2932-2954
 packages/client/connection/tests/client-apply.client.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 13,18,24,88-103
   s_ac41e83647e1be::t_f1816747b08f33 104
+  s_ac41e83647e1be::t_cca0a471b83f6b 13,18,24,88-103
 packages/bundle/cloudflare-app/tests/bundle-disposal.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 7,24,33,35-37,43,45-48,53
+  s_ac41e83647e1be::t_cca0a471b83f6b 7,24,33,35-37,43,45-48,53
 packages/client/connection/src/client/index.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 16,113-125,187-191
+  s_ac41e83647e1be::t_cca0a471b83f6b 16,113-125,187-191
 packages/client/connection/tsconfig.client.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 17-18
+  s_ac41e83647e1be::t_cca0a471b83f6b 17-18
 packages/credentials/credentials-d1/tests/d1-provider.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-229
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-229
 packages/api/session-controller/tests/client-apply.client.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 53
+  s_ac41e83647e1be::t_cca0a471b83f6b 53
 packages/credentials/credentials-d1/package.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-48
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-48
 packages/credentials/credentials-d1/src/index.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-287
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-287
 tsconfig.host.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 176
+  s_ac41e83647e1be::t_cca0a471b83f6b 176
 tsconfig.base.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 277-280,306-307,310-311,415-416,468-469
+  s_ac41e83647e1be::t_cca0a471b83f6b 277-280,306-307,310-311,415-416,468-469
 packages/storage/storage-d1/tests/fake-d1-server.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 26-30
+  s_ac41e83647e1be::t_cca0a471b83f6b 26-30
 packages/api/workspace-controller/tests/transport.client.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 201
+  s_ac41e83647e1be::t_cca0a471b83f6b 201
 packages/credentials/credentials-d1/tsconfig.json
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-30
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-30
 packages/credentials/credentials-d1/src/schema.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-55
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-55
 packages/client/connection/src/trusted-as-host.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-13
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-13
 packages/client/ui-settings/src/client/index.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 60-66
+  s_ac41e83647e1be::t_cca0a471b83f6b 60-66
 packages/credentials/credentials-d1/README.zh.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-131
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-131
 packages/credentials/credentials-d1/tests/invariant.spec.ts
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 1-12
+  s_ac41e83647e1be::t_cca0a471b83f6b 1-12
 packages/credentials/README.zh.md
   s_ac41e83647e1be::t_4ef5f6ab5fd2ac 12,25,31
+  s_ac41e83647e1be::t_cca0a471b83f6b 12,25,31
 pnpm-lock.yaml
   s_ac41e83647e1be::t_7216beb3d281d8 1305-1307,4587-4605
 ---
