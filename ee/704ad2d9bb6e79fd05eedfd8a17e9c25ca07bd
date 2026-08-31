@@ -1,0 +1,27 @@
+docker-entrypoint.cloudflare.sh
+  s_ac41e83647e1be::t_bedef573a64e51 2-7
+packages/util/d1-client/tests/client.spec.ts
+  s_ac41e83647e1be::t_050475d5570216 24,35
+Dockerfile.cloudflare
+  s_ac41e83647e1be::t_eda9483bc59b32 54-57
+packages/util/d1-client/src/index.ts
+  s_ac41e83647e1be::t_b1720a154e68d3 85
+packages/bundle/cloudflare-app/cordis.patch.yml
+  s_ac41e83647e1be::t_0a9eb50af00e2b 54-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "ee704ad2d9bb6e79fd05eedfd8a17e9c25ca07bd",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
