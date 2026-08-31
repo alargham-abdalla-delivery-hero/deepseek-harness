@@ -27,6 +27,13 @@
     // A single-Workspace deployment's one Workspace id; see
     // src/gateway.ts's resolveWorkspaceId. Override per deployment.
     "DEFAULT_WORKSPACE_ID": "default"
+  },
+  // Required to see Container boot logs (stdout/stderr) in the dashboard and
+  // `wrangler tail` — without this, only Worker/Durable-Object-level
+  // console.error wrapper messages are visible, not the container process's
+  // own output.
+  "observability": {
+    "enabled": true
   }
   // CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_D1_DATABASE_ID / CLOUDFLARE_D1_API_TOKEN
   // are deployment secrets (`wrangler secret put`), never committed here —
