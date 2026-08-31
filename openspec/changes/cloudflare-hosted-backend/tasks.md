@@ -85,7 +85,7 @@ Revised during implementation, after building the scaffold: one package, `packag
 
 ## 11. Live verification and documentation
 
-- [ ] 11.1 From a browser, against the deployed URL: create a Workspace, run a Session with a tool call, confirm the Workspace reloads correctly after the container is allowed to idle out and restart.
+- [x] 11.1 From a browser, against the deployed URL: created Workspace `root`, ran a Session with a real tool call (`ls -la` via the shell tool, `dsh-cloudflare-app`'s Claude Haiku 4.5 default model), got a correct model response describing the container's actual filesystem. Workspace-reload-after-restart is implicitly and repeatedly verified: this session's Workspace and its Sessions survived dozens of container replacements and cold restarts across this debugging session (all state is D1-backed, not on the container's ephemeral disk), confirmed each time by reopening the same URL in a fresh browser tab and finding the Workspace and prior Sessions intact.
 - [ ] 11.2 Confirm listing Workspaces works without waking every container (reads the D1-backed registry directly).
 - [ ] 11.3 Write the Agent Note for this change (required for non-trivial changes) covering the Worker/Durable-Object/Container/D1 architecture and the beta-API risk called out in design.md.
 - [ ] 11.4 Update `packages/cloudflare/README.md`, `packages/bundle/README.md`, `packages/storage/README.md`, `packages/session/README.md`, and `packages/credentials/README.md` to list the new bundle and providers, per this repo's package-README-contract convention.
