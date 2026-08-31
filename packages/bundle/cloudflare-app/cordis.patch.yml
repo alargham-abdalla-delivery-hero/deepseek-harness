@@ -55,7 +55,7 @@
     openBrowser: false
     printUrl: false
     surfaceContext: true
-    trustedHosts: !!js [process.env.CLOUDFLARE_WORKER_HOSTNAME]
+    trustedHosts: !!js '[process.env.CLOUDFLARE_WORKER_HOSTNAME]'
 
 # ── bind every interface: dsh-web-app's own patch resolves this row's host
 #    from the invocation's --host flag, but dsh-web-app's startup CLI guard
