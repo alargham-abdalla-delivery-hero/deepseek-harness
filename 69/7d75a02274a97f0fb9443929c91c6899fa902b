@@ -1,0 +1,25 @@
+packages/cloudflare/cloudflare-worker/README.md
+  s_ac41e83647e1be::t_2798a0d1ee0992 109
+openspec/changes/cloudflare-hosted-backend/tasks.md
+  s_ac41e83647e1be::t_8dfff2bbb69ad1 79-80
+packages/cloudflare/cloudflare-worker/README.zh.md
+  s_ac41e83647e1be::t_e167c123e60945 109
+packages/cloudflare/cloudflare-worker/README.i18n.yaml
+  s_ac41e83647e1be::t_abd3eef9610131 5-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "697d75a02274a97f0fb9443929c91c6899fa902b",
+  "prompts": {},
+  "sessions": {
+    "s_ac41e83647e1be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d94d8254-74b4-43e5-b9a1-c492b053d51e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Alargham Ahmed Ibrahim Abd alla <alargham.abd@deliveryhero.com>"
+    }
+  }
+}
