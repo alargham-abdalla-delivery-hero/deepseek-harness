@@ -10,15 +10,18 @@ import {
   type ConnectionGenerationSource,
   type ConnectionHandle,
 } from '../src/client/index.ts'
+import { TRUSTED_AS_HOST_GLOBAL } from '../src/trusted-as-host.ts'
 
 type Win = {
   location?: { hostname: string; search: string; origin?: string }
   __DSH_TRANSPORT__?: ClientTransportHooks
+  [TRUSTED_AS_HOST_GLOBAL]?: boolean
 }
 
 afterEach(() => {
   delete (globalThis as Win).location
   delete (globalThis as Win).__DSH_TRANSPORT__
+  Reflect.deleteProperty(globalThis, TRUSTED_AS_HOST_GLOBAL)
 })
 
 class GenerationProbe {
@@ -80,6 +83,23 @@ describe('connection client apply', () => {
   it('reports non-loopback page authority through the connection handle', async () => {
     ;(globalThis as Win).location = { hostname: '192.0.2.20', search: '' }
     expect((await mount()).isLoopback).toBe(false)
+  })
+
+  it('defaults trustedAsHost to false absent the Host-emitted boot global', async () => {
+    ;(globalThis as Win).location = { hostname: '192.0.2.20', search: '' }
+    expect((await mount()).trustedAsHost).toBe(false)
+  })
+
+  it('reads trustedAsHost true only from the exact Host-emitted boot global', async () => {
+    ;(globalThis as Win).location = { hostname: '192.0.2.20', search: '' }
+    ;(globalThis as Win)[TRUSTED_AS_HOST_GLOBAL] = true
+    expect((await mount()).trustedAsHost).toBe(true)
+  })
+
+  it('treats a non-true value on the boot global the same as absent', async () => {
+    ;(globalThis as Win).location = { hostname: '192.0.2.20', search: '' }
+    ;(globalThis as unknown as Record<string, unknown>)[TRUSTED_AS_HOST_GLOBAL] = 'true'
+    expect((await mount()).trustedAsHost).toBe(false)
   })
 
   it('requires one generation source and ignores a stale source disposer', async () => {

@@ -57,7 +57,13 @@ export function apply(ctx: Context): void {
   // Captured once here, where `remote.settings` is declared in this plugin's
   // own `inject`; the binder hands the same face to every scope it binds.
   const wire = { settings: ctx.remote.settings }
-  const mirror = new SettingsDescribeMirror(wire, connection.isLoopback ? 'host' : 'memory')
+  // trustedAsHost is the Host's own declaration that a non-loopback origin is
+  // still safe to persist through (see dsh-client-connection's
+  // ConnectionConfig.trustedAsHost) — checked alongside isLoopback, never in
+  // place of it, so a plain non-loopback dsh web deployment (no upstream
+  // authenticator) keeps the existing memory-only fallback.
+  const persistable = connection.isLoopback || connection.trustedAsHost
+  const mirror = new SettingsDescribeMirror(wire, persistable ? 'host' : 'memory')
   ctx.effect(() => {
     const disposers = [
       ctx.remote.$on('settings/document-updated', () => { void mirror.load() }),

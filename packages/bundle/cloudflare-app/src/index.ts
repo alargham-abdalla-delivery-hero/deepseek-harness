@@ -1,7 +1,8 @@
 /**
  * Startup guard for the `cloudflare` profile: fails loud at boot when a
  * required Cloudflare credential is missing, instead of surfacing later as an
- * opaque D1 REST failure on the first storage or session-persistence call.
+ * opaque D1 REST failure on the first storage, session-persistence, or
+ * credentials call.
  * @module @deepseek-ai/dsh-cloudflare-app
  */
 
@@ -15,7 +16,8 @@ const REQUIRED_ENV_VARS = ['CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_D1_DATABASE_ID',
 
 /**
  * Validate every required Cloudflare credential is present in the process
- * environment before the D1 storage/session-persistence backends mount.
+ * environment before the D1 storage/session-persistence/credentials backends
+ * mount.
  * @param _ctx - plugin context (unused; the check is a pure environment read).
  * @throws when a required environment variable is missing or empty.
  */

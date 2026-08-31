@@ -23,8 +23,11 @@ export class FakeD1Server {
   /** `D1HttpClient` double bound to this fake database. Request URL and auth header are ignored. */
   readonly client: D1HttpClient = async (_input, init) => {
     if (this.closed) return jsonResponse({ result: [], success: false, errors: [{ message: 'fake d1 server closed' }] }, 500)
-    const parsed = JSON.parse((init?.body as string | undefined) ?? '[]') as RequestBody | RequestBody[]
-    const statements = Array.isArray(parsed) ? parsed : [parsed]
+    // Mirrors D1Client.send's real request body: a lone statement posts as a
+    // bare object, two or more post as `{batch: [...]}` — Cloudflare's
+    // documented multi-statement shape, not a bare array.
+    const parsed = JSON.parse((init?.body as string | undefined) ?? '{}') as RequestBody | { batch: RequestBody[] }
+    const statements = 'batch' in parsed ? parsed.batch : [parsed]
     try {
       const result = statements.map(({ sql, params = [] }) => this.run(sql, params))
       return jsonResponse({ result, success: true }, 200)

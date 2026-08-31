@@ -9,7 +9,7 @@ English | [中文](README.zh.md)
 
 ## Summary
 
-The `credentials/` group manages the secret values your configuration refers to by name: store an API key once, reference it from settings or `cordis.yml`, and rotate it without editing any configuration file. It provides the runtime part of the product that stores and looks up secrets (`credentials/`), the default on-machine credential file (`credentials-local/`), and the authorization flow registry (`authorization/`) for credentials that cannot be configured, because getting one means asking a human. A rotated key reaches the very next model request, and a per-run environment override (`DEEPSEEK_API_KEY=… dsh`) always wins over stored values. Secret values never enter configuration files you sync or render — only their names do, and the local file is readable by the same OS user, not by others.
+The `credentials/` group manages the secret values your configuration refers to by name: store an API key once, reference it from settings or `cordis.yml`, and rotate it without editing any configuration file. It provides the runtime part of the product that stores and looks up secrets (`credentials/`), the default on-machine credential file (`credentials-local/`), a Cloudflare D1-backed provider for hosted deployments (`credentials-d1/`), and the authorization flow registry (`authorization/`) for credentials that cannot be configured, because getting one means asking a human. A rotated key reaches the very next model request, and a per-run environment override (`DEEPSEEK_API_KEY=… dsh`) always wins over stored values for `credentials-local`; `credentials-d1` reads a fixed deploy-time environment only as a bootstrap fallback below its own durable store (see its README). Secret values never enter configuration files you sync or render — only their names do, and the local file is readable by the same OS user, not by others.
 
 ## Table of Contents
 
@@ -22,12 +22,13 @@ The `credentials/` group manages the secret values your configuration refers to 
 <a id="packages"></a>
 ## Packages
 
-Three packages provide the credential feature: one stores, looks up, and removes secrets at runtime while configuration only names them; the second is the default on-machine store; the third lets plugins obtain credentials that have to be asked for. Their READMEs cover day-to-day use; the subsystem reference owns the exhaustive contracts.
+Four packages provide the credential feature: one stores, looks up, and removes secrets at runtime while configuration only names them; the second is the default on-machine store; the third is a Cloudflare D1-backed store for hosted deployments; the fourth lets plugins obtain credentials that have to be asked for. Their READMEs cover day-to-day use; the subsystem reference owns the exhaustive contracts.
 
 | Package | Role | ctx key |
 |---|---|---|
 | [`credentials/`](credentials/README.md) | Store, look up, and remove secrets at runtime while configuration only names them | `ctx.credentials` |
 | [`credentials-local/`](credentials-local/README.md) | The default on-machine store: a private YAML file, environment overrides win | registers `ctx.credentials` |
+| [`credentials-d1/`](credentials-d1/README.md) | Cloudflare D1-backed store for hosted deployments; D1 wins, environment is a bootstrap fallback | registers `ctx.credentials` |
 | [`authorization/`](authorization/README.md) | Plugin-owned flows that obtain a credential by asking a human | `ctx.authorization` |
 
 -----

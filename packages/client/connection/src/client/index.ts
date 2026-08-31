@@ -13,6 +13,7 @@ import {
 import { createFixtureConnectionRpc } from './fixture.ts'
 import { createWebConnectionRpc, type RpcFetch, type RpcStreamOpen } from './rpc.ts'
 import { isLoopbackHostname } from '../loopback-hostname.ts'
+import { TRUSTED_AS_HOST_GLOBAL } from '../trusted-as-host.ts'
 import type { ClientConnectionRpc } from '../rpc.ts'
 
 declare module '@deepseek-ai/cordis' {
@@ -109,6 +110,19 @@ export interface ConnectionHandle {
    * ({@link ClientTransportHooks.ownsHost}), or the context is not a browser.
    */
   readonly isLoopback: boolean
+  /**
+   * Whether the Host declared this non-loopback deployment safe to treat as
+   * reaching a privileged Host process (see `../index.ts`'s
+   * `ConnectionConfig.trustedAsHost` for the exact trust argument — an
+   * upstream authenticator such as Cloudflare Access verifies every caller
+   * before this process ever sees a request). Consumers that gate
+   * Host-persistable behavior behind {@link isLoopback} check this
+   * alongside it, never in place of it: `isLoopback` answers "is this
+   * page's own origin the operator's machine", this answers "did the Host
+   * declare its non-loopback origin trustworthy anyway". False unless the
+   * Host's served page carried the boot-time global this reads.
+   */
+  readonly trustedAsHost: boolean
   /** Current Remote event generation and the Host facts carried by its opening frame. */
   readonly generation: ConnectionGenerationState
   /** Generic logical RPC channels over the same Connection transport. */
@@ -170,6 +184,11 @@ export function apply(ctx: Context): void {
   }
   const handle: ConnectionHandle = {
     isLoopback: transport?.ownsHost === true || pageLocation === undefined || isLoopbackHostname(pageLocation.hostname),
+    // Read once at boot from a global only the served page's own head script
+    // can set (see trusted-as-host.ts); a page reached without that script —
+    // including one this deployment's own Host did not intend to trust —
+    // never carries it, so the default is false.
+    trustedAsHost: (globalThis as Record<string, unknown>)[TRUSTED_AS_HOST_GLOBAL] === true,
     generation: {
       getSnapshot: () => generation,
       subscribe: (listener) => {

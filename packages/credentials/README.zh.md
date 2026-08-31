@@ -9,7 +9,7 @@ kind: "package-group"
 
 ## 概述
 
-`credentials/` 组管理你的配置按名引用的机密值：API 密钥只存一次，在 settings 或 `cordis.yml` 中按名引用，轮换时无需编辑任何配置文件。它提供产品中负责存储与查询机密的运行时部分（`credentials/`）、默认的本机凭据文件（`credentials-local/`），以及授权 flow 注册表（`authorization/`）——用于获取无法配置、只能开口去要的凭据。轮换后的密钥会作用于紧随其后的下一次模型请求，而按次运行的环境覆盖（`DEEPSEEK_API_KEY=… dsh`）始终优先于存储值。机密值绝不进入你同步或渲染的配置文件——进去的只有它们的名字，而且本地文件只有同一 OS 用户可读，其他用户读不到。
+`credentials/` 组管理你的配置按名引用的机密值：API 密钥只存一次，在 settings 或 `cordis.yml` 中按名引用，轮换时无需编辑任何配置文件。它提供产品中负责存储与查询机密的运行时部分（`credentials/`）、默认的本机凭据文件（`credentials-local/`）、面向托管部署的 Cloudflare D1 提供方（`credentials-d1/`），以及授权 flow 注册表（`authorization/`）——用于获取无法配置、只能开口去要的凭据。对 `credentials-local` 而言，轮换后的密钥会作用于紧随其后的下一次模型请求，按次运行的环境覆盖（`DEEPSEEK_API_KEY=… dsh`）始终优先于存储值；`credentials-d1` 只把固定的部署时环境变量当作其自身持久存储之下的引导回退（参见其 README）。机密值绝不进入你同步或渲染的配置文件——进去的只有它们的名字，而且本地文件只有同一 OS 用户可读，其他用户读不到。
 
 ## 目录
 
@@ -22,12 +22,13 @@ kind: "package-group"
 <a id="packages"></a>
 ## 包
 
-三个包共同提供凭据功能：一个在运行时存储、查询与移除机密，而配置只写名字；第二个是默认的本机存储；第三个让插件获取必须开口去要的凭据。它们的 README 覆盖日常使用；子系统参考拥有穷尽式约定。
+四个包共同提供凭据功能：一个在运行时存储、查询与移除机密，而配置只写名字；第二个是默认的本机存储；第三个是面向托管部署的 Cloudflare D1 存储；第四个让插件获取必须开口去要的凭据。它们的 README 覆盖日常使用；子系统参考拥有穷尽式约定。
 
 | 包 | 角色 | ctx 键 |
 |---|---|---|
 | [`credentials/`](credentials/README.zh.md) | 在运行时存储、查询与移除机密，而配置只写名字 | `ctx.credentials` |
 | [`credentials-local/`](credentials-local/README.zh.md) | 默认本机存储：一个私有 YAML 文件，环境覆盖优先 | 注册 `ctx.credentials` |
+| [`credentials-d1/`](credentials-d1/README.zh.md) | 面向托管部署的 Cloudflare D1 存储；D1 优先，环境变量只是引导回退 | 注册 `ctx.credentials` |
 | [`authorization/`](authorization/README.zh.md) | 由插件拥有、通过询问人来取得凭据的 flow | `ctx.authorization` |
 
 -----

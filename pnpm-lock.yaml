@@ -1302,6 +1302,9 @@ importers:
 
   packages/bundle/cloudflare-app:
     dependencies:
+      '@deepseek-ai/dsh-credentials-d1':
+        specifier: workspace:^
+        version: link:../../credentials/credentials-d1
       '@deepseek-ai/dsh-session-persistence-d1':
         specifier: workspace:^
         version: link:../../session/session-persistence-d1
@@ -4577,6 +4580,25 @@ importers:
       '@deepseek-ai/dsh-brand':
         specifier: workspace:^
         version: link:../../util/brand
+      '@deepseek-ai/dsh-invariants':
+        specifier: workspace:^
+        version: link:../../runtime-diagnostics/invariants
+
+  packages/credentials/credentials-d1:
+    dependencies:
+      '@deepseek-ai/dsh-d1-client':
+        specifier: workspace:^
+        version: link:../../util/d1-client
+      '@deepseek-ai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+    devDependencies:
+      '@deepseek-ai/cordis':
+        specifier: workspace:^
+        version: link:../../../vendor/cordis
+      '@deepseek-ai/dsh-credentials':
+        specifier: workspace:^
+        version: link:../credentials
       '@deepseek-ai/dsh-invariants':
         specifier: workspace:^
         version: link:../../runtime-diagnostics/invariants

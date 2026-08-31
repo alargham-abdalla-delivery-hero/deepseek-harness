@@ -10,6 +10,7 @@ import { bridge, DEFAULT_MAX_REQUEST_BODY_BYTES } from './http-bridge.ts'
 import { assertTrustedAuthority } from './api-request-trust.ts'
 import { BrowserAuth } from './browser-auth.ts'
 import { HostConnectionService } from './rpc-host.ts'
+import { TRUSTED_AS_HOST_GLOBAL } from './trusted-as-host.ts'
 
 export type {
   ConnectionFetchMethod,
@@ -90,6 +91,23 @@ export interface ConnectionConfig {
    * there, so the token exchange can never be satisfied.
    */
   requireBrowserSession?: boolean
+  /**
+   * Declare this non-loopback deployment safe to treat as reaching a
+   * privileged Host process, for client-side surfaces that otherwise gate
+   * Host-persistable behavior behind `ctx.connection.isLoopback` (for
+   * example `dsh-ui-settings`'s decision to keep the Models Settings UI
+   * writable). Default false. A deployment sets this true only on the exact
+   * terms `requireBrowserSession: false` already documents: an upstream
+   * layer this process cannot see verifies every caller before the request
+   * reaches here at all (Cloudflare Access's signed JWT check in front of a
+   * Container-hosted profile), so the browser's non-loopback origin no
+   * longer implies an untrusted LAN caller the way it does for a plain
+   * `dsh web` deployment bound to `0.0.0.0`. Setting this true without such
+   * an upstream authenticator would let any caller who can reach this
+   * process's origin write credentials through an otherwise Host-only
+   * surface — do not set it true on trust alone.
+   */
+  trustedAsHost?: boolean
 }
 
 export const Config: z<ConnectionConfig> = z.object({
@@ -97,6 +115,7 @@ export const Config: z<ConnectionConfig> = z.object({
   cookieMaxAgeDays: z.natural().min(1).default(30),
   maxRequestBodyBytes: z.natural().min(1).default(DEFAULT_MAX_REQUEST_BODY_BYTES),
   requireBrowserSession: z.boolean().default(true),
+  trustedAsHost: z.boolean().default(false),
 })
 
 /**
@@ -112,10 +131,19 @@ export async function apply(ctx: Context, config?: ConnectionConfig): Promise<vo
   const cookieMaxAgeDays = config?.cookieMaxAgeDays ?? 30
   const maxRequestBodyBytes = config?.maxRequestBodyBytes ?? DEFAULT_MAX_REQUEST_BODY_BYTES
   const requireBrowserSession = config?.requireBrowserSession ?? true
+  const trustedAsHost = config?.trustedAsHost ?? false
   // Config boundary: a malformed entry fails the load loudly here rather than
   // silently authorizing its hostname prefix at request time.
   for (const entry of trustedHosts) assertTrustedAuthority(entry)
   assertImageBodyCapacity(ctx, maxRequestBodyBytes)
+  // Absent unless explicitly configured true: the served page carries no
+  // trace of this row at all in the default (false) case, so there is
+  // nothing for a browser to read even by accident.
+  if (trustedAsHost) {
+    ctx.on('webserver/index-inject', (table) => {
+      table.push({ kind: 'global', name: TRUSTED_AS_HOST_GLOBAL, value: true })
+    })
+  }
   const connection = new HostConnectionService(
     ctx,
     trustedHosts,

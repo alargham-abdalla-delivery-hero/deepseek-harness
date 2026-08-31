@@ -2,7 +2,9 @@
  * In-memory fake of Cloudflare's D1 REST query endpoint, backed by
  * `node:sqlite` — D1 IS SQLite under the hood, so executing real SQL against
  * a real (local) SQLite engine gives high-fidelity behavior without a live
- * D1 database. Kept at package level under `tests/`, not shipped in `src/`.
+ * D1 database. Package-local copy of the same fake `dsh-storage-d1` and
+ * `dsh-session-persistence-d1` each keep under `tests/`, matching this repo's
+ * precedent of not sharing test doubles across package boundaries.
  * @module
  */
 
@@ -38,6 +40,7 @@ export class FakeD1Server {
     }
   }
 
+  /** Run one statement against the fake database. */
   private run(sql: string, params: unknown[]): { results: Record<string, unknown>[]; success: boolean; meta: { changes?: number } } {
     const stmt = this.db.prepare(sql)
     if (sql.trim().toUpperCase().startsWith('SELECT')) {

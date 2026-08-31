@@ -2,9 +2,9 @@
 # (profile bundle order: dsh-base -> dsh-web-app -> dsh-cloudflare-app), so
 # this layer keeps the entire browser UI, workspace controller, and session
 # controller dsh-web-app already assembles, and only swaps the local-file
-# storage/session backends for their Cloudflare D1 equivalents plus disables
-# the local-machine browser handoff. A patch replaces the targeted row's whole
-# `config`, so each row below restates every key it owns.
+# storage/session/credentials backends for their Cloudflare D1 equivalents
+# plus disables the local-machine browser handoff. A patch replaces the
+# targeted row's whole `config`, so each row below restates every key it owns.
 
 # ── disable the local-file backends dsh-base mounts by default ──────────────
 
@@ -12,6 +12,9 @@
   disabled: true
 
 - id: storage-json
+  disabled: true
+
+- id: credentials
   disabled: true
 
 # ── route the schema-validated domain form at the D1 backend ────────────────
@@ -33,6 +36,13 @@
 
     - id: session-persistence-d1
       name: '@deepseek-ai/dsh-session-persistence-d1'
+      config:
+        accountId: !!js process.env.CLOUDFLARE_ACCOUNT_ID
+        databaseId: !!js process.env.CLOUDFLARE_D1_DATABASE_ID
+        apiToken: !!js process.env.CLOUDFLARE_D1_API_TOKEN
+
+    - id: credentials-d1
+      name: '@deepseek-ai/dsh-credentials-d1'
       config:
         accountId: !!js process.env.CLOUDFLARE_ACCOUNT_ID
         databaseId: !!js process.env.CLOUDFLARE_D1_DATABASE_ID
@@ -87,11 +97,21 @@
 # Cf-Access-Jwt-Assertion header) — requiring this second, unsatisfiable gate
 # on top of Access would make the deployment permanently inaccessible, not
 # more secure.
+#
+# trustedAsHost: false is a safety gate against an untrusted LAN caller
+# reaching this non-loopback origin and writing credentials through the
+# browser Models Settings UI (packages/client/ui-settings's
+# SettingsDescribeMirror falls back to memory-only for any non-loopback
+# origin by default). That premise does not hold here for the same reason
+# requireBrowserSession above does not: Cloudflare Access authenticates
+# every caller before this container ever sees a request, so the origin
+# being non-loopback no longer implies an untrusted caller.
 - id: connection
   inject: [webRuntime]
   config:
     trustedHosts: !!js ctx.webRuntime.trustedHosts
     requireBrowserSession: false
+    trustedAsHost: true
 
 # ── default model: Claude Haiku via the pi-ai anthropic route ───────────────
 #
